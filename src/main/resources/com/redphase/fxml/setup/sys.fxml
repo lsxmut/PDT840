@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../css/setup.css" xmlns="http://javafx.com/javafx/10.0.1"
+            fx:controller="com.redphase.controller.setup.SetupSysController">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <Label prefHeight="35.0" prefWidth="586.0" text="系统设置">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Label>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </top>
+    <center>
+        <VBox alignment="TOP_CENTER" BorderPane.alignment="TOP_CENTER">
+            <children>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="121.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="33.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="系统保护设置" textFill="#999999">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="sysTimeout" layoutX="120.0" layoutY="28.0" prefHeight="35.0" prefWidth="709.0" promptText="30分钟(默认)"/>
+                                <Label layoutX="33.0" layoutY="37.0" text="自动保护时间" textFill="#999999">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                                <Label layoutX="117.0" layoutY="76.0" text="若系统在一段时间内不操作,系统将进入进入自动保护,需要重新登录才能继续操作,范围5-60分钟." textFill="#999999"/>
+                            </children>
+                        </Pane>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <AnchorPane prefHeight="60.0">
+                            <children>
+                                <Button cancelButton="true" layoutY="8.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="100.0" styleClass="btn-cancel" text="取消">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                                <Button defaultButton="true" layoutX="120.0" layoutY="8.0" mnemonicParsing="false" onAction="#submit" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="确定">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </center>
+</BorderPane>

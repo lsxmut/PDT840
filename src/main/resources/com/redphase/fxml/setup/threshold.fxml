@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="900.0" stylesheets="@../../css/setup.css" xmlns="http://javafx.com/javafx/9.0.1"
+            fx:controller="com.redphase.controller.setup.SetupThresholdController">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <Label prefHeight="35.0" prefWidth="200.0" text="阈值设置">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Label>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </top>
+    <center>
+        <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefWidth="900.0">
+                            <children>
+                                <RadioButton fx:id="deviceRadioButton" mnemonicParsing="false" onAction="#isDevice" text="使用设备设置" textFill="#999999">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="device"/>
+                                    </toggleGroup>
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </RadioButton>
+                                <RadioButton fx:id="softwanRadioButton" layoutX="140.0" mnemonicParsing="false" onAction="#isSoftwan" selected="true" text="使用软件设置" textFill="#999999" toggleGroup="$device">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </RadioButton>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="85.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="35.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="地电波阈值" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </Label>
+                                <Pane layoutX="20.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="tev1Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="129.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #45d192;" text="正常" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="tev1Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="tev1Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="310.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="tev2Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="130.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #d1ac47;" text="关注" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="tev2Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="tev2Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="600.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="tev3Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="130.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #d11a14;" text="异常" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="tev3Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="tev3Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="85.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="35.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="超声波警戒阈值" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </Label>
+                                <Pane layoutX="20.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="aa1Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="129.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #45d192;" text="正常" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="aa1Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="aa1Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="310.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="aa2Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="130.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #d1ac47;" text="关注" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="aa2Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="aa2Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="600.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="aa3Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="130.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #d11a14;" text="异常" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="aa3Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="aa3Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="85.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="35.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="HFCT警戒阈值" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </Label>
+                                <Pane layoutX="20.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="hfct1Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="129.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #45d192;" text="正常" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="hfct1Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="hfct1Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="310.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="hfct2Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="130.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #d1ac47;" text="关注" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="hfct2Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="hfct2Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="600.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="hfct3Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="130.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #d11a14;" text="异常" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="hfct3Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="hfct3Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="85.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="35.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="AE阈值" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </Label>
+                                <Pane layoutX="20.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="ae1Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="129.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #45d192;" text="正常" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="ae1Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="ae1Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="310.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="ae2Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="130.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #d1ac47;" text="关注" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="ae2Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="ae2Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="600.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="ae3Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="130.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #d11a14;" text="异常" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="ae3Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="ae3Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="85.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="35.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="UHF警戒阈值" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </Label>
+                                <Pane layoutX="20.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="uhf1Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="129.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #45d192;" text="正常" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="uhf1Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="uhf1Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="310.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="uhf2Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="130.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #d1ac47;" text="关注" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="uhf2Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="uhf2Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="600.0" layoutY="15.0" prefHeight="75.0" prefWidth="287.0">
+                                    <children>
+                                        <TextField fx:id="uhf3Text" alignment="CENTER" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="130.0" text="20"/>
+                                        <Label layoutY="10.0" prefHeight="30.0" style="-fx-text-fill: #d11a14;" text="异常" textFill="#45d192db">
+                                            <font>
+                                                <Font size="14.0"/>
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="uhf3Small" layoutX="49.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="一">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="uhf3Big" layoutX="211.0" layoutY="10.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="30.0" prefWidth="30.0" styleClass="btn-default" text="十">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="40.0">
+                    <children>
+                        <AnchorPane prefHeight="75.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#resetForm" prefHeight="40.0" prefWidth="100.0" styleClass="btn-cancel" text="默认设置">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                                <Button layoutX="120.0" mnemonicParsing="false" onAction="#submit" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="确定">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

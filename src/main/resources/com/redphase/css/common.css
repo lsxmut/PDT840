@@ -1,0 +1,468 @@
+
+.btn-default {
+    -fx-text-fill: #aaaaaa;
+    -fx-background-color: #ffffff;
+    -fx-cursor: hand;
+}
+
+.btn-default.focused, .btn-default:focused {
+    -fx-text-fill: #aaaaaa;
+    -fx-background-color: #ffffff;
+}
+
+.btn-default:hover {
+    -fx-text-fill: #aaaaaa;
+    -fx-background-color: #ffffff;
+}
+
+.btn-default.active, .btn-default:pressed{
+    -fx-text-fill: #aaaaaa;
+    -fx-background-color: #e6e6e6;
+}
+
+.btn-default.active.focused, .btn-default.active:focused, .btn-default.active:hover, .btn-default:pressed.focused, .btn-default:pressed:focused, .btn-default:pressed:hover {
+    -fx-text-fill: #aaaaaa;
+    -fx-background-color: #eeeeee;
+}
+
+.btn-default.active, .btn-default:pressed{
+    -fx-background-image: none;
+}
+
+.btn-default.disabled.focused, .btn-default.disabled:focused, .btn-default.disabled:hover, .btn-default[disabled].focused, .btn-default[disabled]:focused, .btn-default[disabled]:hover, fieldset[disabled] .btn-default.focused, fieldset[disabled] .btn-default:focused, fieldset[disabled] .btn-default:hover {
+    -fx-background-color: #eeeeee;
+}
+
+.btn-default .badge {
+    -fx-text-fill: #fff;
+    -fx-background-color: #333;
+}
+
+.btn-primary {
+    -fx-text-fill: #fff;
+    -fx-background-color: #0099FF;
+    -fx-border-color: #0099FF;
+    -fx-cursor: hand;
+}
+
+.btn-primary.focused, .btn-primary:focused {
+    -fx-text-fill: #fff;
+    -fx-background-color: #0099FF;
+    -fx-border-color: #0099FF;
+}
+
+.btn-primary:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color: #0099FF;
+    -fx-border-color: #0099FF;
+}
+
+.btn-primary.active, .btn-primary:pressed {
+    -fx-text-fill: #fff;
+    -fx-background-color: #0099FF;
+    -fx-border-color: #0099FF;
+}
+
+.btn-primary.active.focused, .btn-primary.active:focused, .btn-primary.active:hover, .btn-primary:pressed.focused, .btn-primary:pressed:focused, .btn-primary:pressed:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color: #204d74;
+    -fx-border-color: #0099FF;
+}
+
+.btn-primary.active, .btn-primary:pressed {
+    -fx-background-image: none
+}
+
+.btn-primary.disabled.focused, .btn-primary.disabled:focused, .btn-primary.disabled:hover, .btn-primary[disabled].focused, .btn-primary[disabled]:focused, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary.focused, fieldset[disabled] .btn-primary:focused, fieldset[disabled] .btn-primary:hover {
+    -fx-background-color: #337ab7;
+    -fx-border-color: #2e6da4;
+}
+
+.btn-primary .badge {
+    -fx-text-fill: #0099FF;
+    -fx-background-color: #fff;
+}
+
+
+.btn-cancel {
+    -fx-text-fill: #0099FF;
+    -fx-background-color: #fff;
+    -fx-border-color: #0099FF;
+    -fx-cursor: hand;
+}
+
+.btn-cancel.focused, .btn-cancel:focused {
+    -fx-text-fill: #0099FF;
+    -fx-background-color: #fff;
+    -fx-border-color: #0099FF;
+}
+
+.btn-cancel:hover {
+    -fx-text-fill: #0099FF;
+    -fx-background-color: #fff;
+    -fx-border-color: #0099FF;
+}
+
+.btn-cancel.active, .btn-cancel:pressed{
+    -fx-text-fill: #0099FF;
+    -fx-background-color: #eee;
+    -fx-border-color: #0099FF;
+}
+
+.btn-cancel.active.focused, .btn-cancel.active:focused, .btn-cancel.active:hover, .btn-cancel:pressed.focused, .btn-cancel:pressed:focused, .btn-cancel:pressed:hover {
+    -fx-text-fill: #0099FF;
+    -fx-background-color: #eee;
+    -fx-border-color: #0099FF;
+}
+
+.btn-cancel.active, .btn-cancel:pressed {
+    -fx-background-image: none
+}
+
+.btn-cancel.disabled.focused, .btn-cancel.disabled:focused, .btn-cancel.disabled:hover, .btn-cancel[disabled].focused, .btn-cancel[disabled]:focused, .btn-cancel[disabled]:hover, fieldset[disabled] .btn-cancel.focused, fieldset[disabled] .btn-cancel:focused, fieldset[disabled] .btn-cancel:hover {
+    -fx-background-color: #eee;
+    -fx-border-color: #0099FF;
+}
+
+.btn-cancel .badge {
+    -fx-text-fill: #0099FF;
+    -fx-background-color: #fff;
+}
+
+.btn-success {
+    -fx-text-fill: #fff;
+    -fx-background-color: #5cb85c;
+    -fx-border-color: #4cae4c;
+    -fx-cursor: hand;
+}
+
+.btn-success.focused, .btn-success:focused {
+    -fx-text-fill: #fff;
+    -fx-background-color: #449d44;
+    -fx-border-color: #449d44;
+}
+
+.btn-success:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color: #449d44;
+    -fx-border-color: #398439;
+}
+
+.btn-success.active, .btn-success:pressed {
+    -fx-text-fill: #fff;
+    -fx-background-color: #449d44;
+    -fx-border-color: #398439
+}
+
+.btn-success.active.focused, .btn-success.active:focused, .btn-success.active:hover, .btn-success:pressed.focused, .btn-success:pressed:focused, .btn-success:pressed:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color: #398439;
+    -fx-border-color: #449d44;
+}
+
+.btn-success.active, .btn-success:pressed{
+    -fx-background-image: none
+}
+
+.btn-success.disabled.focused, .btn-success.disabled:focused, .btn-success.disabled:hover, .btn-success[disabled].focused, .btn-success[disabled]:focused, .btn-success[disabled]:hover, fieldset[disabled] .btn-success.focused, fieldset[disabled] .btn-success:focused, fieldset[disabled] .btn-success:hover {
+    -fx-background-color: #5cb85c;
+    -fx-border-color: #4cae4c;
+}
+
+.btn-success .badge {
+    -fx-text-fill: #5cb85c;
+    -fx-background-color: #fff;
+}
+
+.btn-info {
+    -fx-text-fill: #fff;
+    -fx-background-color: #5bc0de;
+    -fx-border-color: #46b8da;
+    -fx-cursor: hand;
+}
+
+.btn-info.focused, .btn-info:focused {
+    -fx-text-fill: #fff;
+    -fx-background-color: #31b0d5;
+    -fx-border-color: #1b6d85;
+}
+
+.btn-info:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color: #31b0d5;
+    -fx-border-color: #269abc;
+}
+
+.btn-info.active, .btn-info:pressed{
+    -fx-text-fill: #fff;
+    -fx-background-color: #31b0d5;
+    -fx-border-color: #269abc;
+}
+
+.btn-info.active.focused, .btn-info.active:focused, .btn-info.active:hover, .btn-info:pressed.focused, .btn-info:pressed:focused, .btn-info:pressed:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color: #269abc;
+    -fx-border-color: #1b6d85;
+}
+
+.btn-info.active, .btn-info:pressed{
+    -fx-background-image: none;
+}
+
+.btn-info.disabled.focused, .btn-info.disabled:focused, .btn-info.disabled:hover, .btn-info[disabled].focused, .btn-info[disabled]:focused, .btn-info[disabled]:hover, fieldset[disabled] .btn-info.focused, fieldset[disabled] .btn-info:focused, fieldset[disabled] .btn-info:hover {
+    -fx-background-color: #5bc0de;
+    -fx-border-color: #46b8da;
+}
+
+.btn-info .badge {
+    -fx-text-fill: #5bc0de;
+    -fx-background-color: #fff;
+}
+
+.btn-warning {
+    -fx-text-fill: #fff;
+    -fx-background-color: #f0ad4e;
+    -fx-border-color: #eea236;
+    -fx-cursor: hand;
+}
+
+.btn-warning.focused, .btn-warning:focused {
+    -fx-text-fill: #fff;
+    -fx-background-color: #ec971f;
+    -fx-border-color: #985f0d;
+}
+
+.btn-warning:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color: #ec971f;
+    -fx-border-color: #d58512;
+}
+
+.btn-warning.active, .btn-warning:pressed {
+    -fx-text-fill: #fff;
+    -fx-background-color: #ec971f;
+    -fx-border-color: #d58512;
+}
+
+.btn-warning.active.focused, .btn-warning.active:focused, .btn-warning.active:hover, .btn-warning:pressed.focused, .btn-warning:pressed:focused, .btn-warning:pressed:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color: #d58512;
+    -fx-border-color: #985f0d;
+}
+
+.btn-warning.active, .btn-warning:pressed{
+    -fx-background-image: none
+}
+
+.btn-warning.disabled.focused, .btn-warning.disabled:focused, .btn-warning.disabled:hover, .btn-warning[disabled].focused, .btn-warning[disabled]:focused, .btn-warning[disabled]:hover, fieldset[disabled] .btn-warning.focused, fieldset[disabled] .btn-warning:focused, fieldset[disabled] .btn-warning:hover {
+    -fx-background-color: #f0ad4e;
+    -fx-border-color: #eea236;
+}
+
+.btn-warning .badge {
+    -fx-text-fill: #f0ad4e;
+    -fx-background-color: #fff;
+}
+
+.btn-danger {
+    -fx-text-fill: #fff;
+    -fx-background-color: #d9534f;
+    -fx-border-color: #d43f3a;
+    -fx-cursor: hand;
+}
+
+.btn-danger.focused, .btn-danger:focused {
+    -fx-text-fill: #fff;
+    -fx-background-color: #c9302c;
+    -fx-border-color: #761c19;
+}
+
+.btn-danger:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color: #c9302c;
+    -fx-border-color: #ac2925;
+}
+
+.btn-danger.active, .btn-danger:pressed{
+    -fx-text-fill: #fff;
+    -fx-background-color: #c9302c;
+    -fx-border-color: #ac2925;
+}
+
+.btn-danger.active.focused, .btn-danger.active:focused, .btn-danger.active:hover, .btn-danger:pressed.focused, .btn-danger:pressed:focused, .btn-danger:pressed:hover{
+    -fx-text-fill: #fff;
+    -fx-background-color: #ac2925;
+    -fx-border-color: #761c19;
+}
+
+.btn-danger.active, .btn-danger:pressed{
+    -fx-background-image: none;
+}
+
+.btn-danger.disabled.focused, .btn-danger.disabled:focused, .btn-danger.disabled:hover, .btn-danger[disabled].focused, .btn-danger[disabled]:focused, .btn-danger[disabled]:hover, fieldset[disabled] .btn-danger.focused, fieldset[disabled] .btn-danger:focused, fieldset[disabled] .btn-danger:hover {
+    -fx-background-color: #d9534f;
+    -fx-border-color: #d43f3a;
+}
+
+.btn-danger .badge {
+    -fx-text-fill: #d9534f;
+    -fx-background-color: #fff;
+}
+
+.btn-link {
+    -fx-text-fill: #337ab7;
+    -fx-border-radius: 0;
+    -fx-cursor: hand;
+}
+
+.btn-link, .btn-link.active, .btn-link:pressed, .btn-link[disabled], fieldset[disabled] .btn-link {
+    -fx-background-color: transparent;
+    -fx--webkit-box-shadow: none;
+    -fx-box-shadow: none;
+}
+
+.btn-link, .btn-link:pressed, .btn-link:focused, .btn-link:hover {
+    -fx-border-color: transparent;
+}
+
+.btn-link:focused, .btn-link:hover {
+    -fx-text-fill: #23527c;
+    -fx-text-decoration: underline;
+    -fx-background-color: transparent;
+}
+
+.btn-link[disabled]:focused, .btn-link[disabled]:hover, fieldset[disabled] .btn-link:focused, fieldset[disabled] .btn-link:hover {
+    -fx-text-fill: #777;
+    -fx-text-decoration: none;
+}
+
+.btn-group-lg > .btn, .btn-lg {
+    -fx-padding: 10px 16px;
+    -fx-font-size: 18px;
+    -fx-line-height: 1.3333333;
+    -fx-border-radius: 6px;
+}
+
+.btn-group-sm > .btn, .btn-sm {
+    -fx-padding: 5px 10px;
+    -fx-font-size: 12px;
+    -fx-line-height: 1.5;
+    -fx-border-radius: 3px;
+}
+
+.btn-group-xs > .btn, .btn-xs {
+    -fx-padding: 1px 5px;
+    -fx-font-size: 12px;
+    -fx-line-height: 1.5;
+    -fx-border-radius: 3px;
+}
+
+.btn-block {
+    -fx-display: block;
+    -fx-width: 100%;
+}
+
+.btn-block {
+    -fx-margin-top: 5px;
+}
+
+.nav-title{
+    -fx-background-color: #33ccff;
+    -fx-text-fill: #ffffff;
+}
+
+/*=============分页栏============*/
+.lab{
+    -fx-border-width: 1;
+    -fx-border-color: #eef5f9;
+    -fx-background-color: #eef5f9;
+    -fx-pref-height: 25;
+    -fx-padding: 0 10 0 10;
+    -fx-border-insets:  0 2 0 0;
+    -fx-background-insets:  0 2 0 0;
+    -fx-cursor: hand;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+.lab:hover {
+    -fx-background-color: #99CCFF;
+}
+.labActive {
+    -fx-border-width: 1;
+    -fx-border-color: #99CCFF;
+    -fx-background-color: #99CCFF;
+    -fx-pref-height: 25;
+    -fx-padding: 0 10 0 10;
+    -fx-border-insets:  0 2 0 0;
+    -fx-background-insets:  0 2 0 0;
+}
+.labDisable {
+    -fx-border-width: 1;
+    -fx-pref-height: 25;
+    -fx-padding: 0 10 0 10;
+    -fx-border-insets:  0 2 0 0;
+    -fx-background-insets:  0 2 0 0;
+}
+/*==按钮==*/
+.ob{
+    -fx-text-fill: #555555;
+    -fx-padding: 0 6 0 0;
+    -fx-border-insets:  0 6 0 0;
+    -fx-cursor: hand;
+}
+
+.ob:hover {
+    -fx-text-fill: #0099FF;
+}
+/*=======================表格===================*/
+.table-view{
+    -fx-background-color: #fff;
+    /*-fx-background-insets: 0, 1;*/
+    -fx-padding: 1;
+    -fx-background-insets: -1.4, -0.3, 1;
+    -fx-background-radius: 2, 0, 0;
+}
+.table-view .column-header,
+.table-view .filler,
+.table-view > .column-header-background > .show-hide-columns-button,
+.table-view:constrained-resize .filler{
+    -fx-background-color: #eef5f9;
+    -fx-background-insets: 0, 0 1 1 0, 1 2 2 1;
+    -fx-font-weight: bold;
+    -fx-size: 2em;
+    -fx-text-fill: -fx-selection-bar-text;
+    -fx-padding: 0.166667em;
+    -fx-border-color: #fff;
+}
+.table-row-cell {
+    -fx-background: #fff;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0;
+    -fx-text-fill: -fx-text-background-color;
+    -fx-pref-height: 25px;
+    -fx-min-height:  25px;
+    -fx-max-height:  25px;
+}
+.table-row-cell:odd {
+    -fx-background: #f3f4f5;
+}
+
+.table-view:focused,.table-view:hover{
+    -fx-background-insets: -1.4, -0.3, 1;
+    -fx-background-radius: 2, 0, 0;
+    /*-fx-table-cell-border-color: #999;*/
+}
+.table-view:hover > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:hover,
+.table-view:hover > .virtual-flow > .clipped-container > .sheet > .table-row-cell .table-cell:hover,
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected,
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell .table-cell:selected{
+    -fx-table-cell-border-color: #ddd;
+}
+.table-view:hover:row-selection > .virtual-flow > .clipped-container > .sheet > .table-row-cell:hover,
+.table-view:hover:cell-selection > .virtual-flow > .clipped-container > .sheet > .table-row-cell > .table-cell:hover
+.table-view:focused:row-selection > .virtual-flow > .clipped-container > .sheet > .table-row-cell:focused,
+.table-view:focused:cell-selection > .virtual-flow > .clipped-container > .sheet > .table-row-cell > .table-cell:focused{
+    -fx-background-insets: 0, 1, 2;
+    -fx-table-cell-border-color: #ddd;
+}

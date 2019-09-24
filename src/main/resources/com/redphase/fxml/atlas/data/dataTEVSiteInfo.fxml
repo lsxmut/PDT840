@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1133.0" style="-fx-border-width: 0;" stylesheets="@../../../css/atlas.css"
+            xmlns="http://javafx.com/javafx/10.0.1" fx:controller="com.redphase.controller.atlas.data.AtlasDataTEVSiteInfoController">
+    <top>
+        <AnchorPane BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="10.0" layoutY="5" text="开关柜名称：">
+                    <font>
+                        <Font size="22"/>
+                    </font>
+                </Label>
+                <Label fx:id="deviceNameL" layoutX="150" layoutY="5" text="xxxxxxxx">
+                    <font>
+                        <Font size="22"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </top>
+    <center>
+        <TableView fx:id="tableView" style="-fx-background-color: #ffffff; -fx-border-color: #eeeeee; -fx-border-width: 1;" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idTableColumn" prefWidth="40" sortable="false" text="编号"/>
+                <TableColumn fx:id="jcwzTableColumn" prefWidth="50" sortable="false" text="检测位置"/>
+                <TableColumn prefWidth="150" sortable="false" text="TEV巡检">
+                    <columns>
+                        <TableColumn fx:id="tevxjfzTableColumn" prefWidth="50" sortable="false" text="幅值"/>
+                        <TableColumn fx:id="tevxjjcjtTableColumn" prefWidth="100" sortable="false" text="检测截图"/>
+                    </columns>
+                </TableColumn>
+                <TableColumn prefWidth="300" sortable="false" text="联合巡检">
+                    <columns>
+                        <TableColumn prefWidth="100" sortable="false" text="幅值">
+                            <columns>
+                                <TableColumn fx:id="lhxjtevTableColumn" prefWidth="50" sortable="false" text="TEV"/>
+                                <TableColumn fx:id="lhxjaaTableColumn" prefWidth="50" sortable="false" text="AA"/>
+                            </columns>
+                        </TableColumn>
+                        <TableColumn fx:id="lhxjjcjtTableColumn" prefWidth="100" sortable="false" text="检测截图"/>
+                        <TableColumn fx:id="lhxjlyTableColumn" prefWidth="100" sortable="false" text="录音"/>
+                    </columns>
+                </TableColumn>
+                <TableColumn prefWidth="250" sortable="false" text="TEV统计">
+                    <columns>
+                        <TableColumn fx:id="tevtjjcTableColumn" prefWidth="50" sortable="false" text="检测"/>
+                        <TableColumn fx:id="tevtjjcjtTableColumn" prefWidth="100" sortable="false" text="检测截图"/>
+                        <TableColumn fx:id="tevtjlbTableColumn" prefWidth="100" sortable="false" text="录波"/>
+                    </columns>
+                </TableColumn>
+                <TableColumn fx:id="zpTableColumn" prefWidth="100" sortable="false" text="照片"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </TableView>
+    </center>
+</BorderPane>

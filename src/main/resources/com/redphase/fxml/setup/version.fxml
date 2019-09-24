@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="940.0" stylesheets="@../../css/setup.css" xmlns="http://javafx.com/javafx/9.0.1"
+            fx:controller="com.redphase.controller.setup.SetupVersionController">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <Label prefHeight="35.0" prefWidth="586.0" text="版本信息">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Label>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </top>
+    <center>
+        <VBox alignment="TOP_CENTER" BorderPane.alignment="TOP_CENTER">
+            <children>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="70.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="33.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="软件名称" textFill="#999999">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="versionName" layoutX="50.0" layoutY="15.0" prefHeight="35.0" prefWidth="779.0" promptText="请输入软件名称"/>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="70.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="33.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="版本号" textFill="#999999">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="versionCode" layoutX="50.0" layoutY="15.0" prefHeight="35.0" prefWidth="779.0" promptText="版本号如 0.0.01"/>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="70.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="33.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="版权归属" textFill="#999999">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="copyright" layoutX="50.0" layoutY="15.0" prefHeight="35.0" prefWidth="779.0" promptText="版权信息"/>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="70.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="33.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="公司地址" textFill="#999999">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="companyAddress" layoutX="50.0" layoutY="15.0" prefHeight="35.0" prefWidth="779.0" promptText="公司所在地"/>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="70.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="33.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="公司网址" textFill="#999999">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="companyWebsite" layoutX="50.0" layoutY="15.0" prefHeight="35.0" prefWidth="779.0" promptText="请输入网址地址,http://"/>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="33.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="公司LOGO" textFill="#999999">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <Pane layoutX="20.0" layoutY="15.0" prefHeight="85.0" prefWidth="866.0">
+                                    <children>
+                                        <ImageView fx:id="logoImage" fitHeight="85.0" fitWidth="96.0" layoutX="11.0" layoutY="2.0" onMouseClicked="#setLogo" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@../../../../images/logo.png"/>
+                                            </image>
+                                        </ImageView>
+                                        <ImageView fx:id="iconImage" fitHeight="85.0" fitWidth="96.0" layoutX="126.0" layoutY="3.0" onMouseClicked="#setIcon" pickOnBounds="true">
+                                            <image>
+                                                <Image url="@../../../../images/icon.png"/>
+                                            </image>
+                                        </ImageView>
+                                        <Label layoutX="45.0" layoutY="78.0" text="logo" textFill="#cccccc"/>
+                                        <Label layoutX="160.0" layoutY="79.0" text="icon" textFill="#cccccc"/>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0"/>
+                                    </padding>
+                                </Pane>
+                            </children>
+                            <HBox.margin>
+                                <Insets bottom="10.0"/>
+                            </HBox.margin>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <AnchorPane>
+                            <children>
+                                <Button cancelButton="true" maxHeight="35.0" minHeight="35.0" mnemonicParsing="false" onAction="#cancel" prefHeight="35.0" prefWidth="100.0" styleClass="btn-cancel" text="取消">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                                <Button defaultButton="true" layoutX="120.0" maxHeight="35.0" minHeight="35.0" mnemonicParsing="false" onAction="#submit" prefHeight="35.0" prefWidth="100.0" styleClass="btn-primary" text="确定">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0"/>
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

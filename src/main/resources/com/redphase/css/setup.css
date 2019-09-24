@@ -1,0 +1,12 @@
+@import "common.css";
+BorderPane{
+    -fx-background-color: #ffffff;-fx-border-width: 10; -fx-border-color: #F3F4F5;
+}
+
+.btn-default {
+    -fx-text-fill: #aaaaaa;
+    -fx-background-color: #ffffff;
+    -fx-border-width: 1;
+    -fx-border-color: #ccc;
+    -fx-cursor: hand;
+}

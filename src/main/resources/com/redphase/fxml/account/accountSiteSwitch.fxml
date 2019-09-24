@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="accountSiteSwitchPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="525.0" stylesheets="@../../css/account.css" xmlns="http://javafx.com/javafx/8.0.72"
+            fx:controller="com.redphase.controller.task.AccountSiteInfoController">
+    <children>
+        <Pane layoutX="15.0">
+            <children>
+                <VBox alignment="TOP_CENTER">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0">
+                            <children>
+                                <Label prefHeight="26.0" prefWidth="165.0" text="请勾选要检测的位置" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="2.0"/>
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0">
+                            <children>
+                                <CheckBox fx:id="qzCheckBox" mnemonicParsing="false" text="前中" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                                <CheckBox fx:id="qxCheckBox" mnemonicParsing="false" text="前下" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0">
+                            <children>
+                                <CheckBox fx:id="hsCheckBox" mnemonicParsing="false" text="后上" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                                <CheckBox fx:id="hzCheckBox" mnemonicParsing="false" text="后中" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                                <CheckBox fx:id="hxCheckBox" mnemonicParsing="false" text="后下" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0">
+                            <children>
+                                <CheckBox fx:id="csCheckBox" mnemonicParsing="false" text="侧上" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                                <CheckBox fx:id="czCheckBox" mnemonicParsing="false" text="侧中" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                                <CheckBox fx:id="cxCheckBox" mnemonicParsing="false" text="侧下" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="80.0">
+                            <children>
+                                <Button defaultButton="true" mnemonicParsing="false" onAction="#switchCheckAll" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="全选">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                                <Button defaultButton="true" mnemonicParsing="false" onAction="#switchClearAll" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="重置">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button defaultButton="true" mnemonicParsing="false" onAction="#batchSaveSwitch" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="保存">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="siteSwitchQRButton" defaultButton="true" mnemonicParsing="false" onAction="#siteSwitchQR" prefHeight="40.0" prefWidth="150.0" styleClass="btn-primary" text="位置二维码">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

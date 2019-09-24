@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" style="-fx-border-width: 0;" stylesheets="@../../css/task.css" xmlns="http://javafx.com/javafx/10.0.1"
+            fx:controller="com.redphase.controller.task.TaskController">
+    <left>
+        <VBox prefWidth="260.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="200.0" style="-fx-border-color: #ccc; -fx-border-width: 0 0 1 0;">
+                    <children>
+                        <Label text="设备信息">
+                            <font>
+                                <Font size="21.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
+                        </Label>
+                        <TextField fx:id="accountIdText" editable="false" maxHeight="0.0" maxWidth="0.0" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0" visible="false"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="200.0">
+                    <children>
+                        <Label text="电业局名称:">
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="electricBureauLabel" text="实测电力局">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0"/>
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="200.0">
+                    <children>
+                        <Label text="变电站名称:">
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="substationLabel" text="220kV夏河变">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0"/>
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="200.0">
+                    <children>
+                        <Label text="设备类型:">
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="deviceTypeLabel" text="3">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0"/>
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="200.0">
+                    <children>
+                        <Label text="电压级别:">
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="voltageLevelLabel" text="110">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0"/>
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="200.0">
+                    <children>
+                        <Label text="设备名称:">
+                            <HBox.margin>
+                                <Insets left="20.0"/>
+                            </HBox.margin>
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="deviceNameLabel" text="110kV组合电器">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0"/>
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <BorderPane prefWidth="920.0" style="-fx-border-width: 0;" BorderPane.alignment="CENTER">
+            <center>
+                <VBox prefHeight="637.0" prefWidth="943.0" style="-fx-border-width:0 0 0 10; -fx-border-color: #eee;" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="200.0" style="-fx-border-color: #ccc; -fx-border-width: 0 0 1 0;">
+                            <children>
+                                <Label text="位置信息">
+                                    <font>
+                                        <Font size="21.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="BOTTOM_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0">
+                            <children>
+                                <Label prefHeight="26.0" prefWidth="165.0" text="请勾选要检测的位置" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="2.0"/>
+                                    </padding>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0">
+                            <children>
+                                <CheckBox fx:id="qzCheckBox" mnemonicParsing="false" text="前中" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                                <CheckBox fx:id="qxCheckBox" mnemonicParsing="false" text="前下" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0">
+                            <children>
+                                <CheckBox fx:id="hsCheckBox" mnemonicParsing="false" text="后上" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                                <CheckBox fx:id="hzCheckBox" mnemonicParsing="false" text="后中" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                                <CheckBox fx:id="hxCheckBox" mnemonicParsing="false" text="后下" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="50.0">
+                            <children>
+                                <CheckBox fx:id="csCheckBox" mnemonicParsing="false" text="侧上" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                                <CheckBox fx:id="czCheckBox" mnemonicParsing="false" text="侧中" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                                <CheckBox fx:id="cxCheckBox" mnemonicParsing="false" text="侧下" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="20.0"/>
+                                    </HBox.margin>
+                                </CheckBox>
+                            </children>
+                        </HBox>
+                        <VBox prefWidth="100.0" style="-fx-border-width: 0; -fx-border-color: #eee;">
+                            <children>
+                                <Separator>
+                                    <VBox.margin>
+                                        <Insets/>
+                                    </VBox.margin>
+                                </Separator>
+                                <HBox alignment="CENTER" prefHeight="80.0">
+                                    <children>
+                                        <Button defaultButton="true" mnemonicParsing="false" onAction="#switchCheckAll" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="全选">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                        <Button defaultButton="true" mnemonicParsing="false" onAction="#switchClearAll" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="重置">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                            <HBox.margin>
+                                                <Insets left="10.0"/>
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button defaultButton="true" mnemonicParsing="false" onAction="#addSite" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="确定">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                            <HBox.margin>
+                                                <Insets left="10.0"/>
+                                            </HBox.margin>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+    </center>
+</BorderPane>

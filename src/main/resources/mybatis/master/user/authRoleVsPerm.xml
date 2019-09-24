@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redphase.dao.master.user.IAuthRoleVsPermDao">
+    <!-- 新增 批量数据 -->
+    <!-- 新增 批量数据 -->
+    <insert id="insertBatch"  >
+        insert into auth_role_vs_perm (
+         role_id
+        ,perm_id
+        ,create_id
+        ,date_created
+        ) values
+        <foreach collection="list" item="t" separator=",">
+            (
+             #{t.roleId}
+            ,#{t.permId}
+            ,#{t.createId}
+            ,strftime('%s000','now')
+            )
+        </foreach>
+    </insert>
+
+    <select id="findPermIsList" parameterType="com.redphase.entity.user.AuthRoleVsPerm" resultType="com.redphase.entity.user.AuthPerm">
+         select
+         t2.id as "id"
+        ,t2.name as "name"
+        ,t2.match_str as "matchStr"
+        from auth_role_vs_perm t1
+        inner join auth_perm t2 on (t1.perm_id=t2.id)
+        where t2.del_flag=0 and t1.role_id=#{roleId}
+    </select>
+</mapper>

@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redphase.dao.master.account.IAccountDao">
+    <!-- 字段列表 -->
+    <sql id="Base_Column_List">
+         t1.id as "id"
+        ,t1.dir_id as "dirId"
+        ,t1.electric_bureau as "electricBureau"
+        ,t1.substation as "substation"
+        ,t1.substation_code as "substationCode"
+        ,t1.space_name as "spaceName"
+        ,t1.space_code as "spaceCode"
+        ,t1.device_type as "deviceType"
+        ,t1.device_name as "deviceName"
+        ,t1.device_code as "deviceCode"
+        ,t1.voltage_level as "voltageLevel"
+        ,t1.manufacturer as "manufacturer"
+        ,t1.device_version as "deviceVersion"
+        ,t1.run_dept as "runDept"
+        ,t1.use_date as "useDate"
+        ,t1.produce_date as "produceDate"
+        ,t1.run_state as "runState"
+        ,t1.outage_date as "outageDate"
+        ,t1.sort_num as "sortNum"
+        ,t1.del_flag as "delFlag"
+        ,t1.create_id as "createId"
+        ,t1.date_created as "dateCreated"
+        ,t1.date_updated as "dateUpdated"
+        ,t1.update_id as "updateId"
+        ,t1.bi_update_ts as "biUpdateTs"
+    </sql>
+
+    <!-- 根据主键获取信息详情 -->
+    <select id="selectByPrimaryKey" resultType="com.redphase.entity.account.Account" parameterType="com.redphase.entity.account.Account">
+        select
+        <include refid="Base_Column_List"/>
+        from account t1
+        where
+        t1.id = #{id}
+    </select>
+    <!-- 新增单条数据 -->
+    <insert id="insert" parameterType="com.redphase.entity.account.Account">
+        insert into account (
+           id
+           ,dir_id
+           ,electric_bureau
+           ,substation 
+           ,substation_code
+           ,space_name
+           ,space_code
+           ,device_type
+           ,device_name 
+           ,device_code
+           ,voltage_level
+           ,manufacturer
+           ,device_version 
+           ,run_dept 
+           ,use_date 
+           ,produce_date 
+           ,run_state 
+           ,outage_date 
+           ,sort_num 
+           ,del_flag
+           ,create_id
+           ,date_created
+           ,date_updated
+           ,update_id
+           ,bi_update_ts
+        ) values (
+           #{id}
+           ,#{dirId}
+           ,#{electricBureau}
+           ,#{substation} 
+           ,#{substationCode}
+           ,#{spaceName}
+           ,#{spaceCode}
+           ,#{deviceType}
+           ,#{deviceName} 
+           ,#{deviceCode}
+           ,#{voltageLevel}
+           ,#{manufacturer}
+           ,#{deviceVersion} 
+           ,#{runDept} 
+           ,#{useDate} 
+           ,#{produceDate} 
+           ,#{runState} 
+           ,#{outageDate} 
+           ,#{sortNum} 
+           ,0
+           ,#{createId}
+           ,strftime('%s000','now')
+           ,strftime('%s000','now')
+           ,#{updateId}
+           ,strftime('%s000','now')
+        )
+    </insert>
+
+    <!--批量插入台帐-->
+    <insert id="batchInsert" parameterType="java.util.List">
+        insert into account (
+        id
+        ,dir_id
+        ,electric_bureau
+        ,substation
+        ,substation_code
+        ,space_name
+        ,space_code
+        ,device_type
+        ,device_name
+        ,device_code
+        ,voltage_level
+        ,manufacturer
+        ,device_version
+        ,run_dept
+        ,use_date
+        ,produce_date
+        ,run_state
+        ,outage_date
+        ,sort_num
+        ,del_flag
+        ,create_id
+        ,date_created
+        ,date_updated
+        ,update_id
+        ,bi_update_ts
+        )
+        <foreach collection="list" item="item" index="index" separator="UNION ALL">
+            select #{item.id}
+            ,#{item.dirId}
+            ,#{item.electricBureau}
+            ,#{item.substation}
+            ,#{item.substationCode}
+            ,#{item.spaceName}
+            ,#{item.spaceCode}
+            ,#{item.deviceType}
+            ,#{item.deviceName}
+            ,#{item.deviceCode}
+            ,#{item.voltageLevel}
+            ,#{item.manufacturer}
+            ,#{item.deviceVersion}
+            ,#{item.runDept}
+            ,#{item.useDate}
+            ,#{item.produceDate}
+            ,#{item.runState}
+            ,#{item.outageDate}
+            ,#{item.sortNum}
+            ,0
+            ,#{item.createId}
+            ,strftime('%s000','now')
+            ,strftime('%s000','now')
+            ,#{item.updateId}
+            ,strftime('%s000','now')
+        </foreach>
+    </insert>
+
+    <!-- 数据更新 -->
+    <update id="update" parameterType="com.redphase.entity.account.Account">
+        update account set date_updated = strftime('%s000','now'),bi_update_ts = strftime('%s000','now')
+        <if test="dirId!=null">,dir_id = #{dirId}</if>
+        <if test="electricBureau!=null">,electric_bureau = #{electricBureau}</if>
+        <if test="substation!=null">,substation = #{substation}</if>
+        <if test="substationCode!=null">,substation_code = #{substationCode}</if>
+        <if test="spaceName!=null">,space_name = #{spaceName}</if>
+        <if test="spaceCode!=null">,space_code = #{spaceCode}</if>
+        <if test="deviceType!=null">,device_type = #{deviceType}</if>
+        <if test="deviceName!=null">,device_name = #{deviceName}</if>
+        <if test="deviceCode!=null">,device_code = #{deviceCode}</if>
+        <if test="voltageLevel!=null">,voltage_level = #{voltageLevel}</if>
+        <if test="manufacturer!=null">,manufacturer = #{manufacturer}</if>
+        <if test="deviceVersion!=null">,device_version = #{deviceVersion}</if>
+        <if test="runDept!=null">,run_dept = #{runDept}</if>
+        <if test="useDate!=null">,use_date = #{useDate}</if>
+        <if test="produceDate!=null">,produce_date = #{produceDate}</if>
+        <if test="runState!=null">,run_state = #{runState}</if>
+        <if test="outageDate!=null">,outage_date = #{outageDate}</if>
+        <if test="sortNum!=null">,sort_num = #{sortNum}</if>
+        <if test="delFlag!=null">,del_flag = #{delFlag}</if>
+        <if test="createId!=null">,create_id = #{createId}</if>
+        <if test="updateId!=null">,update_id = #{updateId}</if>
+        where
+        id = #{id}
+    </update>
+
+    <!--列表通用条件-->
+    <sql id="list_where_sql">
+        <choose>
+            <when test="delFlag!=null">
+                and t1.del_flag=#{delFlag}
+            </when>
+            <otherwise>
+                and t1.del_flag=0
+            </otherwise>
+        </choose>
+        <if test="electricBureau != null and electricBureau !=''">
+            and t1.electric_bureau like '%'||#{electricBureau}||'%'
+        </if>
+        <if test="substation != null and substation !=''">
+            and t1.substation like '%'||#{substation}||'%'
+        </if>
+        <if test="deviceType != null">
+            and t1.device_type = #{deviceType}
+        </if>
+        <if test="voltageLevel != null">
+            and t1.voltage_level = #{voltageLevel}
+        </if>
+        <if test="deviceName != null and deviceName !=''">
+            and t1.device_name like '%'||#{deviceName}||'%'
+        </if>
+        <if test="produceDate != null and produceDate !=''">
+            and t1.produce_date = #{produceDate}
+        </if>
+        <if test="useDate != null and useDate !=''">
+            and t1.use_date = #{useDate}
+        </if>
+    </sql>
+
+    <!--信息分页 -->
+    <select id="findDataIsPage" parameterType="com.redphase.entity.account.Account" resultType="com.redphase.entity.account.Account">
+        select
+        <include refid="Base_Column_List"/>
+        from account t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.sort_num asc
+    </select>
+
+    <!--信息列表 -->
+    <select id="findDataIsList" parameterType="com.redphase.entity.account.Account" resultType="com.redphase.entity.account.Account">
+        select
+        <include refid="Base_Column_List"/>
+        from account t1
+        WHERE 1=1
+        <choose>
+            <when test="delFlag!=null">
+                and t1.del_flag=#{delFlag}
+            </when>
+            <otherwise>
+                and t1.del_flag=0
+            </otherwise>
+        </choose>
+        <if test="electricBureau != null and electricBureau !=''">
+            and t1.electric_bureau = #{electricBureau}
+        </if>
+        <if test="substation != null and substation !=''">
+            and t1.substation = #{substation}
+        </if>
+        <if test="deviceType != null">
+            and t1.device_type = #{deviceType}
+        </if>
+        <if test="voltageLevel != null">
+            and t1.voltage_level = #{voltageLevel}
+        </if>
+        <if test="deviceName != null and deviceName !=''">
+            and t1.device_name = #{deviceName}
+        </if>
+        order by t1.electric_bureau,t1.substation,t1.device_type,t1.voltage_level,t1.sort_num asc
+    </select>
+
+    <select id="findDataIsListByDirId" parameterType="com.redphase.entity.account.Account" resultType="com.redphase.entity.account.Account">
+        select
+        <include refid="Base_Column_List"/>
+        from account t1
+        where 1=1
+        and t1.dir_id = #{dirId}
+        <include refid="list_where_sql"/>
+        order by t1.sort_num asc
+    </select>
+
+    <!--查询台帐列表-->
+    <select id="queryAccountList" parameterType="map" resultType="com.redphase.entity.account.Account">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM account t1
+        WHERE 1=1
+        <include refid="list_where_sql"/>
+        order by t1.electric_bureau,t1.substation,t1.device_type,t1.voltage_level,t1.sort_num asc
+    </select>
+
+    <select id="findAccountList" parameterType="map" resultType="com.redphase.entity.account.Account">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM account t1
+        WHERE 1=1
+        <choose>
+            <when test="delFlag!=null">
+                and t1.del_flag=#{delFlag}
+            </when>
+            <otherwise>
+                and t1.del_flag=0
+            </otherwise>
+        </choose>
+        <if test="electricBureau != null and electricBureau !=''">
+            and t1.electric_bureau = #{electricBureau}
+        </if>
+        <if test="substation != null and substation !=''">
+            and t1.substation = #{substation}
+        </if>
+        <if test="deviceType != null">
+            and t1.device_type = #{deviceType}
+        </if>
+        <if test="voltageLevel != null">
+            and t1.voltage_level = #{voltageLevel}
+        </if>
+        <if test="deviceName != null and deviceName !=''">
+            and t1.device_name = #{deviceName}
+        </if>
+        order by t1.electric_bureau,t1.substation,t1.device_type,t1.voltage_level,t1.sort_num asc
+    </select>
+
+    <!--查询某一目录下当前最大的排序号-->
+    <select id="getMaxSortNum" resultType="int" parameterType="com.redphase.entity.account.Account">
+        SELECT IFNULL(max(sort_num),0)
+        FROM account
+        WHERE electric_bureau = #{electricBureau}
+        AND substation = #{substation}
+        AND voltage_level = #{voltageLevel}
+        AND device_type = #{deviceType}
+    </select>
+
+    <!--查询指定台帐的上一个台帐-->
+    <select id="getPrevAccount" resultType="com.redphase.entity.account.Account" parameterType="com.redphase.entity.account.Account">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from account t1
+        WHERE t1.electric_bureau = #{electricBureau}
+        AND t1.substation = #{substation}
+        AND t1.voltage_level = #{voltageLevel}
+        AND t1.device_type = #{deviceType}
+        AND t1.sort_num &lt; #{sortNum}
+        order by sort_num desc
+        limit 1
+    </select>
+
+    <!--查询指定台帐的下一个台帐-->
+    <select id="getNextAccount" resultType="com.redphase.entity.account.Account" parameterType="com.redphase.entity.account.Account">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from account t1
+        WHERE t1.electric_bureau = #{electricBureau}
+        AND t1.substation = #{substation}
+        AND t1.voltage_level = #{voltageLevel}
+        AND t1.device_type = #{deviceType}
+        and sort_num &gt; #{sortNum}
+        order by sort_num asc
+        limit 1
+    </select>
+
+    <!--将所有在该台帐之前的设备整体下移一位-->
+    <update id="moveDownAllBefore" parameterType="com.redphase.entity.account.Account">
+        update account set sort_num = sort_num + 1
+        WHERE electric_bureau = #{electricBureau}
+        AND substation = #{substation}
+        AND voltage_level = #{voltageLevel}
+        AND device_type = #{deviceType}
+        and sort_num &lt; #{sortNum}
+    </update>
+
+    <!--将所有在该台帐之前的设备整体上移一位-->
+    <update id="moveUpAllAfter" parameterType="com.redphase.entity.account.Account">
+        update account set sort_num = sort_num - 1
+        WHERE electric_bureau = #{electricBureau}
+        AND substation = #{substation}
+        AND voltage_level = #{voltageLevel}
+        AND device_type = #{deviceType}
+        and sort_num &gt; #{sortNum}
+    </update>
+    <select id="selectByOtherFileName" parameterType="com.redphase.dto.account.AccountDto" resultType="com.redphase.entity.account.Account">
+        select
+        <include refid="Base_Column_List"/>
+        from account t1
+        where
+        t1.del_flag=0
+        AND t1.substation = #{substation}
+        AND t1.device_type = #{deviceType}
+        AND t1.voltage_level = #{voltageLevel}
+        AND t1.device_name = #{deviceName}
+        AND t1.id = (
+        SELECT t2.account_id
+        FROM task t2
+        WHERE datetime(t2.bi_update_ts/1000,'unixepoch', 'localtime') = #{biUpdateTsStr})
+    </select>
+    <select id="selectBySwitchFileName" parameterType="com.redphase.dto.account.AccountDto" resultType="com.redphase.entity.account.Account">
+        select
+        <include refid="Base_Column_List"/>
+        from account t1
+        where
+        t1.del_flag=0
+        AND t1.substation = #{substation}
+        AND t1.device_type = #{deviceType}
+        AND t1.voltage_level = #{voltageLevel}
+        AND t1.electric_bureau = #{electricBureau}
+        AND t1.id in (
+        SELECT t2.account_id
+        FROM task t2
+        WHERE datetime(t2.bi_update_ts/1000,'unixepoch', 'localtime') = #{biUpdateTsStr})
+    </select>
+
+    <!--根据变电站获取台账信息 -->
+    <select id="findDataListBySubstation" parameterType="com.redphase.entity.account.Account" resultType="com.redphase.entity.account.Account">
+        select
+        <include refid="Base_Column_List"/>
+        from account t1
+        where t1.del_flag=0
+        AND t1.substation = #{substation}
+    </select>
+    <select id="findDataByFullName" parameterType="com.redphase.entity.account.Account" resultType="com.redphase.entity.account.Account">
+        select
+        <include refid="Base_Column_List"/>
+        from account t1
+        where t1.del_flag=0
+        AND t1.substation = #{substation}
+        AND t1.device_type = #{deviceType}
+        AND t1.voltage_level = #{voltageLevel}
+        AND t1.electric_bureau = #{electricBureau}
+        limit 1
+    </select>
+</mapper>

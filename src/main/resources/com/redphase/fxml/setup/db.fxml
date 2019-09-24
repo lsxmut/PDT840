@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="950.0" stylesheets="@../../css/setup.css" xmlns="http://javafx.com/javafx/10.0.1"
+            fx:controller="com.redphase.controller.setup.SetupDbController">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <Label text="数据库设置">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Label>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </top>
+    <center>
+        <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="202.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;" stylesheets="@../../css/setup.css">
+                            <children>
+                                <Label layoutX="27.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="数据备份" textFill="#999999">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <Pane layoutX="20.0" layoutY="15.0" prefHeight="178.0" prefWidth="865.0">
+                                    <children>
+                                        <Label layoutX="15.0" layoutY="30.0" text="备份文件" textFill="#999999">
+                                            <font>
+                                                <Font size="16.0"/>
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="dbBackName" layoutX="85.0" layoutY="25.0" prefHeight="35.0" prefWidth="779.0" promptText="请输入文件名称"/>
+                                        <Button layoutX="395.0" layoutY="128.0" mnemonicParsing="false" onAction="#backUp" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="备份">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                                <Label layoutX="35.0" layoutY="98.0" text="备份路径" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="dbBackDir" editable="false" layoutX="105.0" layoutY="89.0" onAction="#selectBackDir" prefHeight="40.0" prefWidth="779.0" promptText="请选择文件备份路径"/>
+                                <Button layoutX="844.0" layoutY="89.0" mnemonicParsing="false" onAction="#selectBackDir" prefHeight="40.0" text="选择"/>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="144.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;" stylesheets="@../../css/setup.css">
+                            <children>
+                                <Label layoutX="33.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="数据还原" textFill="#999999">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <Pane layoutX="20.0" layoutY="15.0" prefHeight="132.0" prefWidth="866.0">
+                                    <children>
+                                        <Button layoutX="395.0" layoutY="76.0" mnemonicParsing="false" onAction="#restore" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="还原">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND"/>
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </Pane>
+                                <Label layoutX="35.0" layoutY="41.0" prefHeight="40.0" text="备份文件" textFill="#999999">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="dbBackUrl" editable="false" layoutX="105.0" layoutY="41.0" onAction="#selectBackFile" prefHeight="40.0" prefWidth="779.0" promptText="选择备份文件"/>
+                                <Button layoutX="844.0" layoutY="41.0" mnemonicParsing="false" onAction="#selectBackFile" prefHeight="40.0" text="选择"/>
+                            </children>
+                        </Pane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </center>
+</BorderPane>

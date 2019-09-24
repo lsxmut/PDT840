@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="dataBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0"
+            style="-fx-border-width: 0 0 0 10; -fx-background-color: #fff;"
+            stylesheets="@../../css/atlas.css" xmlns="http://javafx.com/javafx/8.0.72" fx:controller="com.redphase.controller.atlas.AtlasImportRunController">
+    <left>
+        <ListView fx:id="successList" prefWidth="430.0" style="-fx-background-color: #ffffff; -fx-border-width: 0 1 0 0; -fx-border-color: #fff #eee #fff #fff;" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets left="10.0"/>
+            </BorderPane.margin>
+        </ListView>
+    </left>
+    <bottom>
+        <AnchorPane prefHeight="100.0" style="-fx-border-width: 1 0 0 0; -fx-border-color: #eeeeee;" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="progressText" layoutX="10.0" layoutY="10.0" prefHeight="16.0" text="准备就绪" textFill="#23d3db">
+                    <graphic>
+                        <ImageView fx:id="progressIcon" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                            <image>
+                                <Image url="@../../images/ic_cloud.png"/>
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                </Label>
+                <ProgressBar fx:id="progressLine" layoutX="10.0" layoutY="45.0" mouseTransparent="true" prefHeight="35.0" prefWidth="870.0" progress="0.0" style="-fx-background-color: #31a0ff; -fx-border-width: 0; -fx-border-color: #31a0ff;"/>
+                <Label fx:id="progressValue" alignment="CENTER" contentDisplay="RIGHT" layoutX="10.0" layoutY="55.0" prefHeight="15.0" prefWidth="870.0" text="0/0" textAlignment="RIGHT"/>
+            </children>
+        </AnchorPane>
+    </bottom>
+    <top>
+        <VBox fillWidth="false" prefHeight="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="100.0">
+                    <children>
+                        <Label prefHeight="35.0" prefWidth="104.0" text="路径选择">
+                            <font>
+                                <Font size="22.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" fillHeight="false" maxHeight="24.0" prefHeight="24.0">
+                    <children>
+                        <Button fx:id="importRunButton" graphicTextGap="0.0" maxHeight="34.0" minHeight="34.0" mnemonicParsing="false" onAction="#analyzeFile" prefHeight="34.0" prefWidth="100.0" styleClass="btn-primary" text="确定">
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" fillHeight="false" minHeight="55.0" prefHeight="55.0">
+                    <children>
+                        <Label prefHeight="55.0" prefWidth="96.0" text="存入路径" textFill="#999999">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="savePath" prefHeight="45.0" prefWidth="750.0" promptText="请选择存入路径">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </TextField>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSavePath" prefHeight="35.0" prefWidth="55.0" style="-fx-background-color: #eee;" styleClass="btn-default" text="***">
+                            <HBox.margin>
+                                <Insets left="-60.0"/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" fillHeight="false" minHeight="55.0" prefHeight="55.0">
+                    <children>
+                        <Label prefHeight="55.0" prefWidth="96.0" text="导入路径" textFill="#999999">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <TextField fx:id="importPath" prefHeight="45.0" prefWidth="750.0" promptText="请选择导入路径">
+                            <font>
+                                <Font name="Microsoft YaHei" size="15.0"/>
+                            </font>
+                        </TextField>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onImportPath" prefHeight="35.0" prefWidth="55.0" style="-fx-background-color: #eee;" styleClass="btn-default" text="***">
+                            <HBox.margin>
+                                <Insets left="-60.0"/>
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets left="10.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </top>
+    <center>
+        <BorderPane fx:id="errorPane" prefWidth="420.0" style="-fx-border-width: 0;" BorderPane.alignment="CENTER">
+            <center>
+                <ListView fx:id="errorList" style="-fx-background-color: #ffffff; -fx-border-width: 0 0 0 1; -fx-border-color: #fff #fff #fff #eee;" BorderPane.alignment="CENTER">
+                    <padding>
+                        <Insets left="5.0"/>
+                    </padding>
+                </ListView>
+            </center>
+            <top>
+                <Label alignment="TOP_LEFT" prefHeight="15.0" text="错误列表" BorderPane.alignment="BOTTOM_LEFT">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="20.0"/>
+                    </padding>
+                </Label>
+            </top>
+        </BorderPane>
+    </center>
+</BorderPane>

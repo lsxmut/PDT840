@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="dataBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1320.0"
+            style="-fx-border-width: 0 0 0 0; -fx-background-color: #fff;" stylesheets="@../../../css/atlas.css" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="com.redphase.controller.atlas.data.AtlasDataTJLBController">
+    <center>
+        <!--<ScrollPane fx:id="dataScrollPane" layoutX="50.0" prefHeight="1000.0" prefWidth="1640.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">-->
+        <!--<content>-->
+        <AnchorPane fx:id="dataPane" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="10.0" prefHeight="35.0" text="录波数据">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Label>
+                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="40.0" prefHeight="80.0" prefWidth="1300.0">
+                    <children>
+                        <VBox alignment="CENTER" prefWidth="340.0">
+                            <children>
+                                <HBox alignment="CENTER" style="-fx-background-color: #fff;">
+                                    <children>
+                                        <VBox fx:id="openMenu" alignment="TOP_CENTER" onMouseClicked="#menuOpen" styleClass="btn-default">
+                                            <children>
+                                                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/1.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefWidth="95.0" text="打开" textFill="#888888">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0"/>
+                                                    </VBox.margin>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="saveMenu" alignment="TOP_CENTER" disable="true" onMouseClicked="#menuSave" styleClass="btn-default">
+                                            <children>
+                                                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/6x.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefWidth="95.0" text="保存" textFill="#888888">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0"/>
+                                                    </VBox.margin>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="reportMenu" alignment="TOP_CENTER" disable="true" onMouseClicked="#menuReport" styleClass="btn-default">
+                                            <children>
+                                                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/3x.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefWidth="95.0" text="报告" textFill="#888888">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0"/>
+                                                    </VBox.margin>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="cutMenu" alignment="TOP_CENTER" onMouseClicked="#menuCut" styleClass="btn-default">
+                                            <children>
+                                                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/2.png"/>
+                                                    </image>
+                                                    <VBox.margin>
+                                                        <Insets/>
+                                                    </VBox.margin>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefWidth="95.0" text="剪切板" textFill="#888888">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0"/>
+                                                    </VBox.margin>
+                                                </Label>
+                                                <ImageView fitHeight="6.0" fitWidth="20.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/more.png"/>
+                                                    </image>
+                                                    <VBox.margin>
+                                                        <Insets top="3.0"/>
+                                                    </VBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                    <padding>
+                                        <Insets left="1.0" top="1.0"/>
+                                    </padding>
+                                </HBox>
+                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="500.0" style="-fx-background-color: #76b6ed;" styleClass="nav-title" text="文件" textFill="WHITE"/>
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefWidth="100.0">
+                            <children>
+                                <HBox alignment="TOP_CENTER" onMouseClicked="#menuThreshold" styleClass="btn-default">
+                                    <children>
+                                        <VBox fx:id="thresholdMenu" alignment="TOP_CENTER" prefHeight="56.0" styleClass="btn-default">
+                                            <children>
+                                                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/4.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label fx:id="thresholdL" alignment="CENTER" text="阈值(-80dBm)" textFill="#888888">
+                                                    <VBox.margin>
+                                                        <Insets top="6.0"/>
+                                                    </VBox.margin>
+                                                </Label>
+                                                <ImageView fitHeight="6.0" fitWidth="20.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/more.png"/>
+                                                    </image>
+                                                    <VBox.margin>
+                                                        <Insets top="3.0"/>
+                                                    </VBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #76b6ed;" styleClass="nav-title" text="显示" textFill="WHITE"/>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="1.0"/>
+                            </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER" prefWidth="255.0">
+                            <children>
+                                <HBox prefHeight="56.0" style="-fx-background-color: #fff;">
+                                    <children>
+                                        <VBox fx:id="leftSecondMenu" alignment="TOP_CENTER" onMouseClicked="#menuLeftSecond" styleClass="btn-default">
+                                            <children>
+                                                <ImageView fx:id="leftSecondImg" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/5.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="15.0" prefWidth="95.0" text="左移" textFill="#888888">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0"/>
+                                                    </VBox.margin>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="statisticsMenu" alignment="TOP_CENTER" onMouseClicked="#menuStatistics" styleClass="btn-default">
+                                            <children>
+                                                <ImageView fx:id="statisticsImg" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/6.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label fx:id="statisticsL" alignment="CENTER" prefHeight="15.0" prefWidth="95.0" text="统计:1秒" textFill="#888888">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0"/>
+                                                    </VBox.margin>
+                                                </Label>
+                                                <ImageView fitHeight="6.0" fitWidth="20.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/more.png"/>
+                                                    </image>
+                                                    <VBox.margin>
+                                                        <Insets top="3.0"/>
+                                                    </VBox.margin>
+                                                </ImageView>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="rightSecondMenu" alignment="TOP_CENTER" onMouseClicked="#menuRightSecond" styleClass="btn-default">
+                                            <children>
+                                                <ImageView fx:id="rightSecondImg" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/7.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="15.0" prefWidth="95.0" text="右移" textFill="#888888">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0"/>
+                                                    </VBox.margin>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                    <padding>
+                                        <Insets left="1.0" top="1.0"/>
+                                    </padding>
+                                </HBox>
+                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: #76b6ed;" styleClass="nav-title" text="统计" textFill="WHITE"/>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="1.0"/>
+                            </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER" prefWidth="170.0">
+                            <children>
+                                <HBox>
+                                    <padding>
+                                        <Insets top="1.0"/>
+                                    </padding>
+                                    <children>
+                                        <VBox fx:id="leftDegreeMenu" alignment="TOP_CENTER" styleClass="btn-default">
+                                            <children>
+                                                <VBox alignment="CENTER" onMouseClicked="#leftDegree" styleClass="btn-default">
+                                                    <children>
+                                                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                            <image>
+                                                                <Image url="@../../../images/5.png"/>
+                                                            </image>
+                                                        </ImageView>
+                                                    </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" onMouseClicked="#menuLeftDegree" styleClass="btn-default">
+                                                    <children>
+                                                        <Label fx:id="leftDegreeL" alignment="CENTER" prefHeight="15.0" prefWidth="95.0" text="左移:15`" textFill="#888888">
+                                                            <VBox.margin>
+                                                                <Insets top="5.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <ImageView fitHeight="6.0" fitWidth="20.0" pickOnBounds="true" smooth="false">
+                                                            <image>
+                                                                <Image url="@../../../images/more.png"/>
+                                                            </image>
+                                                            <VBox.margin>
+                                                                <Insets top="3.0"/>
+                                                            </VBox.margin>
+                                                        </ImageView>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="rightDegreeMenu" alignment="TOP_CENTER" styleClass="btn-default">
+                                            <children>
+                                                <VBox alignment="CENTER" onMouseClicked="#rightDegree" styleClass="btn-default">
+                                                    <children>
+                                                        <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                            <image>
+                                                                <Image url="@../../../images/7.png"/>
+                                                            </image>
+                                                        </ImageView>
+                                                    </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" onMouseClicked="#menuRightDegree" styleClass="btn-default">
+                                                    <children>
+                                                        <Label fx:id="rightDegreeL" alignment="CENTER" prefHeight="15.0" prefWidth="95.0" text="右移:15`" textFill="#888888">
+                                                            <VBox.margin>
+                                                                <Insets top="5.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <ImageView fitHeight="6.0" fitWidth="20.0" pickOnBounds="true" smooth="false">
+                                                            <image>
+                                                                <Image url="@../../../images/more.png"/>
+                                                            </image>
+                                                            <VBox.margin>
+                                                                <Insets top="3.0"/>
+                                                            </VBox.margin>
+                                                        </ImageView>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: #76b6ed;" styleClass="nav-title" text="相位" textFill="WHITE"/>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="1.0"/>
+                            </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="80.0" prefWidth="170.0">
+                            <children>
+                                <HBox>
+                                    <children>
+                                        <VBox fx:id="enlargeMenu" alignment="TOP_CENTER" onMouseClicked="#menuEnlarge" prefHeight="55.0" styleClass="btn-default">
+                                            <children>
+                                                <ImageView fx:id="enlargeImg" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/8x.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="15.0" prefWidth="105.0" text="放大" textFill="#888888">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0"/>
+                                                    </VBox.margin>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="narrowMenu" alignment="TOP_CENTER" onMouseClicked="#menuNarrow" prefHeight="55.0" styleClass="btn-default">
+                                            <children>
+                                                <ImageView fx:id="narrowImg" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/9.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="15.0" prefWidth="105.0" text="缩小" textFill="#888888">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0"/>
+                                                    </VBox.margin>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                    <padding>
+                                        <Insets top="1.0"/>
+                                    </padding>
+                                </HBox>
+                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: #76b6ed;" styleClass="nav-title" text="量程" textFill="WHITE"/>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="1.0"/>
+                            </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="80.0" prefWidth="260.0">
+                            <children>
+                                <HBox>
+                                    <children>
+                                        <VBox fx:id="payMenu" alignment="TOP_CENTER" onMouseClicked="#menuPay" prefHeight="55.0" styleClass="btn-default">
+                                            <children>
+                                                <ImageView fx:id="playImg" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/5.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="15.0" prefWidth="95.0" text="继续" textFill="#888888">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0"/>
+                                                    </VBox.margin>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="pauseMenu" alignment="TOP_CENTER" onMouseClicked="#menuPause" prefHeight="55.0" styleClass="btn-default">
+                                            <children>
+                                                <ImageView fx:id="pauseImg" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/10x.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="15.0" prefWidth="95.0" text="暂停" textFill="#888888">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0"/>
+                                                    </VBox.margin>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="stopMenu" alignment="TOP_CENTER" onMouseClicked="#menuStop" prefHeight="55.0" styleClass="btn-default">
+                                            <children>
+                                                <ImageView fx:id="stopImg" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../../images/11x.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="15.0" prefWidth="95.0" text="停止" textFill="#888888">
+                                                    <VBox.margin>
+                                                        <Insets top="5.0"/>
+                                                    </VBox.margin>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                    <padding>
+                                        <Insets top="1.0"/>
+                                    </padding>
+                                </HBox>
+                                <Label alignment="CENTER" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: #76b6ed;" styleClass="nav-title" text="回放" textFill="WHITE"/>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="1.0"/>
+                            </HBox.margin>
+                        </VBox>
+                    </children>
+                </HBox>
+                <VBox layoutX="10.0" layoutY="125.0">
+                    <children>
+                        <HBox>
+                            <children>
+                                <Pane fx:id="prpsPane" prefHeight="300.0" prefWidth="470.0" style="-fx-border-width: 1; -fx-border-color: #eeeeee;">
+                                    <children>
+                                        <Label layoutX="20.0" layoutY="15.0" prefHeight="15.0" style="-fx-border-width: 0 0 0 3; -fx-border-color: #0099FF;" text="图谱：PRPS"/>
+                                        <Label fx:id="fdlx2L" layoutX="320.0" layoutY="15.0" text="--" textFill="#44a6f8" visible="false">
+                                            <font>
+                                                <Font size="16.0"/>
+                                            </font>
+                                            <graphic>
+                                                <Label prefHeight="20.0" prefWidth="77.0" text="放电类型：" textFill="#999999">
+                                                    <font>
+                                                        <Font size="15.0"/>
+                                                    </font>
+                                                </Label>
+                                            </graphic>
+                                        </Label>
+                                        <HBox layoutX="412.0" layoutY="45.0" prefHeight="240.0" prefWidth="52.0">
+                                            <children>
+                                                <VBox prefHeight="184.0">
+                                                    <children>
+                                                        <Label prefHeight="45.0" prefWidth="8.0" style="-fx-background-color: #ee4d46;" text="     " textFill="#ffffff00">
+                                                            <VBox.margin>
+                                                                <Insets top="2.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <Label prefHeight="45.0" prefWidth="8.0" style="-fx-background-color: #f8cb19;" text="     " textFill="#ed4d4700">
+                                                            <VBox.margin>
+                                                                <Insets top="2.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <Label prefHeight="45.0" prefWidth="8.0" style="-fx-background-color: #63d834;" text="     " textFill="#ed4d4700">
+                                                            <VBox.margin>
+                                                                <Insets top="2.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <Label prefHeight="45.0" prefWidth="8.0" style="-fx-background-color: #4edcf5;" text="     " textFill="#ed4d4700">
+                                                            <VBox.margin>
+                                                                <Insets top="2.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <Label prefHeight="45.0" prefWidth="8.0" style="-fx-background-color: #44a8fb;" text="     " textFill="#ed4d4700">
+                                                            <VBox.margin>
+                                                                <Insets top="2.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                                <VBox prefHeight="200.0" prefWidth="100.0">
+                                                    <children>
+                                                        <Label alignment="TOP_RIGHT" contentDisplay="TOP" prefHeight="40.0" prefWidth="44.0" text="100%" textFill="#999999">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="TOP_RIGHT" contentDisplay="TOP" prefHeight="50.0" prefWidth="43.0" text="80%" textFill="#999999">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="TOP_RIGHT" contentDisplay="TOP" prefHeight="40.0" prefWidth="44.0" text="60%" textFill="#999999">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="40.0" prefWidth="44.0" text="40%" textFill="#999999">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="BOTTOM_RIGHT" contentDisplay="TOP" prefHeight="40.0" prefWidth="44.0" text="20%" textFill="#999999">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="BOTTOM_RIGHT" contentDisplay="BOTTOM" prefHeight="45.0" prefWidth="43.0" text="0%" textFill="#999999">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                    <HBox.margin>
+                                                        <Insets/>
+                                                    </HBox.margin>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="10.0" layoutY="300.0" prefHeight="14.0" prefWidth="190.0">
+                                            <children>
+                                                <Label prefHeight="19.0" prefWidth="88.0" text="脉冲(个/秒)：" textFill="#999999">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="mcL" prefHeight="19.0" prefWidth="83.0" text="0个／秒" textFill="#222222">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="200.0" layoutY="300.0" prefHeight="14.0" prefWidth="120.0">
+                                            <children>
+                                                <Label text="烈度：" textFill="#999999">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="ldL" prefHeight="19.0" prefWidth="73.0" text="--" textFill="#222222">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="330.0" layoutY="300.0" prefHeight="14.0" prefWidth="138.0">
+                                            <children>
+                                                <Label text="最大值：" textFill="#999999">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="zdzL" prefHeight="19.0" prefWidth="76.0" text="0dBmv" textFill="#222222">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                        <Canvas fx:id="prpsCanvasBack" height="250.0" layoutX="10.0" layoutY="45.0" width="400.0"/>
+                                        <Canvas fx:id="prpsCanvasAtlas" height="250.0" layoutX="10.0" layoutY="45.0" width="400.0"/>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="prpdPane" prefHeight="330.0" prefWidth="430.0" style="-fx-border-width: 1; -fx-border-color: #eeeeee;">
+                                    <children>
+                                        <Label layoutX="20.0" layoutY="15.0" style="-fx-border-width: 0 0 0 3; -fx-border-color: #0099FF;" text=" 图谱 ：PRPD"/>
+                                        <HBox layoutX="375.0" layoutY="45.0" prefHeight="240.0" prefWidth="52.0">
+                                            <children>
+                                                <VBox prefHeight="184.0">
+                                                    <children>
+                                                        <Label prefHeight="45.0" prefWidth="8.0" style="-fx-background-color: #ee4d46;" text="     " textFill="#ffffff00">
+                                                            <VBox.margin>
+                                                                <Insets top="2.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <Label prefHeight="45.0" prefWidth="8.0" style="-fx-background-color: #f8cb19;" text="     " textFill="#ed4d4700">
+                                                            <VBox.margin>
+                                                                <Insets top="2.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <Label prefHeight="45.0" prefWidth="8.0" style="-fx-background-color: #63d834;" text="     " textFill="#ed4d4700">
+                                                            <VBox.margin>
+                                                                <Insets top="2.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <Label prefHeight="45.0" prefWidth="8.0" style="-fx-background-color: #4edcf5;" text="     " textFill="#ed4d4700">
+                                                            <VBox.margin>
+                                                                <Insets top="2.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <Label prefHeight="45.0" prefWidth="8.0" style="-fx-background-color: #44a8fb;" text="     " textFill="#ed4d4700">
+                                                            <VBox.margin>
+                                                                <Insets top="2.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                                <VBox prefHeight="200.0" prefWidth="100.0">
+                                                    <children>
+                                                        <Label alignment="TOP_RIGHT" contentDisplay="TOP" prefHeight="40.0" prefWidth="44.0" text="100%" textFill="#999999">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="TOP_RIGHT" contentDisplay="TOP" prefHeight="50.0" prefWidth="43.0" text="80%" textFill="#999999">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="TOP_RIGHT" contentDisplay="TOP" prefHeight="40.0" prefWidth="44.0" text="60%" textFill="#999999">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="40.0" prefWidth="44.0" text="40%" textFill="#999999">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="BOTTOM_RIGHT" contentDisplay="TOP" prefHeight="40.0" prefWidth="44.0" text="20%" textFill="#999999">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Label alignment="BOTTOM_RIGHT" contentDisplay="BOTTOM" prefHeight="45.0" prefWidth="43.0" text="0%" textFill="#999999">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                    <HBox.margin>
+                                                        <Insets/>
+                                                    </HBox.margin>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="100.0" layoutY="300.0" prefHeight="19.0" prefWidth="142.0">
+                                            <children>
+                                                <Label text="阈值：" textFill="#999999">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="yzL" prefHeight="19.0" prefWidth="97.0" text="0dBmv" textFill="#222222">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="250.0" layoutY="300.0" prefHeight="19.0" prefWidth="137.0">
+                                            <children>
+                                                <Label text="相位：" textFill="#999999">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label prefHeight="19.0" prefWidth="70.0" text="0度" textFill="#222222" fx:id="xwL">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                        <Canvas fx:id="prpdCanvasBack" height="250.0" layoutX="19.0" layoutY="45.0" width="350.0"/>
+                                        <Canvas fx:id="prpdCanvasAtlas" height="250.0" layoutX="22.0" layoutY="45.0" width="350.0"/>
+                                        <Label fx:id="prpdUnit" alignment="CENTER" contentDisplay="CENTER" layoutX="-80.0" layoutY="140.0" prefHeight="20.0" prefWidth="183.0" rotate="-90.0" text="幅值（dBm）" textFill="#999999" wrapText="true"/>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="5.0"/>
+                                    </HBox.margin>
+                                </Pane>
+                                <Pane fx:id="qφPane" prefHeight="330.0" prefWidth="390.0" style="-fx-border-width: 1; -fx-border-color: #eeeeee;">
+                                    <children>
+                                        <Label layoutX="14.0" layoutY="14.0" style="-fx-border-width: 0 0 0 3; -fx-border-color: #0099FF;" text=" 图谱 ：Q(φ)"/>
+                                        <Label fx:id="qφUnit" alignment="CENTER" contentDisplay="CENTER" layoutX="-80.0" layoutY="140.0" prefHeight="20.0" prefWidth="183.0" rotate="-90.0" text="幅值（dBm）" textFill="#999999" wrapText="true"/>
+                                        <HBox layoutX="120.0" layoutY="300.0" prefHeight="14.0" prefWidth="140.0">
+                                            <children>
+                                                <Label text="阈值：" textFill="#999999">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="yzL1" prefHeight="19.0" prefWidth="97.0" text="0dBmv" textFill="#222222">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                        <HBox layoutX="280.0" layoutY="300.0" prefHeight="14.0" prefWidth="90.0">
+                                            <children>
+                                                <Label text="相位：" textFill="#999999">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Label prefHeight="19.0" prefWidth="49.0" text="0度" textFill="#222222" fx:id="xwL1">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                        <Canvas fx:id="qφCanvasBack" height="250.0" layoutX="35.0" layoutY="45.0" width="350.0"/>
+                                        <Canvas fx:id="qφCanvasAtlas" height="250.0" layoutX="35.0" layoutY="45.0" width="350.0"/>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="5.0"/>
+                                    </HBox.margin>
+                                </Pane>
+                            </children>
+                        </HBox>
+                        <HBox>
+                            <children>
+                                <Pane fx:id="feature1Pane" prefWidth="905.0" style="-fx-border-width: 1; -fx-border-color: #eeeeee;">
+                                    <children>
+                                        <Label fx:id="feature1Unit" alignment="CENTER" contentDisplay="CENTER" layoutX="-90.0" layoutY="120.0" mnemonicParsing="true" opacity="0.74" prefHeight="13.0" prefWidth="200.0" rotate="-90.0" text="幅值（dBmv）" textFill="#999999"/>
+                                        <Canvas fx:id="feature1CanvasBack" height="250.0" layoutX="25.0" layoutY="5.0" width="870.0"/>
+                                        <Canvas fx:id="feature1CanvasLayer" height="250.0" layoutX="25.0" layoutY="5.0" opacity="0.5" width="870.0"/>
+                                        <Canvas fx:id="feature1CanvasAtlas" height="250.0" layoutX="25.0" layoutY="5.0" width="870.0"/>
+                                        <Canvas fx:id="feature1CanvasLine" height="250.0" layoutX="25.0" layoutY="5.0" width="870.0"/>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="data1Pane" style="-fx-border-width: 1; -fx-border-color: #eeeeee;">
+                                    <children>
+                                        <Canvas fx:id="data1CanvasBack" height="257.0" width="388.0"/>
+                                        <Canvas fx:id="data1CanvasAtlas" height="257.0" width="388.0"/>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets left="5.0"/>
+                                    </HBox.margin>
+                                </Pane>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="5.0"/>
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+                <Pane fx:id="cutFloatPane" layoutX="253.0" layoutY="100.0" prefHeight="277.0" prefWidth="110.0" visible="false">
+                    <children>
+                        <ImageView fitHeight="277.0" fitWidth="110.0" pickOnBounds="true" smooth="false">
+                            <image>
+                                <Image url="@../../../images/floatbj.png"/>
+                            </image>
+                        </ImageView>
+                        <VBox layoutX="2.0" layoutY="10.0" prefHeight="265.0" prefWidth="110.0">
+                            <children>
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#cutPRPS" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="谱图：PRPS"/>
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#cutPRPD" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="谱图：PRPD">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" disable="true" mnemonicParsing="false" onAction="#cutTOF" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="谱图：TOF">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#cutQφ" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="谱图：Q（φ）">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#cutFeature" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="谱图：特征值">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" disable="true" mnemonicParsing="false" onAction="#cutUltrasonic" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="波形：超声波">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#cutScreenshot" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="截屏">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </children>
+                </Pane>
+                <Pane fx:id="statisticsFloatPane" layoutX="525.0" layoutY="100.0" prefHeight="160.0" prefWidth="110.0" visible="false">
+                    <children>
+                        <ImageView fitHeight="160.0" fitWidth="110.0" pickOnBounds="true" smooth="false">
+                            <image>
+                                <Image url="@../../../images/floatbj.png"/>
+                            </image>
+                        </ImageView>
+                        <VBox layoutX="2.0" layoutY="7.0" prefHeight="160.0" prefWidth="110.0">
+                            <children>
+                                <Button fx:id="statistics1Button" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#statistics1" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="统计：1秒">
+                                    <VBox.margin>
+                                        <Insets/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="statistics2Button" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#statistics2" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="统计：10秒">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="statistics3Button" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#statistics3" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="统计：30秒">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="statisticsAllButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#statisticsAll" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="统计：全部">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </children>
+                </Pane>
+                <Pane fx:id="leftFloatPane" layoutX="695.0" layoutY="100.0" prefHeight="200.0" prefWidth="110.0" visible="false">
+                    <children>
+                        <ImageView fitHeight="199.0" fitWidth="110.0" pickOnBounds="true" smooth="false">
+                            <image>
+                                <Image url="@../../../images/floatbj.png"/>
+                            </image>
+                        </ImageView>
+                        <VBox layoutX="2.0" layoutY="8.0" prefHeight="200.0" prefWidth="110.0">
+                            <children>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#left1" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="15°"/>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#left2" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="30°">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#left3" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="45°">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#left4" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="60°">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#left5" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="90°">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </children>
+                </Pane>
+                <Pane fx:id="rightFloatPane" layoutX="781.0" layoutY="100.0" prefHeight="200.0" prefWidth="110.0" visible="false">
+                    <children>
+                        <ImageView fitHeight="199.0" fitWidth="110.0" pickOnBounds="true" smooth="false">
+                            <image>
+                                <Image url="@../../../images/floatbj.png"/>
+                            </image>
+                        </ImageView>
+                        <VBox layoutX="2.0" layoutY="8.0" prefHeight="200.0" prefWidth="110.0">
+                            <children>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#right1" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="15°"/>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#right2" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="30°">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#right3" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="45°">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#right4" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="60°">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#right5" prefHeight="36.0" prefWidth="106.0" styleClass="btn-white" text="90°">
+                                    <VBox.margin>
+                                        <Insets top="2.0"/>
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </children>
+                </Pane>
+                <Pane fx:id="mlayer" opacity="0.72" prefHeight="745.0" prefWidth="1320.0" style="-fx-background-color: #eeeeee;" visible="false"/>
+                <Pane fx:id="setPane" layoutX="360.0" layoutY="150.0" prefHeight="440.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;">
+                    <children>
+                        <Label fx:id="setTitle" layoutX="14.0" layoutY="10.0" style="-fx-border-width: 0 0 0 3; -fx-border-color: #fff #fff #fff #31a1ff;" text="显示设置" textFill="#333333">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                            <padding>
+                                <Insets left="10.0"/>
+                            </padding>
+                        </Label>
+                        <Separator layoutY="40.0" prefWidth="600.0"/>
+                        <Pane fx:id="closeSet" layoutX="555.0" prefHeight="40.0" prefWidth="45.0" style="-fx-cursor: hand;">
+                            <children>
+                                <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="15.0" layoutY="10.0" pickOnBounds="true" smooth="false">
+                                    <image>
+                                        <Image url="@../../../images/close.png"/>
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="setThresholdPane" layoutY="42.0" prefHeight="400.0" prefWidth="600.0" visible="false">
+                            <children>
+                                <Pane layoutX="50.0" layoutY="80.0" prefHeight="175.0" prefWidth="509.0" style="-fx-border-color: #eeeeee;">
+                                    <children>
+                                        <Label layoutX="200.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="显示阈值">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                        <Pane layoutX="50.0" layoutY="10.0" prefHeight="150.0" prefWidth="374.0">
+                                            <children>
+                                                <Label fx:id="thresholdSetL" layoutX="130.0" layoutY="10.0" prefHeight="30.0" text="( 0 ~ 0 dBm )" textFill="#999999db">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                                <Button layoutY="60.0" minWidth="30.0" mnemonicParsing="false" onAction="#doSmall" prefHeight="50.0" prefWidth="50.0" styleClass="btn-cancel" text="一">
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                                <TextField fx:id="setThresholdText" alignment="CENTER" layoutX="70.0" layoutY="50.0" prefHeight="70.0" prefWidth="238.0" text="20">
+                                                    <font>
+                                                        <Font size="30.0"/>
+                                                    </font>
+                                                </TextField>
+                                                <Button layoutX="325.0" layoutY="60.0" minWidth="30.0" mnemonicParsing="false" onAction="#doBig" prefHeight="50.0" prefWidth="50.0" styleClass="btn-cancel" text="十">
+                                                    <cursor>
+                                                        <Cursor fx:constant="HAND"/>
+                                                    </cursor>
+                                                </Button>
+                                            </children>
+                                        </Pane>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="150.0" layoutY="300.0" prefWidth="280.0">
+                                    <children>
+                                        <Button cancelButton="true" mnemonicParsing="false" onAction="#setCancel" prefHeight="40.0" prefWidth="130.0" styleClass="btn-cancel" text="取消"/>
+                                        <Button defaultButton="true" layoutX="150.0" mnemonicParsing="false" onAction="#setThresholdDone" prefHeight="40.0" prefWidth="130.0" styleClass="btn-primary" text="确定"/>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="openDataPane" layoutY="42.0" prefHeight="400.0" prefWidth="600.0">
+                            <children>
+                                <TableView fx:id="filesTableView" layoutX="10.0" layoutY="5.0" prefHeight="340.0" prefWidth="580.0">
+                                    <columns>
+                                        <TableColumn fx:id="idTc" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" sortable="false" text="#"/>
+                                        <TableColumn fx:id="fileTc" editable="false" maxWidth="1.7976931348623157E308" minWidth="505.0" prefWidth="-1.0" sortable="false" text="录波文件"/>
+                                    </columns>
+                                </TableView>
+                                <Pane layoutX="235.0" layoutY="350.0">
+                                    <children>
+                                        <Button cancelButton="true" mnemonicParsing="false" onAction="#setCancel" prefHeight="40.0" prefWidth="130.0" styleClass="btn-cancel" text="取消"/>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </Pane>
+                    </children>
+                </Pane>
+            </children>
+        </AnchorPane>
+        <!--</content>-->
+        <!--</ScrollPane>-->
+    </center>
+</BorderPane>

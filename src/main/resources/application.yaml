@@ -1,0 +1,47 @@
+javafx:
+  title: 局放检测
+  appicons:
+    - /images/icon.png
+  stage:
+    resizable: true
+server:
+  port: ${random.int[10000,19999]}
+file:
+  port: 12315
+spring:
+  jmx:
+    enabled: false
+  cache.ehcache.config: classpath:ehcache.xml  #  ehcache配置文件地址
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  aop:
+    auto: true
+    proxy-target-class: true
+  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+    master:
+      driver-class-name: org.sqlite.JDBC
+      url: jdbc:sqlite::resource:data/PDT840.db
+    slave:
+      driver-class-name: org.sqlite.JDBC
+      url: jdbc:sqlite::resource:data/PDT840-NDA.db
+mapper:
+  not-empty: false
+  identity: sqlite
+pagehelper:
+  helperDialect: sqlite
+  #  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+path:
+  tempXls: /data/台帐模板.xls
+  DBN60: C:/DBN60/
+
+# 自定义配置
+hsd:
+  common:
+    appPrefix: dev_   #指定app前缀（开发中可使用IP），系统在队列名、Cache名等前会自动加上前缀，以便不同环境冲突

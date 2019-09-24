@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redphase.dao.master.task.ITaskDetailDao">
+    <!-- 字段列表 -->
+    <sql id="Base_Column_List">
+         t1.id as "id"
+        ,t1.task_id as "taskId"
+        ,t1.site_name as "siteName"
+        ,t1.test_technology as "testTechnology"
+        ,t1.del_flag as "delFlag"
+        ,t1.create_id as "createId"
+        ,t1.date_created as "dateCreated"
+        ,t1.date_updated as "dateUpdated"
+        ,t1.update_id as "updateId"
+        ,t1.bi_update_ts as "biUpdateTs"
+    </sql>
+
+    <!-- 根据主键获取信息详情 -->
+    <select id="selectByPrimaryKey" resultType="com.redphase.entity.task.TaskDetail" parameterType="com.redphase.entity.task.TaskDetail">
+        select
+        <include refid="Base_Column_List"/>
+        from task_detail t1
+        where
+        t1.id = #{id}
+    </select>
+
+    <!-- 新增单条数据 -->
+    <insert id="insert" parameterType="com.redphase.entity.task.TaskDetail">
+        insert into task_detail (
+            id 
+           ,task_id
+           ,site_name 
+           ,test_technology 
+           ,del_flag 
+           ,create_id 
+           ,date_created 
+           ,date_updated 
+           ,update_id 
+           ,bi_update_ts 
+        ) values (
+            #{id} 
+           ,#{taskId}
+           ,#{siteName} 
+           ,#{testTechnology} 
+           ,0
+           ,#{createId} 
+           ,strftime('%s000','now')
+           ,strftime('%s000','now')
+           ,#{updateId} 
+           ,strftime('%s000','now')
+        )
+    </insert>
+
+    <!-- 新增 批量数据 -->
+    <insert id="insertBatch">
+        insert into task_detail (
+        id
+        ,task_id
+        ,site_name
+        ,test_technology
+        ,del_flag
+        ,create_id
+        ,date_created
+        ,date_updated
+        ,update_id
+        ,bi_update_ts
+        ) values
+        <foreach collection="list" item="t" separator=",">
+            (
+            #{t.id}
+            ,#{t.taskId}
+            ,#{t.siteName}
+            ,#{t.testTechnology}
+            ,0
+            ,#{t.createId}
+            ,strftime('%s000','now')
+            ,strftime('%s000','now')
+            ,#{t.updateId}
+            ,strftime('%s000','now')
+            )
+        </foreach>
+    </insert>
+
+    <!-- 数据更新 -->
+    <update id="update" parameterType="com.redphase.entity.task.TaskDetail">
+        update task_detail set bi_update_ts=strftime('%s000','now')
+        <if test="taskId!=null">,task_id = #{taskId}</if>
+        <if test="siteName!=null">,site_name = #{siteName}</if>
+        <if test="testTechnology!=null">,test_technology = #{testTechnology}</if>
+        <if test="delFlag!=null">,del_flag = #{delFlag}</if>
+        <if test="createId!=null">,create_id = #{createId}</if>
+        <if test="dateUpdated!=null">,date_updated = strftime('%s000','now')</if>
+        <if test="updateId!=null">,update_id = #{updateId}</if>
+        where
+        id = #{id}
+    </update>
+
+    <!--列表通用条件-->
+    <sql id="list_where_sql">
+        <if test="dateBegin!=null and dateBegin!=''">
+            <![CDATA[ and date(t1.date_created/1000,'unixepoch', 'localtime')>=#{dateBegin} ]]>
+        </if>
+        <if test="dateEnd!=null and dateEnd!=''">
+            <![CDATA[ and date(t1.date_created/1000,'unixepoch', 'localtime')<=#{dateEnd} ]]>
+        </if>
+    </sql>
+
+    <!--信息分页 -->
+    <select id="findDataIsPage" parameterType="com.redphase.entity.task.TaskDetail" resultType="com.redphase.entity.task.TaskDetail">
+        select
+        <include refid="Base_Column_List"/>
+        from task_detail t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.date_created desc
+    </select>
+
+    <!--信息列表 -->
+    <select id="findDataIsList" parameterType="com.redphase.entity.task.TaskDetail" resultType="com.redphase.entity.task.TaskDetail">
+        select
+        <include refid="Base_Column_List"/>
+        from task_detail t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.date_created desc
+    </select>
+
+    <select id="findDataIsListByTask" parameterType="com.redphase.dto.task.TaskDto"  resultType="com.redphase.dto.task.TaskHistoryConfigDto">
+        SELECT #{accountId} as accountId,td.site_name as siteName,td.test_technology as testTechnology FROM task_detail td
+        INNER JOIN task t ON td.task_id = t.id
+        AND datetime(t.bi_update_ts/1000,'unixepoch', 'localtime') = #{biUpdateTsStr}
+        AND t.account_id = #{accountId}
+        order by td.test_technology asc
+    </select>
+</mapper>

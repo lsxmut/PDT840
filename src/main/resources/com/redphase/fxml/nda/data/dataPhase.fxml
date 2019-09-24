@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="dataBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-border-width:0 0 0 10;" stylesheets="@../../../css/atlas.css"
+            xmlns="http://javafx.com/javafx/10.0.1" fx:controller="com.redphase.controller.nda.data.NdaDataPhaseController">
+    <center>
+        <AnchorPane fx:id="contentAnchorPane" prefHeight="1160.0" prefWidth="1250.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="10.0" layoutY="5.0" prefHeight="35.0" text="相位统计图谱">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                    <graphic>
+                        <Label fx:id="testTechnologyL" text="AE">
+                            <font>
+                                <Font size="22.0"/>
+                            </font>
+                        </Label>
+                    </graphic>
+                </Label>
+                <Pane layoutX="10.0" layoutY="40.0">
+                    <children>
+                        <Button fx:id="IMGButton" layoutY="4.0" mnemonicParsing="false" onAction="#toIMG" prefHeight="30.0" prefWidth="140.0" styleClass="btn-primary" text="保存为图形文件"/>
+                        <Button fx:id="PDFButton" layoutX="160.0" layoutY="5.0" mnemonicParsing="false" onAction="#toPDF" prefHeight="30.0" prefWidth="110.0" styleClass="btn-cancel" text="保存为PDF"/>
+                    </children>
+                </Pane>
+                <VBox layoutX="10.0" layoutY="85.0">
+                    <children>
+                        <Pane prefHeight="340.0" prefWidth="1230.0" style="-fx-border-color: #eee;">
+                            <children>
+                                <Label layoutX="-13.0" layoutY="149.0" rotate="-90.0" text="最大值" textFill="#aaaaaa">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <Canvas fx:id="maxCanvasBack" height="300.0" layoutX="30.0" layoutY="17.0" width="1200.0"/>
+                                <Canvas fx:id="maxCanvasAtlas" height="300.0" layoutX="30.0" layoutY="17.0" width="1200.0"/>
+                            </children>
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </Pane>
+                        <Pane prefHeight="340.0" prefWidth="1230.0" style="-fx-border-color: #eee;">
+                            <children>
+                                <Label layoutX="-13.0" layoutY="149.0" rotate="-90.0" text="平均值" textFill="#aaaaaa">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <Canvas fx:id="avgCanvasBack" height="300.0" layoutX="30.0" layoutY="17.0" width="1200.0"/>
+                                <Canvas fx:id="avgCanvasAtlas" height="300.0" layoutX="30.0" layoutY="17.0" width="1200.0"/>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="20.0"/>
+                            </VBox.margin>
+                        </Pane>
+                        <Pane prefHeight="340.0" prefWidth="1230.0" style="-fx-border-color: #eee;">
+                            <children>
+                                <Label layoutX="-13.0" layoutY="149.0" rotate="-90.0" text="最小值" textFill="#aaaaaa">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <Canvas fx:id="minCanvasBack" height="300.0" layoutX="30.0" layoutY="17.0" width="1200.0"/>
+                                <Canvas fx:id="minCanvasAtlas" height="300.0" layoutX="30.0" layoutY="17.0" width="1200.0"/>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="20.0"/>
+                            </VBox.margin>
+                        </Pane>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

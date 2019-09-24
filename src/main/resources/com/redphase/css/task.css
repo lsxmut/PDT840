@@ -1,0 +1,32 @@
+@import "atlas.css";
+BorderPane{
+    -fx-background-color: #ffffff; -fx-border-width: 20; -fx-border-color: #eeeeee;
+}
+
+.th {
+    -fx-border-width: 1;
+    -fx-border-color: #eeeeee;
+    -fx-background-color: #eef5f9;
+    -fx-pref-height: 25;
+}
+
+.lab35{
+    -fx-background-color: #f3f4f5;
+}
+
+.table-view:focused{
+    -fx-background-color: #eef5f9;
+    -fx-background-insets: -1.4, -0.3, 1;
+    -fx-background-radius: 2, 0, 0;
+}
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected,
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell .table-cell:selected{
+    -fx-background: #99CCFF;
+    -fx-table-cell-border-color: #fff;
+}
+.table-view:focused:row-selection > .virtual-flow > .clipped-container > .sheet > .table-row-cell:focused,
+.table-view:focused:cell-selection > .virtual-flow > .clipped-container > .sheet > .table-row-cell > .table-cell:focused{
+    -fx-background-color: #99CCFF;
+    -fx-background-insets: 0, 1, 2;
+    -fx-table-cell-border-color: #fff;
+}

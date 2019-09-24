@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane fx:id="mainBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1000.0" stylesheets="@../../css/index.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.redphase.controller.IndexController">
+
+    <left>
+        <BorderPane fx:id="leftPane" prefWidth="160.0" style="-fx-background-color: #555555;" BorderPane.alignment="CENTER">
+            <top>
+                <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="162.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="75.0">
+                            <children>
+                                <ImageView fx:id="avatar" fitHeight="68.0" fitWidth="107.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false" style="-fx-padding: 5;-fx-background-radius: 50; -fx-border-radius: 50;">
+                                    <image>
+                                        <Image url="@../../images/avatar.png"/>
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="20.0">
+                            <children>
+                                <Label fx:id="username" alignment="CENTER" prefHeight="20.0" prefWidth="107.0" text="%index.userName" textFill="WHITE"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </top>
+            <center>
+                <TreeView fx:id="leftMenu" focusTraversable="false" showRoot="false" style="-fx-background-color: #555555;" BorderPane.alignment="CENTER"/>
+            </center>
+        </BorderPane>
+    </left>
+    <center>
+        <TabPane fx:id="tabPane" style="-fx-background-color: #ffffff;" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab fx:id="defaultTab" closable="false" text="%index.tab.home">
+                    <content>
+                        <AnchorPane fx:id="welcomeAnchorPane" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: #F3F4F5; -fx-text-alignment: center; -fx-alignment: center;">
+                            <children>
+                                <VBox fx:id="welcomeVBox" alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefWidth="320.0">
+                                    <children>
+                                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                            <children>
+                                                <ImageView fitHeight="160.0" fitWidth="150.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" smooth="false">
+                                                    <image>
+                                                        <Image url="@../../images/index.png"/>
+                                                    </image>
+                                                    <viewport>
+                                                        <Rectangle2D/>
+                                                    </viewport>
+                                                </ImageView>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="BOTTOM_CENTER" prefHeight="40.0" prefWidth="200.0">
+                                            <children>
+                                                <Label text="%index.info">
+                                                    <font>
+                                                        <Font size="16.0"/>
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER" prefWidth="200.0">
+                                            <children>
+                                                <Label prefHeight="35.0" text="%index.description" textFill="#9a9797">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

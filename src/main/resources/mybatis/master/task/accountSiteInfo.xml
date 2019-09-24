@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redphase.dao.master.task.IAccountSiteInfoDao">
+    <!-- 字段列表 -->
+    <sql id="Base_Column_List">
+         t1.id as "id"
+        ,t1.account_id as "accountId"
+        ,t1.site_code as "siteCode"
+        ,t1.site_name as "siteName"
+        ,t1.test_technology as "testTechnology"
+        ,t1.del_flag as "delFlag"
+        ,t1.create_id as "createId"
+        ,t1.date_created as "dateCreated"
+        ,t1.date_updated as "dateUpdated"
+        ,t1.update_id as "updateId"
+        ,t1.bi_update_ts as "biUpdateTs"
+        ,t1.sort_no as "sortNo"
+    </sql>
+
+    <!-- 根据主键获取信息详情 -->
+    <select id="selectByPrimaryKey" resultType="com.redphase.entity.task.AccountSiteInfo"
+            parameterType="com.redphase.entity.task.AccountSiteInfo">
+        select
+        <include refid="Base_Column_List"/>
+        from account_site_info t1
+        where
+        t1.id = #{id}
+    </select>
+
+    <!-- 新增单条数据 -->
+    <insert id="insert" parameterType="com.redphase.entity.task.AccountSiteInfo">
+        insert into account_site_info (
+            id 
+           ,account_id 
+           ,site_code 
+           ,site_name 
+           ,test_technology 
+           ,del_flag 
+           ,create_id 
+           ,date_created 
+           ,date_updated 
+           ,update_id 
+           ,bi_update_ts 
+           ,sort_no
+        ) values (
+            #{id} 
+           ,#{accountId} 
+           ,#{siteCode} 
+           ,#{siteName} 
+           ,#{testTechnology} 
+           ,0
+           ,#{createId} 
+           ,strftime('%s000','now')
+           ,strftime('%s000','now')
+           ,#{updateId}
+           ,strftime('%s000','now')
+           ,#{sortNo}
+        )
+    </insert>
+
+    <!-- 新增 批量数据 -->
+    <insert id="insertBatch">
+        insert into account_site_info (
+        id
+        ,account_id
+        ,site_code
+        ,site_name
+        ,test_technology
+        ,del_flag
+        ,create_id
+        ,date_created
+        ,date_updated
+        ,update_id
+        ,bi_update_ts
+        ,sort_no
+        ) values
+        <foreach collection="list" item="t" separator=",">
+            (
+            #{t.id}
+            ,#{t.accountId}
+            ,#{t.siteCode}
+            ,#{t.siteName}
+            ,#{t.testTechnology}
+            ,#{t.delFlag}
+            ,#{t.createId}
+            ,strftime('%s000','now')
+            ,strftime('%s000','now')
+            ,#{t.updateId}
+            ,strftime('%s000','now')
+            ,#{t.sortNo}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 数据更新 -->
+    <update id="update" parameterType="com.redphase.entity.task.AccountSiteInfo">
+        update account_site_info set bi_update_ts=strftime('%s000','now')
+        <if test="accountId!=null">,account_id = #{accountId}</if>
+        <if test="siteCode!=null">,site_code = #{siteCode}</if>
+        <if test="siteName!=null">,site_name = #{siteName}</if>
+        <if test="testTechnology!=null">,test_technology = #{testTechnology}</if>
+        <if test="delFlag!=null">,del_flag = #{delFlag}</if>
+        <if test="createId!=null">,create_id = #{createId}</if>
+        <if test="dateUpdated!=null">,date_updated = datetime('now','localtime')</if>
+        <if test="updateId!=null">,update_id = #{updateId}</if>
+        <if test="sortNo!=null">,sort_no = #{sortNo}</if>
+        where
+        id = #{id}
+    </update>
+
+    <!--列表通用条件-->
+    <sql id="list_where_sql">
+        <choose>
+            <when test="delFlag!=null">
+                and t1.del_flag=#{delFlag}
+            </when>
+            <otherwise>
+                and t1.del_flag=0
+            </otherwise>
+        </choose>
+        <if test="accountId!=null">and account_id = #{accountId}</if>
+        <if test="dateBegin!=null and dateBegin!=''">
+            <![CDATA[ and date(t1.date_created/1000,'unixepoch', 'localtime')>=#{dateBegin} ]]>
+        </if>
+        <if test="dateEnd!=null and dateEnd!=''">
+            <![CDATA[ and date(t1.date_created/1000,'unixepoch', 'localtime')<=#{dateEnd} ]]>
+        </if>
+    </sql>
+
+    <!--信息分页 -->
+    <select id="findDataIsPage" parameterType="com.redphase.entity.task.AccountSiteInfo"
+            resultType="com.redphase.entity.task.AccountSiteInfo">
+        select
+        <include refid="Base_Column_List"/>
+        from account_site_info t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.test_technology,t1.sort_no,t1.bi_update_ts
+    </select>
+
+    <!--信息列表 -->
+    <select id="findDataIsList" parameterType="com.redphase.entity.task.AccountSiteInfo"
+            resultType="com.redphase.entity.task.AccountSiteInfo">
+        select
+        <include refid="Base_Column_List"/>
+        from account_site_info t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.test_technology,t1.sort_no,t1.bi_update_ts
+    </select>
+
+    <select id="findNumByAccountSiteInfo" parameterType="com.redphase.dto.task.AccountSiteInfoDto" resultType="int">
+        SELECT (SELECT count(0)-1
+        from account_site_info s WHERE s.account_id = #{accountId}
+        <![CDATA[ AND s.rowid<=si.rowid) as num ]]>
+        FROM account_site_info si WHERE
+        si.account_id = #{accountId} AND si.site_name = #{siteName} and si.test_technology = #{testTechnology}
+    </select>
+</mapper>

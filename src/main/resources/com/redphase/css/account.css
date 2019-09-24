@@ -1,0 +1,47 @@
+@import "atlas.css";
+BorderPane{
+    -fx-background-color: #ffffff;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-color: #eeeeee;
+}
+AnchorPane{
+    -fx-background-color: #ffffff;
+}
+.th {
+    -fx-border-width: 1;
+    -fx-border-color: #eeeeee;
+    -fx-background-color: #eef5f9;
+    -fx-pref-height: 25;
+}
+
+.tab-pane {
+    -fx-tab-min-height: 35;
+    -fx-tab-max-height: 35;
+    -fx-tab-min-width: 100;
+}
+
+.tab-pane > .tab-header-area .tab-label {
+    -fx-border-color: transparent;
+    -fx-stroke: rgba(120, 120, 120, 0.59);
+    -fx-text-fill: #bbbbbb;
+}
+
+.tab-pane > .tab-header-area .tab:selected .tab-label {
+    -fx-text-fill: #0099FF;
+}
+.lab3 {
+    -fx-border-width: 1;
+    -fx-background-color: #f3f4f5;
+    -fx-pref-height: 35;
+}
+
+.tab-pane>*.tab-header-area>*.tab-header-background {
+    -fx-background-color: #f3f4f5;
+}
+
+.successLab{
+    -fx-text-fill: #999999;
+}
+.errorLab{
+    -fx-text-fill: red;
+}

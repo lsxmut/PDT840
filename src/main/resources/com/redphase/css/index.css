@@ -1,0 +1,81 @@
+.tree-view {
+    -fx-border-color: #555555;
+    -fx-border-width: 0;
+}
+
+.tree-view .tree-cell {
+    -fx-font: 15px Tahoma;
+    -fx-stroke: #555555;
+    -fx-background-color: #555555;
+    -fx-text-fill: #a7b1c2;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px 10px 10px;
+}
+
+.tree-view .tree-cell:hover {
+    -fx-text-fill: #0099FF;
+}
+
+.tree-view .tree-cell:selected, .tree-view .tree-cell:selected:hover {
+    -fx-background-color: #333333;
+    -fx-text-fill: #0099FF;
+    -fx-border-color: #333333 #333333 #333333 #0099FF;
+}
+
+.tree-cell:expanded:filled .tree-disclosure-node .arrow,.tree-cell:expanded:filled:hover .tree-disclosure-node .arrow  {
+    -fx-background-color: #0099FF;
+    -fx-border-color: #0099FF;
+}
+
+.tree-cell:filled:selected .tree-disclosure-node .arrow {
+    -fx-border-color: #0099FF;
+}
+
+.tree-cell:filled:selected:hover .tree-disclosure-node .arrow {
+    -fx-border-color: #0099FF;
+}
+
+.tree-cell:expanded {
+    -fx-text-fill: #0099FF;
+    -fx-border-color: #333333 #333333 #555555 #333333;
+}
+
+.tree-view .tree-cell:expanded, .tree-view .tree-cell:expanded:hover {
+    -fx-background-color: #333333;
+    -fx-text-fill: #0099FF;
+    -fx-border-color: #333333 #333333 #555555 #333333;
+}
+
+.tree-cell:expanded .tree-disclosure-node .arrow {
+    -fx-text-fill: #0099FF;
+}
+
+.tab-pane {
+    -fx-tab-min-height: 30;
+    -fx-tab-max-height: 30;
+    -fx-tab-min-width: 100;
+}
+
+.tab-pane > .tab-header-area .tab-label {
+    -fx-border-color: transparent;
+    -fx-stroke: rgba(120, 120, 120, 0.59);
+    -fx-text-fill: #bbbbbb;
+}
+
+.tab-pane > .tab-header-area .tab:selected .tab-label {
+    -fx-text-fill: #0099FF;
+}
+
+#defaultTab {
+    -fx-tab-min-height: 1;
+    -fx-tab-max-height: 1;
+    -fx-tab-min-width: 1;
+}
+
+.image-view {
+    -fx-padding: 5;
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+    -fx-background-color: firebrick;
+}
+

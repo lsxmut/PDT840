@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="dataBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1130.0" style="-fx-border-width:0 0 0 10;" stylesheets="@../../../css/atlas.css"
+            xmlns="http://javafx.com/javafx/9.0.1" fx:controller="com.redphase.controller.nda.data.NdaDataTEVAnalysisController">
+    <top>
+        <TabPane nodeOrientation="LEFT_TO_RIGHT" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab text="各位置横向分析">
+                    <content>
+                        <Pane style="-fx-background-color: #fff;">
+                            <children>
+                                <VBox fillWidth="false" prefWidth="1123.0">
+                                    <children>
+                                        <Label prefHeight="45.0" prefWidth="770.0" text="选择要查看的位置" textFill="#666666">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                            <padding>
+                                                <Insets left="30.0"/>
+                                            </padding>
+                                        </Label>
+                                        <HBox alignment="CENTER_LEFT">
+                                            <children>
+                                                <CheckBox fx:id="qzCheckBox" mnemonicParsing="false" onAction="#toggleSiteChart" selected="true" styleClass="cbox" text="前中"/>
+                                                <CheckBox fx:id="qxCheckBox" mnemonicParsing="false" onAction="#toggleSiteChart" selected="true" styleClass="cbox" text="前下"/>
+                                                <CheckBox fx:id="hsCheckBox" mnemonicParsing="false" onAction="#toggleSiteChart" selected="true" styleClass="cbox" text="后上"/>
+                                                <CheckBox fx:id="hzCheckBox" mnemonicParsing="false" onAction="#toggleSiteChart" selected="true" styleClass="cbox" text="后中"/>
+                                                <CheckBox fx:id="hxCheckBox" mnemonicParsing="false" onAction="#toggleSiteChart" selected="true" styleClass="cbox" text="后下"/>
+                                                <CheckBox fx:id="csCheckBox" mnemonicParsing="false" onAction="#toggleSiteChart" selected="true" styleClass="cbox" text="侧上"/>
+                                                <CheckBox fx:id="czCheckBox" mnemonicParsing="false" onAction="#toggleSiteChart" selected="true" styleClass="cbox" text="侧中"/>
+                                                <CheckBox fx:id="cxCheckBox" mnemonicParsing="false" onAction="#toggleSiteChart" selected="true" styleClass="cbox" text="侧下"/>
+                                            </children>
+                                            <padding>
+                                                <Insets left="30.0"/>
+                                            </padding>
+                                        </HBox>
+                                        <VBox fx:id="qzVBox" styleClass="bline">
+                                            <children>
+                                                <HBox alignment="TOP_CENTER">
+                                                    <children>
+                                                        <Label fx:id="qzTitleLab" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="450.0" text="放电强度图（前中）" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="22.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="正常">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt1" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="关注">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt2" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="预警">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt3" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="检修">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt4" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets right="50.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Pane prefHeight="350.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-150.0" layoutY="160.0" prefHeight="30.0" prefWidth="350.0" rotate="-90.0" text="放电强度(dBuV)" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Canvas fx:id="qzBack" height="350.0" layoutX="50.0" layoutY="10.0" styleClass="bline" width="1050.0"/>
+                                                        <Canvas fx:id="qzAtlas" height="350.0" layoutX="30.0" layoutY="10.0" width="1050.0"/>
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="qxVBox" styleClass="bline">
+                                            <children>
+                                                <HBox alignment="TOP_CENTER">
+                                                    <children>
+                                                        <Label fx:id="qxTitleLab" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="450.0" text="放电强度图（前下）" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="22.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="正常">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt1" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="关注">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt2" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="预警">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt3" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="检修">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt4" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets right="50.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Pane prefHeight="350.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-150.0" layoutY="160.0" prefHeight="30.0" prefWidth="350.0" rotate="-90.0" text="放电强度(dBuV)" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Canvas fx:id="qxBack" height="350.0" layoutX="50.0" layoutY="10.0" width="1050.0"/>
+                                                        <Canvas fx:id="qxAtlas" height="350.0" layoutX="30.0" layoutY="10.0" width="1050.0"/>
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="hsVBox" prefWidth="1100.0" styleClass="bline">
+                                            <children>
+                                                <HBox alignment="TOP_CENTER">
+                                                    <children>
+                                                        <Label fx:id="hsTitleLab" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="450.0" text="放电强度图（后上）" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="22.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="正常">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt1" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="关注">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt2" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="预警">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt3" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="检修">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt4" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets right="50.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Pane prefHeight="350.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-150.0" layoutY="160.0" prefHeight="30.0" prefWidth="350.0" rotate="-90.0" text="放电强度(dBuV)" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Canvas fx:id="hsBack" height="350.0" layoutX="50.0" layoutY="10.0" width="1050.0"/>
+                                                        <Canvas fx:id="hsAtlas" height="350.0" layoutX="30.0" layoutY="10.0" width="1050.0"/>
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="hzVBox" prefWidth="1100.0" styleClass="bline">
+                                            <children>
+                                                <HBox alignment="TOP_CENTER">
+                                                    <children>
+                                                        <Label fx:id="hzTitleLab" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="450.0" text="放电强度图（后中）" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="22.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="正常">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt1" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="关注">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt2" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="预警">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt3" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="检修">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt4" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets right="50.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Pane prefHeight="350.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-150.0" layoutY="160.0" prefHeight="30.0" prefWidth="350.0" rotate="-90.0" text="放电强度(dBuV)" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Canvas fx:id="hzBack" height="350.0" layoutX="50.0" layoutY="10.0" width="1050.0"/>
+                                                        <Canvas fx:id="hzAtlas" height="350.0" layoutX="30.0" layoutY="10.0" width="1050.0"/>
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="hxVBox" prefWidth="1100.0" styleClass="bline">
+                                            <children>
+                                                <HBox alignment="TOP_CENTER">
+                                                    <children>
+                                                        <Label fx:id="hxTitleLab" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="450.0" text="放电强度图（后下）" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="22.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="正常">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt1" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="关注">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt2" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="预警">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt3" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="检修">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt4" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets right="50.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Pane prefHeight="350.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-150.0" layoutY="160.0" prefHeight="30.0" prefWidth="350.0" rotate="-90.0" text="放电强度(dBuV)" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Canvas fx:id="hxBack" height="350.0" layoutX="50.0" layoutY="10.0" width="1050.0"/>
+                                                        <Canvas fx:id="hxAtlas" height="350.0" layoutX="30.0" layoutY="10.0" width="1050.0"/>
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="csVBox" prefWidth="1100.0" styleClass="bline">
+                                            <children>
+                                                <HBox alignment="TOP_CENTER">
+                                                    <children>
+                                                        <Label fx:id="csTitleLab" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="450.0" text="放电强度图（侧上）" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="22.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="正常">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt1" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="关注">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt2" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="预警">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt3" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="检修">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt4" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets right="50.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Pane prefHeight="350.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-150.0" layoutY="160.0" prefHeight="30.0" prefWidth="350.0" rotate="-90.0" text="放电强度(dBuV)" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Canvas fx:id="csBack" height="350.0" layoutX="50.0" layoutY="10.0" width="1050.0"/>
+                                                        <Canvas fx:id="csAtlas" height="350.0" layoutX="30.0" layoutY="10.0" width="1050.0"/>
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="czVBox" prefWidth="1100.0" styleClass="bline">
+                                            <children>
+                                                <HBox alignment="TOP_CENTER">
+                                                    <children>
+                                                        <Label fx:id="czTitleLab" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="450.0" text="放电强度图（侧中）" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="22.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="正常">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt1" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="关注">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt2" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="预警">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt3" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="检修">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt4" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets right="50.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Pane prefHeight="350.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-150.0" layoutY="160.0" prefHeight="30.0" prefWidth="350.0" rotate="-90.0" text="放电强度(dBuV)" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Canvas fx:id="czBack" height="350.0" layoutX="50.0" layoutY="10.0" width="1050.0"/>
+                                                        <Canvas fx:id="czAtlas" height="350.0" layoutX="30.0" layoutY="10.0" width="1050.0"/>
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="cxVBox" prefWidth="1100.0" styleClass="bline">
+                                            <children>
+                                                <HBox alignment="TOP_CENTER">
+                                                    <children>
+                                                        <Label fx:id="cxTitleLab" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="450.0" text="放电强度图（侧下）" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="22.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="正常">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt1" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="关注">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt2" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="预警">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt3" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="检修">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt4" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets right="50.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Pane prefHeight="350.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-150.0" layoutY="160.0" prefHeight="30.0" prefWidth="350.0" rotate="-90.0" text="放电强度(dBuV)" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Canvas fx:id="cxBack" height="350.0" layoutX="50.0" layoutY="10.0" width="1050.0"/>
+                                                        <Canvas fx:id="cxAtlas" height="350.0" layoutX="30.0" layoutY="10.0" width="1050.0"/>
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </Pane>
+                    </content>
+                </Tab>
+                <Tab text="前后面横向分析">
+                    <content>
+                        <Pane prefHeight="900.0" style="-fx-background-color: #fff;">
+                            <children>
+                                <VBox prefWidth="1123.0">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="61.0">
+                                            <padding>
+                                                <Insets left="30.0"/>
+                                            </padding>
+                                        </HBox>
+                                        <VBox fx:id="qVBox" styleClass="bline">
+                                            <children>
+                                                <HBox alignment="TOP_CENTER">
+                                                    <children>
+                                                        <Label fx:id="qTitleLab" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="450.0" text="放电强度图（前）" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="22.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="正常">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt1" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="关注">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt2" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="预警">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt3" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="检修">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt4" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets right="50.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Pane prefHeight="350.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-150.0" layoutY="160.0" prefHeight="30.0" prefWidth="350.0" rotate="-90.0" text="放电强度(dBuV)" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Canvas fx:id="qBack" height="350.0" layoutX="50.0" layoutY="10.0" width="1050.0"/>
+                                                        <Canvas fx:id="qAtlas" height="350.0" layoutX="30.0" layoutY="10.0" width="1050.0"/>
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </VBox>
+                                        <VBox fx:id="hVBox" styleClass="bline">
+                                            <children>
+                                                <HBox alignment="TOP_CENTER">
+                                                    <children>
+                                                        <Label fx:id="hTitleLab" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="450.0" text="放电强度图（后）" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="22.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="正常">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt1" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="关注">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt2" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="预警">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt3" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="检修">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt4" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets right="50.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Pane prefHeight="350.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-150.0" layoutY="160.0" prefHeight="30.0" prefWidth="350.0" rotate="-90.0" text="放电强度(dBuV)" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Canvas fx:id="hBack" height="350.0" layoutX="50.0" layoutY="10.0" width="1050.0"/>
+                                                        <Canvas fx:id="hAtlas" height="350.0" layoutX="30.0" layoutY="10.0" width="1050.0"/>
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </Pane>
+                    </content>
+                </Tab>
+                <Tab text="综合分析">
+                    <content>
+                        <Pane prefHeight="900.0" style="-fx-background-color: #fff;">
+                            <children>
+                                <VBox prefWidth="1123.0">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" prefHeight="61.0">
+                                            <padding>
+                                                <Insets left="30.0"/>
+                                            </padding>
+                                        </HBox>
+                                        <VBox fx:id="zhVBox" styleClass="bline">
+                                            <children>
+                                                <HBox alignment="TOP_CENTER">
+                                                    <children>
+                                                        <Label fx:id="zhTitleLab" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="450.0" text="综合分析结果图" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="22.0"/>
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="正常">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt1" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="关注">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt2" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="预警">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt3" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                        <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="检修">
+                                                            <font>
+                                                                <Font size="14.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt4" text=" "/>
+                                                            </graphic>
+                                                        </Label>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets right="50.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <Pane prefHeight="350.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-150.0" layoutY="160.0" prefHeight="30.0" prefWidth="350.0" rotate="-90.0" text="关注度" textFill="#7e7dab" textOverrun="CLIP" wrapText="true">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <Canvas fx:id="zhBack" height="350.0" layoutX="50.0" layoutY="10.0" width="1050.0"/>
+                                                        <Canvas fx:id="zhAtlas" height="350.0" layoutX="30.0" layoutY="10.0" width="1050.0"/>
+                                                    </children>
+                                                </Pane>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </Pane>
+                    </content>
+                </Tab>
+            </tabs>
+            <BorderPane.margin>
+                <Insets bottom="50.0"/>
+            </BorderPane.margin>
+        </TabPane>
+    </top>
+</BorderPane>

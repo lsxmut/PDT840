@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane fx:id="baseAtlasBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="940.0" style="-fx-background-color: #F3F4F5; -fx-border-width: 10;" stylesheets="@../../css/atlas.css" xmlns="http://javafx.com/javafx/10.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.redphase.controller.convert.ConvertController">
+    <children>
+        <Pane maxWidth="200.0" minWidth="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="80.0" prefWidth="200.0">
+                    <children>
+                        <VBox prefWidth="200.0">
+                            <children>
+                                <HBox>
+                                    <children>
+                                        <Label prefHeight="24.0" style="-fx-border-width: 0 0 0 3; -fx-border-color: #fff #fff #fff #31a1ff;" text="数据筛选">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                            <padding>
+                                                <Insets left="10.0"/>
+                                            </padding>
+                                        </Label>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="8.0" left="5.0" top="10.0"/>
+                                    </VBox.margin>
+                                </HBox>
+                                <Separator/>
+                                <FlowPane>
+                                    <children>
+                                        <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searhData" prefWidth="60.0" styleClass="btn-primary" text="搜索">
+                                            <FlowPane.margin>
+                                                <Insets left="5.0" top="5.0"/>
+                                            </FlowPane.margin>
+                                        </Button>
+                                        <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#loadAccTree" prefWidth="60.0" styleClass="btn-primary" text="刷新">
+                                            <FlowPane.margin>
+                                                <Insets left="5.0" top="5.0"/>
+                                            </FlowPane.margin>
+                                        </Button>
+                                    </children>
+                                </FlowPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </Pane>
+                <Pane layoutY="80.0" prefWidth="200.0">
+                    <children>
+                        <TreeView fx:id="accountTree" pickOnBounds="false" prefHeight="600.0" prefWidth="200.0" showRoot="false" style="-fx-background-color: #fff;"/>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+        <BorderPane fx:id="dataBorderPane" layoutX="200.0" style="-fx-border-width: 0 0 0 10;">
+            <top>
+                <BorderPane prefHeight="45.0" style="-fx-border-width: 0;" BorderPane.alignment="CENTER">
+                    <left>
+                        <Label fx:id="setTitle1" style="-fx-border-width: 0 0 0 3; -fx-border-color: #fff #fff #fff #31a1ff;" text="数据导出" textFill="#333333" BorderPane.alignment="CENTER">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                            <padding>
+                                <Insets left="10.0"/>
+                            </padding>
+                            <BorderPane.margin>
+                                <Insets left="10.0"/>
+                            </BorderPane.margin>
+                        </Label>
+                    </left>
+                    <bottom>
+                        <Separator/>
+                    </bottom>
+                </BorderPane>
+            </top>
+            <center>
+                <TableView fx:id="fileTable" prefHeight="410.0" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="idTd" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" sortable="false">
+                            <graphic>
+                                <CheckBox fx:id="allCheck" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#checkAll" text="#"/>
+                            </graphic>
+                        </TableColumn>
+                        <TableColumn fx:id="typeTd" maxWidth="300.0" minWidth="200.0" prefWidth="200.0" sortable="false" text="类型"/>
+                        <TableColumn fx:id="nameTd" minWidth="200.0" prefWidth="-1.0" sortable="false" text="文件名"/>
+                    </columns>
+                    <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </BorderPane.margin>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                </TableView>
+            </center>
+            <bottom>
+                <TabPane prefHeight="200.0" style="-fx-background-color: #fff;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                    <tabs>
+                        <Tab fx:id="tab1" closable="false" text="文件导出">
+                            <content>
+                                <BorderPane style="-fx-border-width: 0;">
+                                    <center>
+                                        <VBox alignment="CENTER_LEFT">
+                                            <children>
+                                                <HBox>
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="115.0" minWidth="115.0" prefHeight="35.0" prefWidth="115.0" text="输出地区" textFill="#666666">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <HBox.margin>
+                                                                <Insets/>
+                                                            </HBox.margin>
+                                                        </Label>
+                                                        <ChoiceBox fx:id="areaChoiceBox" prefHeight="35.0" prefWidth="200.0">
+                                                            <HBox.margin>
+                                                                <Insets/>
+                                                            </HBox.margin>
+                                                        </ChoiceBox>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="15.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <HBox>
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="115.0" minWidth="115.0" prefHeight="35.0" prefWidth="115.0" text="输出目录" textFill="#666666">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="outFilePathText" prefHeight="35.0" prefWidth="485.0" promptText="数据输出目录">
+                                                            <HBox.margin>
+                                                                <Insets/>
+                                                            </HBox.margin>
+                                                        </TextField>
+                                                        <Button fx:id="filePathButton" alignment="CENTER" contentDisplay="CENTER" maxWidth="55.0" minWidth="55.0" mnemonicParsing="false" onAction="#exportPath" prefHeight="31.0" prefWidth="55.0" style="-fx-background-color: #eee;" styleClass="btn-default" text="***">
+                                                            <HBox.margin>
+                                                                <Insets left="-56.0" top="2.0"/>
+                                                            </HBox.margin>
+                                                        </Button>
+                                                        <Button fx:id="runButton" defaultButton="true" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#exportRun" prefHeight="35.0" prefWidth="100.0" styleClass="btn-primary" text="执行">
+                                                            <HBox.margin>
+                                                                <Insets left="10.0"/>
+                                                            </HBox.margin>
+                                                        </Button>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets right="20.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </center>
+                                    <bottom>
+                                        <VBox BorderPane.alignment="CENTER">
+                                            <children>
+                                                <HBox>
+                                                    <children>
+                                                        <Label fx:id="progressText" contentDisplay="RIGHT" text="正在执行地区数据导出程序,请等待---" textAlignment="RIGHT" textFill="#0000004d"/>
+                                                        <Label fx:id="progressValue" text="/" textFill="#0000004d"/>
+                                                        <Label text="---" textFill="#0000004d"/>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets left="25.0"/>
+                                                    </VBox.margin>
+                                                </HBox>
+                                                <VBox maxHeight="5.0" minHeight="5.0" prefHeight="5.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="RIGHT" maxHeight="8.0" minWidth="8.0" prefHeight="8.0" prefWidth="680.0" style="-fx-background-color: #bbb;" textAlignment="RIGHT" textFill="#00000080"/>
+                                                        <Label fx:id="progressLine" alignment="CENTER" contentDisplay="RIGHT" prefHeight="8.0" prefWidth="10.0" style="-fx-background-color: #99CCFF;" textAlignment="RIGHT" textFill="#00000080">
+                                                            <VBox.margin>
+                                                                <Insets top="-15.0"/>
+                                                            </VBox.margin>
+                                                        </Label>
+                                                    </children>
+                                                    <VBox.margin>
+                                                        <Insets bottom="-2.0" left="25.0"/>
+                                                    </VBox.margin>
+                                                </VBox>
+                                            </children>
+                                            <BorderPane.margin>
+                                                <Insets/>
+                                            </BorderPane.margin>
+                                        </VBox>
+                                    </bottom>
+                                </BorderPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="tab2" closable="false" text="日志">
+                            <content>
+                                <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 0; -fx-background-color: #fff;">
+                                    <center>
+                                        <ListView fx:id="logsList" style="-fx-border-width: 0; -fx-background-color: #fff;" BorderPane.alignment="CENTER">
+                                            <BorderPane.margin>
+                                                <Insets bottom="5.0" left="5.0" right="10.0" top="5.0"/>
+                                            </BorderPane.margin>
+                                        </ListView>
+                                    </center>
+                                </BorderPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                    <BorderPane.margin>
+                        <Insets right="1.0"/>
+                    </BorderPane.margin>
+                </TabPane>
+            </bottom>
+        </BorderPane>
+        <Pane fx:id="mlayer" opacity="0.72" style="-fx-background-color: #eeeeee;" visible="false"/>
+        <VBox fx:id="mVBox" alignment="CENTER" visible="false">
+            <children>
+                <HBox fx:id="mHBox" alignment="CENTER" fillHeight="false">
+                    <children>
+                        <Pane fx:id="mFrom" prefHeight="430.0" prefWidth="780.0" style="-fx-background-color: #FFFFFF;">
+                            <children>
+                                <Label fx:id="setTitle" layoutX="14.0" layoutY="22.0" style="-fx-border-width: 0 0 0 3; -fx-border-color: #fff #fff #fff #31a1ff;" text="筛选条件" textFill="#333333">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets left="10.0"/>
+                                    </padding>
+                                </Label>
+                                <Separator layoutY="64.0" prefWidth="780.0"/>
+                                <Pane fx:id="closeSet" layoutX="715.0" prefHeight="65.0" prefWidth="65.0" style="-fx-cursor: hand;">
+                                    <children>
+                                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="25.0" layoutY="25.0" pickOnBounds="true" smooth="false">
+                                            <image>
+                                                <Image url="@../../images/close.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="setShowPane" layoutY="65.0" prefHeight="365.0" prefWidth="780.0">
+                                    <children>
+                                        <Pane>
+                                            <children>
+                                                <VBox prefWidth="760.0">
+                                                    <children>
+                                                        <HBox prefHeight="70.0">
+                                                            <children>
+                                                                <Label alignment="CENTER_RIGHT" maxWidth="115.0" minWidth="115.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="70.0" prefWidth="115.0" text="电力局：" textFill="#666666">
+                                                                    <font>
+                                                                        <Font size="16.0"/>
+                                                                    </font>
+                                                                    <HBox.margin>
+                                                                        <Insets/>
+                                                                    </HBox.margin>
+                                                                </Label>
+                                                                <TextField fx:id="electricBureauText" prefHeight="40.0" prefWidth="400.0" promptText="请输入电业局名称">
+                                                                    <HBox.margin>
+                                                                        <Insets top="15.0"/>
+                                                                    </HBox.margin>
+                                                                </TextField>
+                                                                <Label alignment="CENTER_RIGHT" maxWidth="115.0" minWidth="115.0" prefHeight="70.0" prefWidth="115.0" text="变电站：" textFill="#666666">
+                                                                    <font>
+                                                                        <Font size="16.0"/>
+                                                                    </font>
+                                                                    <HBox.margin>
+                                                                        <Insets left="30.0"/>
+                                                                    </HBox.margin>
+                                                                </Label>
+                                                                <TextField fx:id="substationText" prefHeight="40.0" prefWidth="400.0" promptText="请输入变电站名称">
+                                                                    <HBox.margin>
+                                                                        <Insets top="15.0"/>
+                                                                    </HBox.margin>
+                                                                </TextField>
+                                                            </children>
+                                                        </HBox>
+                                                        <HBox prefHeight="70.0">
+                                                            <children>
+                                                                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="115.0" minWidth="115.0" prefHeight="70.0" prefWidth="115.0" text="设备类型：" textFill="#666666">
+                                                                    <font>
+                                                                        <Font size="16.0"/>
+                                                                    </font>
+                                                                    <HBox.margin>
+                                                                        <Insets/>
+                                                                    </HBox.margin>
+                                                                </Label>
+                                                                <ChoiceBox fx:id="deviceTypeChoiceBox" prefHeight="40.0" prefWidth="400.0">
+                                                                    <HBox.margin>
+                                                                        <Insets top="15.0"/>
+                                                                    </HBox.margin>
+                                                                </ChoiceBox>
+                                                                <Label alignment="CENTER_RIGHT" maxWidth="115.0" minWidth="115.0" prefHeight="70.0" prefWidth="115.0" text="电压等级(kV)：" textFill="#666666">
+                                                                    <font>
+                                                                        <Font size="16.0"/>
+                                                                    </font>
+                                                                    <HBox.margin>
+                                                                        <Insets left="30.0"/>
+                                                                    </HBox.margin>
+                                                                </Label>
+                                                                <ChoiceBox fx:id="voltageLevelChoiceBox" prefHeight="40.0" prefWidth="400.0">
+                                                                    <HBox.margin>
+                                                                        <Insets top="15.0"/>
+                                                                    </HBox.margin>
+                                                                </ChoiceBox>
+                                                            </children>
+                                                        </HBox>
+                                                        <HBox prefHeight="70.0">
+                                                            <children>
+                                                                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="115.0" minWidth="115.0" prefHeight="70.0" prefWidth="115.0" text="设备名称：" textFill="#666666">
+                                                                    <font>
+                                                                        <Font size="16.0"/>
+                                                                    </font>
+                                                                    <HBox.margin>
+                                                                        <Insets/>
+                                                                    </HBox.margin>
+                                                                </Label>
+                                                                <TextField fx:id="deviceNameText" prefHeight="40.0" prefWidth="400.0" promptText="设备名称">
+                                                                    <HBox.margin>
+                                                                        <Insets top="15.0"/>
+                                                                    </HBox.margin>
+                                                                </TextField>
+                                                                <Label alignment="CENTER_RIGHT" maxWidth="115.0" minWidth="115.0" prefHeight="70.0" prefWidth="115.0" text="检测技术：" textFill="#666666">
+                                                                    <font>
+                                                                        <Font size="16.0"/>
+                                                                    </font>
+                                                                    <HBox.margin>
+                                                                        <Insets left="30.0"/>
+                                                                    </HBox.margin>
+                                                                </Label>
+                                                                <ChoiceBox fx:id="testTechnologyChoiceBox" prefHeight="40.0" prefWidth="400.0">
+                                                                    <HBox.margin>
+                                                                        <Insets top="15.0"/>
+                                                                    </HBox.margin>
+                                                                </ChoiceBox>
+                                                            </children>
+                                                        </HBox>
+                                                        <HBox prefHeight="70.0">
+                                                            <children>
+                                                                <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" maxWidth="115.0" minWidth="115.0" prefHeight="70.0" prefWidth="115.0" text="出厂日期：" textFill="#666666">
+                                                                    <font>
+                                                                        <Font size="16.0"/>
+                                                                    </font>
+                                                                    <HBox.margin>
+                                                                        <Insets/>
+                                                                    </HBox.margin>
+                                                                </Label>
+                                                                <DatePicker fx:id="produceDateDatePicker" prefHeight="40.0" prefWidth="400.0" promptText="点击输入出厂日期">
+                                                                    <HBox.margin>
+                                                                        <Insets top="15.0"/>
+                                                                    </HBox.margin>
+                                                                </DatePicker>
+                                                                <Label alignment="CENTER_RIGHT" maxWidth="115.0" minWidth="115.0" prefHeight="70.0" prefWidth="115.0" text="投运日期：" textFill="#666666">
+                                                                    <font>
+                                                                        <Font size="16.0"/>
+                                                                    </font>
+                                                                    <HBox.margin>
+                                                                        <Insets left="30.0"/>
+                                                                    </HBox.margin>
+                                                                </Label>
+                                                                <DatePicker fx:id="useDateDatePicker" prefHeight="40.0" prefWidth="400.0" promptText="点击输入投运日期">
+                                                                    <HBox.margin>
+                                                                        <Insets top="15.0"/>
+                                                                    </HBox.margin>
+                                                                </DatePicker>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </Pane>
+                                        <Pane layoutX="250.0" layoutY="300.0" prefHeight="50.0" prefWidth="280.0">
+                                            <children>
+                                                <Button cancelButton="true" mnemonicParsing="false" onAction="#onReset" prefHeight="50.0" prefWidth="130.0" styleClass="btn-cancel" text="重置"/>
+                                                <Button defaultButton="true" layoutX="150.0" mnemonicParsing="false" onAction="#setShowDone" prefHeight="50.0" prefWidth="130.0" styleClass="btn-primary" text="确定"/>
+                                            </children>
+                                        </Pane>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </Pane>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

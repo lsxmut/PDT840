@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redphase.dao.master.sys.ISysVariableDao">
+    <!-- 字段列表 -->
+    <sql id="Base_Column_List">
+         t1.id as "id"
+        ,t1.code as "code"
+        ,t1.name as "name"
+        ,t1.value as "value"
+        ,t1.parent_id as "parentId"
+        ,t1.memo as "memo"
+        ,t1.version as "version"
+        ,t1.order_no as "orderNo"
+        ,t1.del_flag as "delFlag"
+        ,t1.create_id as "createId"
+        ,t1.date_created as "dateCreated"
+        ,t1.date_updated as "dateUpdated"
+    </sql>
+
+    <!-- 根据主键获取信息详情 -->
+    <select id="selectByPrimaryKey" resultType="com.redphase.entity.sys.SysVariable" parameterType="com.redphase.entity.sys.SysVariable">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_variable t1
+        where
+        t1.id = #{id}
+    </select>
+    <select id="findDataByCode" resultType="com.redphase.entity.sys.SysVariable" parameterType="com.redphase.entity.sys.SysVariable">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_variable t1
+        where
+        t1.code = #{code}
+    </select>
+
+    <!-- 新增单条数据 -->
+    <insert id="insert" parameterType="com.redphase.entity.sys.SysVariable" >
+        insert into sys_variable (
+            id
+           ,code
+           ,name 
+           ,value
+           ,parent_id
+           ,memo
+           ,version 
+           ,order_no 
+           ,del_flag 
+           ,create_id 
+           ,date_created 
+           ,date_updated 
+        ) values (
+            #{id}
+           ,#{code}
+           ,#{name} 
+           ,#{value}
+           ,#{parentId}
+           ,#{memo}
+           ,0
+           ,#{orderNo} 
+           ,0
+           ,#{createId} 
+           ,strftime('%s000','now')
+           ,strftime('%s000','now')
+        )
+    </insert>
+
+
+    <!-- 数据更新 -->
+    <update id="update" parameterType="com.redphase.entity.sys.SysVariable">
+        update sys_variable set date_updated=strftime('%s000','now') ,version=version+1
+             <if test="code!=null">,code = #{code}</if>
+             <if test="name!=null">,name = #{name}</if>
+             <if test="value!=null">,value = #{value}</if>
+             ,parent_id = #{parentId}
+             <if test="memo!=null">,memo = #{memo}</if>
+             <if test="orderNo!=null">,order_no = #{orderNo}</if>
+             <if test="createId!=null">,create_id = #{createId}</if>
+        where
+        id = #{id}
+    </update>
+
+    <!--列表通用条件-->
+    <sql id="list_where_sql">
+        <choose>
+            <when test="delFlag!=null">
+                and t1.del_flag=#{delFlag}
+            </when>
+            <otherwise>
+                and t1.del_flag=0
+            </otherwise>
+        </choose>
+        <if test="keyword!=null and keyword!=''">
+            and t1.name like '%'||#{keyword}||'%'
+        </if>
+        <if test="dateBegin!=null and dateBegin!=''">
+            <![CDATA[ and date(t1.date_created/1000,'unixepoch', 'localtime')>=#{dateBegin} ]]>
+        </if>
+        <if test="dateEnd!=null and dateEnd!=''">
+            <![CDATA[ and date(t1.date_created/1000,'unixepoch', 'localtime')<=#{dateEnd} ]]>
+        </if>
+    </sql>
+
+    <!--信息分页 -->
+    <select id="findDataIsPage" parameterType="com.redphase.entity.sys.SysVariable" resultType="com.redphase.entity.sys.SysVariable">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_variable t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.order_no desc,t1.date_created desc
+    </select>
+
+    <!--信息列表 -->
+    <select id="findDataIsList" parameterType="com.redphase.entity.sys.SysVariable" resultType="com.redphase.entity.sys.SysVariable">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_variable t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.order_no desc,t1.date_created desc
+    </select>
+    <select id="findChildDataIsList" parameterType="com.redphase.entity.sys.SysVariable" resultType="com.redphase.entity.sys.SysVariable">
+        select
+         t1.id as "id"
+        ,t1.code as "code"
+        ,t1.name as "name"
+        ,t1.value as "value"
+        ,t1.parent_id as "parentId"
+        ,t1.memo as "memo"
+        from sys_variable t1
+        inner join sys_variable t2 on t2.id=t1.parent_id and t2.del_flag=0
+        where t1.del_flag=0 and t2.code=#{code}
+        order by t1.order_no desc,t1.date_created desc
+    </select>
+</mapper>

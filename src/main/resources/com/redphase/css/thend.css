@@ -1,0 +1,40 @@
+@import "common.css";
+
+BorderPane {
+    -fx-background-color: #ffffff;
+    -fx-border-width: 10 0 0 10;
+    -fx-border-color: #F3F4F5;
+}
+
+.table-view {
+    -fx-border-color: #ffffff;
+    -fx-background-color: #ffffff;
+}
+
+.table-view .table-cell {
+    -fx-font-size: 12px;
+    -fx-font-family: "Microsoft YaHei UI";
+    -fx-text-fill: #333333;
+    -fx-padding: 5px 5px 5px 5px;
+    -fx-cursor: hand;
+}
+
+.default-color0.chart-series-line {
+    -fx-stroke:red;
+    -fx-stroke-width: 3px;
+    -fx-stroke-style: dotted;-fx-border-style: dotted;
+}
+.default-color1.chart-series-line {
+    -fx-stroke-width: 1px;
+    -fx-stroke-style: dotted;-fx-border-style: dotted;
+}
+
+.default-color2.chart-series-line {
+    -fx-stroke-width: 1px;
+    -fx-stroke-style: dotted;-fx-border-style: dotted;
+}
+
+.default-color3.chart-series-line {
+    -fx-stroke-width: 1px;
+    -fx-stroke-style: dotted;-fx-border-style: dotted;
+}

@@ -1,0 +1,7 @@
+logs/
+.idea/
+*.iml
+build/
+target/
+cookie/
+src/main/java/META-INF/

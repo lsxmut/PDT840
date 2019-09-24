@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redphase.dao.slave.nda.INdaLcDao">
+    <!-- 字段列表 -->
+    <sql id="Base_Column_List">
+         t1.id as "id"
+        ,t1.data_analyze_id as "dataAnalyzeId"
+        ,t1.x1 as "x1"
+        ,t1.x2 as "x2"
+        ,t1.x3 as "x3"
+        ,t1.x4 as "x4"
+        ,t1.x5 as "x5"
+        ,t1.create_id as "createId"
+        ,t1.date_created as "dateCreated"
+        ,t1.date_updated as "dateUpdated"
+    </sql>
+
+    <!-- 根据主键获取信息详情 -->
+    <select id="selectByPrimaryKey" resultType="com.redphase.entity.atlas.DataLc" parameterType="com.redphase.entity.atlas.DataLc">
+        select
+        <include refid="Base_Column_List"/>
+        from data_lc t1
+        where
+        t1.data_analyze_id = #{dataAnalyzeId}
+    </select>
+
+    <!-- 新增单条数据 -->
+    <insert id="insert" parameterType="com.redphase.entity.atlas.DataLc">
+        insert into data_lc (
+            id 
+           ,data_analyze_id
+           ,x1 
+           ,x2 
+           ,x3 
+           ,x4 
+           ,x5 
+           ,create_id 
+           ,date_created 
+           ,date_updated 
+        ) values (
+            #{id} 
+           ,#{dataAnalyzeId}
+           ,#{x1} 
+           ,#{x2} 
+           ,#{x3} 
+           ,#{x4} 
+           ,#{x5} 
+           ,#{createId} 
+           ,strftime('%s000','now')
+           ,strftime('%s000','now')
+        )
+    </insert>
+
+
+    <!-- 数据更新 -->
+    <update id="update" parameterType="com.redphase.entity.atlas.DataLc">
+        update data_lc set date_updated = strftime('%s000','now')
+        <if test="x1!=null">,x1 = #{x1}</if>
+        <if test="x2!=null">,x2 = #{x2}</if>
+        <if test="x3!=null">,x3 = #{x3}</if>
+        <if test="x4!=null">,x4 = #{x4}</if>
+        <if test="x5!=null">,x5 = #{x5}</if>
+        where
+        data_analyze_id = #{dataAnalyzeId}
+    </update>
+
+    <!--列表通用条件-->
+    <sql id="list_where_sql">
+        and t1.data_analyze_id = #{dataAnalyzeId}
+    </sql>
+
+    <!--信息分页 -->
+    <select id="findDataIsPage" parameterType="com.redphase.entity.atlas.DataLc" resultType="com.redphase.entity.atlas.DataLc">
+        select
+        <include refid="Base_Column_List"/>
+        from data_lc t1
+        where 1=1
+        <include refid="list_where_sql"/>
+
+    </select>
+
+    <!--信息列表 -->
+    <select id="findDataIsList" parameterType="com.redphase.entity.atlas.DataLc" resultType="com.redphase.entity.atlas.DataLc">
+        select
+        <include refid="Base_Column_List"/>
+        from data_lc t1
+        where 1=1
+        <include refid="list_where_sql"/>
+    </select>
+
+    <select id="findDataMaxByMap" resultType="com.redphase.entity.atlas.DataLc" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List"/>
+        from data_lc t1
+        inner join data_analyze t2 on t1.data_analyze_id = t2.id
+        where t2.data_device_id = #{dataDeviceId}
+        order by t1.x4 desc
+        limit 1
+    </select>
+</mapper>

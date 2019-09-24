@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane fx:id="dataBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1133.0" style="-fx-border-width: 0 0 0 0;" stylesheets="@../../../css/atlas.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.redphase.controller.atlas.data.AtlasSiteImagesController">
+
+    <right>
+        <Pane prefWidth="260.0" style="-fx-border-width:0 0 0 10; -fx-border-color: #fff #fff #fff #eee;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="20.0" layoutY="14.0" text="检测参数">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Label>
+                <VBox layoutX="20.0" layoutY="50.0" prefHeight="640.0" prefWidth="260.0">
+                    <children>
+                        <Label fx:id="bdzL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="85.0" text="变电站名称：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="dydjL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="102.0" text="电压等级(kV)：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="sbL" prefHeight="40.0" prefWidth="426.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="72.0" text="设备名称：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="wzL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="130.0" text="被测部位和测试点：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="cssjL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="74.0" text="测试时间：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label prefHeight="40.0" prefWidth="406.0" text="--" fx:id="xwwyL">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="100.0" text="相位位移(度)：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="ckyzL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="71.0" text="参考阈值：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="tbfsL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="72.0" text="同步方式：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="tbplL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="101.0" text="同步频率(Hz)：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label prefHeight="40.0" prefWidth="406.0" text="--" fx:id="xtplL">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="102.0" text="系统频率(Hz)：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="mcL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="92.0" text="脉冲(个/秒)：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="ldL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="53.0" text="烈度：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="zdzL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="58.0" text="最大值：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="fdlxL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="73.0" text="放电类型：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="fdzyL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="72.0" text="放大增益：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="qzsjL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="72.0" text="前置衰减：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="qzzyL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="72.0" text="前置增益：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="kmsjL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="100.0" text="开门时间(us)：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="bssjL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="106.0" text="闭锁时间(ms)：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="ddsjL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="108.0" text="等待时间(ms)：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="yxzL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="64.0" text="有效值：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="f1flL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="72.0" text="ｆ１分量：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                        <Label fx:id="f2flL" prefHeight="40.0" prefWidth="406.0" text="--">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                            <graphic>
+                                <Label prefHeight="40.0" prefWidth="72.0" text="ｆ２分量：">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                        </Label>
+                    </children>
+                </VBox>
+            </children>
+        </Pane>
+    </right>
+    <center>
+        <BorderPane fx:id="leftPane" prefHeight="700.0" prefWidth="873.0" style="-fx-border-width: 0;" BorderPane.alignment="CENTER">
+            <top>
+                <Label prefHeight="35.0" text="截图" BorderPane.alignment="CENTER_LEFT">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                    <BorderPane.margin>
+                        <Insets left="20.0"/>
+                    </BorderPane.margin>
+                </Label>
+            </top>
+            <bottom>
+                <HBox alignment="CENTER" prefHeight="70.0" prefWidth="863.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Button fx:id="prevButton" disable="true" mnemonicParsing="false" onAction="#prev" prefHeight="40.0" prefWidth="130.0" styleClass="btn-primary" text="上一张"/>
+                        <Label fx:id="pageNumberL" alignment="CENTER" contentDisplay="CENTER" disable="true" prefHeight="27.0" prefWidth="167.0" text="1/1">
+                            <font>
+                                <Font size="20.0"/>
+                            </font>
+                        </Label>
+                        <Button fx:id="nextButton" disable="true" mnemonicParsing="false" onAction="#next" prefHeight="40.0" prefWidth="130.0" styleClass="btn-primary" text="下一张"/>
+                    </children>
+                </HBox>
+            </bottom>
+            <center>
+                <ImageView fx:id="currentImageView" fitHeight="550.0" fitWidth="850.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                    <image>
+                        <Image url="@../../../../../../../../../../../User/Pictures/22.png"/>
+                    </image>
+                </ImageView>
+            </center>
+        </BorderPane>
+    </center>
+
+</BorderPane>

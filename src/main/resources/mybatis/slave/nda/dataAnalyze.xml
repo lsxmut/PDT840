@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redphase.dao.slave.nda.INdaAnalyzeDao">
+    <!-- 字段列表 -->
+    <sql id="Base_Column_List">
+         t1.id as "id"
+        ,t1.data_device_id as "dataDeviceId"
+        ,t1.data_device_site_id as "dataDeviceSiteId"
+        ,t1.order_no as "orderNo"
+        ,t1.data_source as "dataSource"
+        ,t1.data_format as "dataFormat"
+        ,t1.screenshots as "screenshots"
+        ,t1.photos as "photos"
+        ,t1.audios as "audios"
+        ,t1.file_url as "fileUrl"
+        ,t1.create_id as "createId"
+        ,t1.date_created as "dateCreated"
+        ,t1.date_updated as "dateUpdated"
+    </sql>
+
+    <!-- 根据主键获取信息详情 -->
+    <select id="selectByPrimaryKey" resultType="com.redphase.entity.atlas.DataAnalyze" parameterType="com.redphase.entity.atlas.DataAnalyze">
+        select
+        <include refid="Base_Column_List"/>
+        from data_analyze t1
+        where
+        t1.id = #{id}
+    </select>
+
+    <!-- 新增单条数据 -->
+    <insert id="insert" parameterType="com.redphase.entity.atlas.DataAnalyze">
+        insert into data_analyze (
+            id 
+           ,data_device_id 
+           ,data_device_site_id 
+           ,order_no
+           ,data_source
+           ,data_format
+           ,screenshots 
+           ,photos
+           ,audios
+           ,file_url
+           ,create_id 
+           ,date_created 
+           ,date_updated 
+        ) values (
+            #{id} 
+           ,#{dataDeviceId} 
+           ,#{dataDeviceSiteId} 
+           ,#{orderNo}
+           ,#{dataSource}
+           ,#{dataFormat} 
+           ,#{screenshots} 
+           ,#{photos}
+           ,#{audios}
+           ,#{fileUrl}
+           ,#{createId} 
+           ,strftime('%s000','now')
+           ,strftime('%s000','now')
+        )
+    </insert>
+
+
+    <!-- 数据更新 -->
+    <update id="update" parameterType="com.redphase.entity.atlas.DataAnalyze">
+        update data_analyze set date_updated = strftime('%s000','now')
+        <if test="dataDeviceId!=null">,data_device_id = #{dataDeviceId}</if>
+        <if test="dataDeviceSiteId!=null">,data_device_site_id = #{dataDeviceSiteId}</if>
+        <if test="orderNo!=null">,order_no = #{orderNo}</if>
+        <if test="dataSource!=null">,data_source = #{dataSource}</if>
+        <if test="dataFormat!=null">,data_format = #{dataFormat}</if>
+        <if test="screenshots!=null">,screenshots = #{screenshots}</if>
+        <if test="photos!=null">,photos = #{photos}</if>
+        <if test="audios!=null">,audios = #{audios}</if>
+        <if test="fileUrl!=null">,file_url = #{fileUrl}</if>
+        where
+        id = #{id}
+    </update>
+
+    <!--列表通用条件-->
+    <sql id="list_where_sql">
+        <if test="dataFormat!=null">and t1.data_format = #{dataFormat}</if>
+        <if test="dataSource!=null">and t1.data_source = #{dataSource}</if>
+        <if test="orderNo!=null">and t1.order_no = #{orderNo}</if>
+        <if test="fileUrl!=null">and t1.file_url = #{fileUrl}</if>
+        <if test="dataDeviceSiteId!=null">and t1.data_device_site_id = #{dataDeviceSiteId}</if>
+        <if test="dataDeviceId!=null">and t1.data_device_id = #{dataDeviceId}</if>
+    </sql>
+
+    <!--信息分页 -->
+    <select id="findDataIsPage" parameterType="com.redphase.entity.atlas.DataAnalyze" resultType="com.redphase.entity.atlas.DataAnalyze">
+        select
+        <include refid="Base_Column_List"/>
+        from data_analyze t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.order_no asc
+    </select>
+
+    <!--信息列表 -->
+    <select id="findDataIsList" parameterType="com.redphase.entity.atlas.DataAnalyze" resultType="com.redphase.entity.atlas.DataAnalyze">
+        select
+        <include refid="Base_Column_List"/>
+        from data_analyze t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.order_no asc
+    </select>
+
+    <select id="findDataByDataSource" parameterType="com.redphase.entity.atlas.DataAnalyze" resultType="com.redphase.entity.atlas.DataAnalyze">
+        select
+        <include refid="Base_Column_List"/>
+        from data_analyze t1
+        where t1.data_format = #{dataFormat}
+        and t1.data_source = #{dataSource}
+        and t1.order_no = #{orderNo}
+        and t1.file_url = #{fileUrl}
+        <choose>
+            <when test="dataSource==2">
+                and t1.data_device_site_id = #{dataDeviceSiteId}
+            </when>
+            <otherwise>
+                and t1.data_device_id = #{dataDeviceId}
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--查询多个设备的所有检测文件-->
+    <select id="findDataByDataDeviceIds" resultType="com.redphase.entity.atlas.DataAnalyze" parameterType="string">
+        select
+        <include refid="Base_Column_List"/>
+        from data_analyze t1
+        where 1=1
+        <if test="ids != null and ids !=''">
+            and t1.data_device_id in (${ids})
+        </if>
+    </select>
+
+    <select id="thendSearch" resultType="com.redphase.entity.atlas.DataAnalyze" parameterType="java.util.Map">
+        select da.id,da.file_url as fileUrl,da.data_format as dataFormat
+        from data_analyze da
+        inner join data_device dd on da.data_device_id = dd.id
+        left join data_device_site dds on dd.id = dds.data_device_id
+        where 1=1
+        <if test="substations!=null">
+            and dd.substation = #{substations}
+        </if>
+        <if test="deviceName!=null">
+            and dd.device_name = #{deviceName}
+        </if>
+        <if test="technology!=null">
+            and dd.test_technology = #{technology}
+        </if>
+        <if test="position!=null">
+            and dds.site_name = #{position}
+        </if>
+        <choose>
+            <when test="type!=null">
+                and da.data_format = #{type}
+            </when>
+            <otherwise>
+                and da.data_format in ('TEV_XJ','TEV_TJ','AA_XJ','AA_TJ','HFCT_XJ','HFCT_TJ','AE_XJ','AE_TJ','UHF_TJ_1','UHF_TJ_2')
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="findListByDevice" resultType="com.redphase.entity.atlas.DataAnalyze" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List"/>
+        ,t2.id as "dataDevice.id"
+        ,t2.date_detection as "dataDevice.dateDetection"
+        ,t2.test_technology as "dataDevice.testTechnology"
+        ,t2.electric_bureau as "dataDevice.electricBureau"
+        ,t2.substation as "dataDevice.substation"
+        ,t2.voltage_level as "dataDevice.voltageLevel"
+        ,t2.device_type as "dataDevice.deviceType"
+        ,t2.device_name as "dataDevice.deviceName"
+        ,t2.space_name as "dataDevice.spaceName"
+        ,t2.folder_path as "dataDevice.folderPath"
+        ,t2.sort_no as "dataDevice.sortNo"
+        ,t3.id as "dataDeviceSite.id"
+        ,t3.data_device_id as "dataDeviceSite.dataDeviceId"
+        ,t3.site_name as "dataDeviceSite.siteName"
+        ,t3.space_name as "dataDeviceSite.spaceName"
+        ,t3.folder_path as "dataDeviceSite.folderPath"
+        ,t3.create_id as "dataDeviceSite.createId"
+        ,t3.date_created as "dataDeviceSite.dateCreated"
+        ,t3.date_updated as "dataDeviceSite.dateUpdated"
+        ,t3.sort_no as "dataDeviceSite.sortNo"
+        from data_analyze t1
+        inner join data_device t2 on t1.data_device_id = t2.id
+        left join data_device_site t3 on t1.data_device_site_id = t3.id
+        where 1=1
+        <if test="dataSource!=null">      and t1.data_source = #{dataSource}</if>
+        <if test="orderNo!=null">         and t1.order_no = #{orderNo}</if>
+        <if test="dataDeviceId!=null">    and t1.data_device_id = #{dataDeviceId}</if>
+        <if test="dataDeviceSiteId!=null">and t1.data_device_site_id = #{dataDeviceSiteId}</if>
+        <if test="fileUrl!=null">         and t1.file_url = #{fileUrl}</if>
+
+        <if test="dateDetection!=null">   and t2.date_detection = #{dateDetection}</if>
+        <if test="testTechnology!=null">  and t2.test_technology = #{testTechnology}</if>
+        <if test="electricBureau!=null">  and t2.electric_bureau = #{electricBureau}</if>
+        <if test="substation!=null">      and t2.substation = #{substation}</if>
+        <if test="voltageLevel!=null">    and t2.voltage_level = #{voltageLevel}</if>
+        <if test="deviceType!=null">      and t2.device_type = #{deviceType}</if>
+        <if test="deviceName!=null">      and t2.device_name = #{deviceName}</if>
+        <if test="spaceName!=null">       and t2.space_name = #{spaceName}</if>
+        <if test="folderPath!=null">      and t2.folder_path = #{folderPath}</if>
+        <choose>
+            <when test="dataFormat!=null">
+                and t1.data_format = #{dataFormat}
+            </when>
+            <otherwise>
+                and t1.data_format in (
+                 'TEV_XJ' ,'TEV_XJZS'
+                ,'HFCT_TJ','HFCT_TJZS'
+                ,'UHF_TJ_1','UHF_TJZS_1'
+                ,'UHF_TJ_2','UHF_TJZS_2'
+                ,'AA_XJ','AA_XJZS'
+                ,'AA_TJ','AA_TJZS'
+                ,'AA_FX'
+                ,'AA_BX'
+                ,'AE_XJ','AE_XJZS'
+                ,'AE_TJ','AE_TJZS'
+                ,'AE_FX'
+                ,'AE_BX'
+                )
+            </otherwise>
+        </choose>
+        order by t1.order_no asc
+    </select>
+</mapper>

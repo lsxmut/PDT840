@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" style="-fx-border-color: 0; -fx-background-color: #fff;" stylesheets="@../../css/user.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.redphase.controller.user.LogOperationController">
+    <children>
+        <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="800.0">
+            <children>
+                <Label alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="操作人员：" textFill="#666666">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="2.0" />
+                    </padding>
+                </Label>
+                <Label fx:id="createNameL" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #f3f4f5;">
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </Label>
+                <Label alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="操作日期：" textFill="#666666">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="2.0" />
+                    </padding>
+                </Label>
+                <Label fx:id="dateCreatedL" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #f3f4f5;">
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </Label>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="800.0">
+            <children>
+                <Label alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="操作类型：" textFill="#666666">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="2.0" />
+                    </padding>
+                </Label>
+                <Label fx:id="typeL" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #f3f4f5;">
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </Label>
+                <Label alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="备注:" textFill="#666666">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="2.0" />
+                    </padding>
+                </Label>
+                <Label fx:id="memoL" prefHeight="35.0" prefWidth="400.0" style="-fx-background-color: #f3f4f5;">
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </Label>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefWidth="800.0">
+            <children>
+                <Label alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="详细记录：" textFill="#666666">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="2.0" />
+                    </padding>
+                </Label>
+                <Label fx:id="detailInfoL" alignment="TOP_LEFT" prefHeight="400.0" prefWidth="930.0" style="-fx-background-color: #f3f4f5;" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+            </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>

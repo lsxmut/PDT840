@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redphase.dao.master.user.ILogOperationDao">
+    <!-- 字段列表 -->
+    <sql id="Base_Column_List">
+         t1.id as "id"
+        ,t1.type as "type"
+        ,t1.memo as "memo"
+        ,t1.detail_info as "detailInfo"
+        ,t1.date_created as "dateCreated"
+        ,t1.create_id as "createId"
+        ,t1.create_name as "createName"
+    </sql>
+
+    <!-- 根据主键获取信息详情 -->
+    <select id="selectByPrimaryKey" resultType="com.redphase.entity.user.LogOperation" parameterType="com.redphase.entity.user.LogOperation">
+        select
+        <include refid="Base_Column_List"/>
+        from log_operation t1
+        where
+        t1.id = #{id}
+    </select>
+
+    <!-- 新增单条数据 -->
+    <insert id="insert" parameterType="com.redphase.entity.user.LogOperation" >
+        insert into log_operation (
+            id
+           ,type
+           ,memo
+           ,detail_info 
+           ,date_created 
+           ,create_id
+           ,create_name
+        ) values (
+            #{id}
+           ,#{type}
+           ,#{memo}
+           ,#{detailInfo} 
+           ,strftime('%s000','now')
+           ,#{createId} 
+           ,#{createName} 
+        )
+    </insert>
+
+
+
+    <!--列表通用条件-->
+    <sql id="list_where_sql">
+        <if test="type!=null and type!=''">
+            and t1.type=#{type}
+        </if>
+        <if test="keyword!=null and keyword!=''">
+            and (t1.type like '%'||#{keyword}||'%' or t1.memo like '%'||#{keyword}||'%' or t1.detail_info like '%'||#{keyword}||'%')
+        </if>
+        <if test="dateBegin!=null and dateBegin!=''">
+            <![CDATA[ and date(t1.date_created/1000,'unixepoch', 'localtime')>=#{dateBegin} ]]>
+        </if>
+        <if test="dateEnd!=null and dateEnd!=''">
+            <![CDATA[ and date(t1.date_created/1000,'unixepoch', 'localtime')<=#{dateEnd} ]]>
+        </if>
+    </sql>
+
+    <!--信息分页 -->
+    <select id="findDataIsPage" parameterType="com.redphase.entity.user.LogOperation" resultType="com.redphase.entity.user.LogOperation">
+        select
+        <include refid="Base_Column_List"/>
+        from log_operation t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.id desc
+    </select>
+
+</mapper>

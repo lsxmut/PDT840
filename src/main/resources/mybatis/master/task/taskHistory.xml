@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redphase.dao.master.task.ITaskHistoryDao">
+    <!-- 字段列表 -->
+    <sql id="Base_Column_List">
+         t1.id as "id"
+        ,t1.date_detection as "dateDetection"
+        ,t1.test_technology as "testTechnology"
+        ,t1.electric_bureau as "electricBureau"
+        ,t1.substation as "substation"
+        ,t1.voltage_level as "voltageLevel"
+        ,t1.device_type as "deviceType"
+        ,t1.file_name as "fileName"
+        ,t1.file_path as "filePath"
+        ,t1.create_id as "createId"
+        ,t1.date_created as "dateCreated"
+        ,t1.date_updated as "dateUpdated"
+    </sql>
+
+    <!-- 根据主键获取信息详情 -->
+    <select id="selectByPrimaryKey" resultType="com.redphase.entity.task.TaskHistory" parameterType="com.redphase.entity.task.TaskHistory">
+        select
+        <include refid="Base_Column_List"/>
+        from task_history t1
+        where
+        t1.id = #{id}
+    </select>
+
+    <!-- 新增单条数据 -->
+    <insert id="insert" parameterType="com.redphase.entity.task.TaskHistory"  >
+        insert into task_history (
+            id 
+           ,date_detection 
+           ,test_technology
+           ,electric_bureau
+           ,substation 
+           ,voltage_level 
+           ,device_type 
+           ,file_name
+           ,file_path
+           ,create_id
+           ,date_created 
+           ,date_updated
+        ) values (
+            #{id} 
+           ,#{dateDetection} 
+           ,#{testTechnology}
+           ,#{electricBureau}
+           ,#{substation} 
+           ,#{voltageLevel} 
+           ,#{deviceType} 
+           ,#{fileName}
+           ,#{filePath}
+           ,#{createId}
+           ,strftime('%s000','now')
+           ,strftime('%s000','now')
+        )
+    </insert>
+
+
+    <!-- 数据更新 -->
+    <update id="update" parameterType="com.redphase.entity.task.TaskHistory">
+        update task_history set  date_updated = strftime('%s000','now')
+             <if test="dateDetection!=null">,date_detection = #{dateDetection}</if>
+             <if test="testTechnology!=null">,test_technology = #{testTechnology}</if>
+             <if test="electricBureau!=null">,electric_bureau = #{electricBureau}</if>
+             <if test="substation!=null">,substation = #{substation}</if>
+             <if test="voltageLevel!=null">,voltage_level = #{voltageLevel}</if>
+             <if test="deviceType!=null">,device_type = #{deviceType}</if>
+             <if test="fileName!=null">,file_name = #{fileName}</if>
+             <if test="filePath!=null">,file_path = #{filePath}</if>
+        where
+        id = #{id}
+    </update>
+
+    <!--列表通用条件-->
+    <sql id="list_where_sql">
+        <if test="dateDetection!=null"> and t1.date_detection = #{dateDetection}</if>
+        <if test="electricBureau!=null"> and t1.electric_bureau = #{electricBureau}</if>
+        <if test="substation!=null"> and t1.substation = #{substation}</if>
+        <if test="voltageLevel!=null"> and t1.voltage_level = #{voltageLevel}</if>
+        <if test="deviceType!=null"> and t1.device_type = #{deviceType}</if>
+        <if test="testTechnology!=null"> and t1.test_technology = #{testTechnology}</if>
+        <if test="filePath!=null"> and t1.file_path = #{filePath}</if>
+        <if test="dateBegin!=null and dateBegin!=''">
+            <![CDATA[ and t1.date_detection>=#{dateBegin} ]]>
+        </if>
+        <if test="dateEnd!=null and dateEnd!=''">
+            <![CDATA[ and t1.date_detection<=#{dateEnd} ]]>
+        </if>
+    </sql>
+
+    <!--信息分页 -->
+    <select id="findDataIsPage" parameterType="com.redphase.entity.task.TaskHistory" resultType="com.redphase.entity.task.TaskHistory">
+        select
+        <include refid="Base_Column_List"/>
+        from task_history t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.date_detection desc
+    </select>
+
+    <!--信息列表 -->
+    <select id="findDataIsList" parameterType="com.redphase.entity.task.TaskHistory" resultType="com.redphase.entity.task.TaskHistory">
+        select
+        <include refid="Base_Column_List"/>
+        from task_history t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.date_detection desc
+    </select>
+</mapper>

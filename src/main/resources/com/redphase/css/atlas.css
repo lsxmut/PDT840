@@ -1,0 +1,241 @@
+@import "common.css";
+
+BorderPane {
+    -fx-background-color: #ffffff;
+    -fx-border-width: 10;
+    -fx-border-color: #F3F4F5;
+}
+.tree-view {
+    -fx-border-color: #ffffff;
+    -fx-background-color: #ffffff;
+}
+.tree-view .tree-cell {
+    -fx-font-size: 12px;
+    -fx-stroke: #ffffff;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #999999;
+    -fx-padding: 5px 5px 5px 5px;
+    -fx-border-color: #ffffff;
+    -fx-cursor: hand;
+}
+
+.tree-view .tree-cell:hover {
+    -fx-text-fill: #999999;
+}
+
+.tree-cell .tree-disclosure-node .arrow {
+    -fx-shape: "M 0 -1 H 3 V -4 H 5 V -1 H 8 V 1 H 5 V 4 H 3 V 1 H 0 z";
+}
+
+.tree-cell:expanded .tree-disclosure-node .arrow {
+    -fx-rotate: 0;
+    -fx-scale-shape: false;
+    -fx-shape: "M 0 -1 H 7 V 1 H 0 z";
+}
+
+.tree-view .tree-cell:selected, .tree-view .tree-cell:selected:hover {
+    -fx-background-color: #eeeeee;
+    -fx-text-fill: #0099FF;
+    -fx-border-color: #eeeeee #eeeeee #eeeeee #a7b1c2;
+}
+
+.tree-cell:expanded {
+    -fx-text-fill: #999999;
+    -fx-border-color: #ffffff;
+}
+
+.tree-view .tree-cell:expanded{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #999999;
+    -fx-border-color: #ffffff;
+}
+.tree-view .tree-cell:expanded:selected,.tree-view .tree-cell:expanded:hover {
+    -fx-background-color: #eeeeee;
+    -fx-text-fill: #0099FF;
+    -fx-border-color: #eeeeee #eeeeee #eeeeee #a7b1c2;
+}
+
+.tree-cell:expanded:filled .tree-disclosure-node .arrow, .tree-cell:expanded:filled:hover .tree-disclosure-node .arrow {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #0099FF;
+}
+
+.th {
+    -fx-border-width: 1;
+    -fx-border-color: #eeeeee;
+    -fx-background-color: #eef5f9;
+    -fx-pref-width: 140;
+    -fx-pref-height: 60;
+}
+.td {
+    -fx-padding: 0 0 0 20;
+    -fx-border-width: 1;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #eef5f9;
+    -fx-pref-height: 40;
+}
+
+.tt {
+    -fx-border-width: 1;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #eef5f9;
+    -fx-pref-width: 620;
+    -fx-pref-height: 450;
+}
+
+.cbox {
+    -fx-padding: 0 20 0 0;
+}
+
+.d20 {
+    -fx-pref-width: 80;
+    -fx-padding: 0 20 0 0;
+}
+
+.tree-table-view .column-header{
+    -fx-background-color: #eef5f9 ;
+    -fx-background-insets: 0, 1;
+    -fx-padding: 20 0 20 0;
+    -fx-border-width: 1;
+    -fx-border-color: #eeeeee;
+    -fx-min-height: 38;
+}
+
+.tree-table-view > .virtual-flow > .clipped-container > .sheet > .tree-table-row-cell .tree-table-cell:selected {
+    -fx-background-color: #fff;
+    -fx-background-insets: 0, 0 0 1 0;
+}
+
+.table-view  .table-column {
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+.tt-underline{
+    -fx-fill: #31a1ff;-fx-underline: true;
+}
+
+.b1{
+    -fx-border-width: 1;
+    -fx-border-color: #eeeeee;
+}
+
+.btn-white {
+    -fx-text-fill: #333333;
+    -fx-background-color: #fff;
+    -fx-border-color: #fff;
+    -fx-cursor: hand;
+}
+
+
+.btn-white.focused, .btn-white:focused {
+    -fx-text-fill: #fff;
+    -fx-background-color: #0099FF;
+    -fx-border-color: #0099FF;
+}
+
+.btn-white:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color: #0099FF;
+    -fx-border-color: #0099FF;
+}
+
+.btn-white.active, .btn-white:pressed {
+    -fx-text-fill: #fff;
+    -fx-background-color: #0099FF;
+    -fx-border-color: #0099FF;
+}
+
+.btn-white.active.focused, .btn-white.active:focused, .btn-white.active:hover, .btn-white:pressed.focused, .btn-white:pressed:focused, .btn-white:pressed:hover {
+    -fx-text-fill: #fff;
+    -fx-background-color: #204d74;
+    -fx-border-color: #0099FF;
+}
+
+.btn-white.active, .btn-white:pressed {
+    -fx-background-image: none
+}
+
+.btn-white.disabled.focused, .btn-white.disabled:focused, .btn-white.disabled:hover, .btn-white[disabled].focused, .btn-white[disabled]:focused, .btn-white[disabled]:hover, fieldset[disabled] .btn-white.focused, fieldset[disabled] .btn-white:focused, fieldset[disabled] .btn-white:hover {
+    -fx-background-color: #337ab7;
+    -fx-border-color: #2e6da4;
+}
+
+.btn-white .badge {
+    -fx-text-fill: #0099FF;
+    -fx-background-color: #fff;
+}
+
+.tdt {
+    -fx-padding: 0 0 0 20;
+    -fx-border-width: 1;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #eef5f9;
+    -fx-pref-height: 60;
+    -fx-cursor: hand;
+}
+
+.th2 {
+    -fx-border-width: 1;
+    -fx-border-color: #eeeeee;
+    -fx-background-color: #eef5f9;
+}
+.td2 {
+    -fx-border-width: 1;
+    -fx-border-color: #eeeeee;
+    -fx-background-color: #f6f7fa;
+}
+
+
+.tab-pane {
+    -fx-tab-min-height: 35;
+    -fx-tab-max-height: 35;
+    -fx-tab-min-width: 100;
+}
+
+.tab-pane > .tab-header-area .tab-label {
+    -fx-border-color: transparent;
+    -fx-stroke: rgba(120, 120, 120, 0.59);
+    -fx-text-fill: #bbbbbb;
+}
+
+.tab-pane > .tab-header-area .tab:selected .tab-label {
+    -fx-text-fill: #0099FF;
+}
+.lab3 {
+    -fx-border-width: 1;
+    -fx-background-color: #f3f4f5;
+    -fx-pref-height: 35;
+}
+
+.tab-pane>*.tab-header-area>*.tab-header-background {
+    -fx-background-color: #f3f4f5;
+}
+
+
+.lt1{
+    -fx-pref-width: 20;
+    -fx-pref-height: 20;
+    -fx-background-color:  #33d2b6;
+}
+.lt2{
+    -fx-pref-width: 20;
+    -fx-pref-height: 20;
+    -fx-background-color:  #f9c419;
+}
+.lt3{
+    -fx-pref-width: 20;
+    -fx-pref-height: 20;
+    -fx-background-color:  #fb9531;
+}
+.lt4{
+    -fx-pref-width: 20;
+    -fx-pref-height: 20;
+    -fx-background-color:  #f57070;
+}
+
+.bline{
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #cccccc;
+    -fx-border-insets: 30 0 0 0;
+}

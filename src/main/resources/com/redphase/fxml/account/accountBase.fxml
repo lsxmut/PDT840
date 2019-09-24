@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<TabPane tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" fx:id="accountBasePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="900.0" stylesheets="@../../css/account.css" xmlns="http://javafx.com/javafx/9.0.1"
+         fx:controller="com.redphase.controller.account.AccountController">
+            <tabs>
+                <Tab closable="false" text="基本信息">
+                    <content>
+                        <AnchorPane nodeOrientation="LEFT_TO_RIGHT">
+                            <children>
+                                <HBox fx:id="bHBox" alignment="TOP_CENTER" prefWidth="880.0">
+                                    <children>
+                                        <VBox fx:id="bVBox" alignment="TOP_CENTER">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT">
+                                                    <VBox.margin>
+                                                        <Insets/>
+                                                    </VBox.margin>
+                                                    <children>
+                                                        <TextField fx:id="idT" prefHeight="10.0" prefWidth="300.0" promptText="主键" visible="false"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0">
+                                                    <children>
+                                                        <Label fx:id="electricBureauL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="电业局：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="24.0" prefWidth="8.0" style="-fx-text-fill: red;" text="*">
+                                                                    <font>
+                                                                        <Font size="18.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </graphic>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField fx:id="electricBureauT" prefHeight="35.0" prefWidth="1000.0" promptText="请输入电力局名称"/>
+                                                        <Label fx:id="substationL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="变电站：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="24.0" prefWidth="8.0" style="-fx-text-fill: red;" text="*">
+                                                                    <font>
+                                                                        <Font size="18.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </graphic>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField fx:id="substationT" prefHeight="35.0" prefWidth="1000.0" promptText="请输入变电站名称"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0">
+                                                    <children>
+                                                        <Label fx:id="substationCodeL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="变电站编码：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField fx:id="substationCodeT" prefHeight="35.0" prefWidth="1000.0" promptText="请输入变电站编码"/>
+                                                        <Label fx:id="deviceTypeL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="设备类型：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="24.0" prefWidth="8.0" style="-fx-text-fill: red;" text="*">
+                                                                    <font>
+                                                                        <Font size="18.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </graphic>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <ChoiceBox fx:id="deviceTypeT" prefHeight="35.0" prefWidth="1000.0"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0">
+                                                    <children>
+                                                        <Label fx:id="spaceNameL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="间隔名称：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField fx:id="spaceNameT" prefHeight="35.0" prefWidth="1000.0" promptText="请输入间隔名称"/>
+                                                        <Label fx:id="spaceCodeL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="间隔编码：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField fx:id="spaceCodeT" prefHeight="35.0" prefWidth="1000.0" promptText="请输入间隔编码"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0">
+                                                    <children>
+                                                        <Label fx:id="deviceNameL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text=" 设备名称：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="24.0" prefWidth="8.0" style="-fx-text-fill: red;" text="*">
+                                                                    <font>
+                                                                        <Font size="18.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </graphic>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField fx:id="deviceNameT" prefHeight="35.0" prefWidth="1000.0" promptText="请输入设备名称"/>
+                                                        <Label fx:id="deviceCodeL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="设备编码：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField fx:id="deviceCodeT" prefHeight="35.0" prefWidth="1000.0" promptText="请输入设备编码"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0">
+                                                    <children>
+                                                        <Label fx:id="voltageLevelL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="电压等级(kV)：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="24.0" prefWidth="8.0" style="-fx-text-fill: red;" text="*">
+                                                                    <font>
+                                                                        <Font size="18.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </graphic>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <ChoiceBox fx:id="voltageLevelT" prefHeight="35.0" prefWidth="1000.0"/>
+                                                        <Label fx:id="manufacturerL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="制造商：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField fx:id="manufacturerT" prefHeight="35.0" prefWidth="1000.0" promptText="请输入制造商"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0">
+                                                    <children>
+                                                        <Label fx:id="deviceVersionL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="设备型号：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="24.0" prefWidth="8.0" style="-fx-text-fill: red;" text="*">
+                                                                    <font>
+                                                                        <Font size="18.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </graphic>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField fx:id="deviceVersionT" prefHeight="35.0" prefWidth="1000.0" promptText="请输入设备型号"/>
+                                                        <Label fx:id="runDeptL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="运行单位：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField fx:id="runDeptT" prefHeight="35.0" prefWidth="1000.0" promptText="请输入运行单位"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0">
+                                                    <children>
+                                                        <Label fx:id="runStateL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="运行状态：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <graphic>
+                                                                <Label prefHeight="24.0" prefWidth="8.0" style="-fx-text-fill: red;" text="*">
+                                                                    <font>
+                                                                        <Font size="18.0"/>
+                                                                    </font>
+                                                                </Label>
+                                                            </graphic>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField fx:id="runStateT" prefHeight="35.0" prefWidth="1000.0" promptText="请输入运行状态"/>
+                                                        <Label fx:id="produceDateL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="出厂日期：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <DatePicker fx:id="produceDateT" prefHeight="35.0" prefWidth="1000.0" promptText="点击输入停运日期"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0">
+                                                    <children>
+                                                        <Label fx:id="useDateL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="投运日期：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <DatePicker fx:id="useDateT" prefHeight="35.0" prefWidth="1000.0" promptText="点击输入投运日期"/>
+                                                        <Label fx:id="outageDateL" alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="停运日期：" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <DatePicker fx:id="outageDateT" prefHeight="35.0" prefWidth="1000.0" promptText="点击输入停运日期"/>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="60.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="顺序调整" textFill="#999999">
+                                                            <font>
+                                                                <Font size="16.0"/>
+                                                            </font>
+                                                            <padding>
+                                                                <Insets bottom="2.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <Button fx:id="moveStepUpButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="35.0" minHeight="35.0" mnemonicParsing="false" onAction="#moveStepUp" prefHeight="35.0" prefWidth="100.0"
+                                                                styleClass="btn-cancel" text="上移">
+                                                            <font>
+                                                                <Font size="17.0"/>
+                                                            </font>
+                                                            <cursor>
+                                                                <Cursor fx:constant="HAND"/>
+                                                            </cursor>
+                                                            <HBox.margin>
+                                                                <Insets right="10.0"/>
+                                                            </HBox.margin>
+                                                        </Button>
+                                                        <Button fx:id="moveStepDownButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="35.0" minHeight="35.0" mnemonicParsing="false" onAction="#moveStepDown" prefHeight="35.0" prefWidth="100.0"
+                                                                styleClass="btn-cancel" text="下移">
+                                                            <font>
+                                                                <Font size="17.0"/>
+                                                            </font>
+                                                            <cursor>
+                                                                <Cursor fx:constant="HAND"/>
+                                                            </cursor>
+                                                            <HBox.margin>
+                                                                <Insets right="10.0"/>
+                                                            </HBox.margin>
+                                                        </Button>
+                                                        <Button fx:id="moveTopButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="35.0" minHeight="35.0" mnemonicParsing="false" onAction="#moveTop" prefHeight="35.0" prefWidth="100.0"
+                                                                styleClass="btn-cancel" text="置顶">
+                                                            <font>
+                                                                <Font size="17.0"/>
+                                                            </font>
+                                                            <cursor>
+                                                                <Cursor fx:constant="HAND"/>
+                                                            </cursor>
+                                                            <HBox.margin>
+                                                                <Insets right="10.0"/>
+                                                            </HBox.margin>
+                                                        </Button>
+                                                        <Button fx:id="moveBottomButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="35.0" minHeight="35.0" mnemonicParsing="false" onAction="#moveBottom" prefHeight="35.0" prefWidth="100.0"
+                                                                styleClass="btn-cancel" text="置底">
+                                                            <font>
+                                                                <Font size="17.0"/>
+                                                            </font>
+                                                            <cursor>
+                                                                <Cursor fx:constant="HAND"/>
+                                                            </cursor>
+                                                        </Button>
+                                                    </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="60.0">
+                                                    <children>
+                                                        <Button fx:id="updateButton" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#updateAccount" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="更新">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                            <cursor>
+                                                                <Cursor fx:constant="HAND"/>
+                                                            </cursor>
+                                                        </Button>
+                                                        <Button fx:id="addButton" defaultButton="true" mnemonicParsing="false" onAction="#addAccount" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="新增">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                            <cursor>
+                                                                <Cursor fx:constant="HAND"/>
+                                                            </cursor>
+                                                            <HBox.margin>
+                                                                <Insets left="10.0"/>
+                                                            </HBox.margin>
+                                                        </Button>
+                                                        <Button fx:id="delButton" cancelButton="true" disable="true" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="删除">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                            <cursor>
+                                                                <Cursor fx:constant="HAND"/>
+                                                            </cursor>
+                                                            <HBox.margin>
+                                                                <Insets left="10.0"/>
+                                                            </HBox.margin>
+                                                        </Button>
+                                                        <Button fx:id="deviceQRButton" cancelButton="true" mnemonicParsing="false" onAction="#deviceQR" prefHeight="40.0" prefWidth="150.0" styleClass="btn-primary" text="RFID编码" visible="false">
+                                                            <font>
+                                                                <Font size="18.0"/>
+                                                            </font>
+                                                            <cursor>
+                                                                <Cursor fx:constant="HAND"/>
+                                                            </cursor>
+                                                            <HBox.margin>
+                                                                <Insets left="10.0"/>
+                                                            </HBox.margin>
+                                                        </Button>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                            <HBox.margin>
+                                                <Insets right="10.0"/>
+                                            </HBox.margin>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab closable="false" text="位置信息">
+                    <content>
+                        <AnchorPane fx:id="siteAnchorPane">
+                            <children>
+                                <HBox fx:id="sHBox" alignment="CENTER">
+                                    <children>
+                                        <VBox fx:id="sVBox" alignment="TOP_CENTER"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>

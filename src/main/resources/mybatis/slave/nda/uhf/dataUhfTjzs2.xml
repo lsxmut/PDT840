@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redphase.dao.slave.nda.uhf.INdaUhfTjzs2Dao">
+    <!-- 字段列表 -->
+    <sql id="Base_Column_List">
+         t1.id as "id"
+        ,t1.data_analyze_id as "dataAnalyzeId"
+        ,t1.x1 as "x1"
+        ,t1.x2 as "x2"
+        ,t1.x3 as "x3"
+        ,t1.x4 as "x4"
+        ,t1.x5 as "x5"
+        ,t1.x6 as "x6"
+        ,t1.x7 as "x7"
+        ,t1.x8 as "x8"
+        ,t1.x9 as "x9"
+        ,t1.x10 as "x10"
+        ,t1.x11 as "x11"
+        ,t1.x12 as "x12"
+        ,t1.x13 as "x13"
+        ,t1.x14 as "x14"
+        ,t1.x15 as "x15"
+        ,t1.x16 as "x16"
+        ,t1.x17 as "x17"
+        ,t1.x18 as "x18"
+        ,t1.x19 as "x19"
+        ,t1.x20 as "x20"
+        ,t1.x21 as "x21"
+        ,t1.x22 as "x22"
+        ,t1.x23 as "x23"
+        ,t1.x24 as "x24"
+        ,t1.x25 as "x25"
+        ,t1.x26 as "x26"
+        ,t1.x27 as "x27"
+        ,t1.x28 as "x28"
+        ,t1.x29 as "x29"
+        ,t1.x30 as "x30"
+        ,t1.x31 as "x31"
+        ,t1.x32 as "x32"
+        ,t1.x33 as "x33"
+        ,t1.create_id as "createId"
+        ,t1.date_created as "dateCreated"
+        ,t1.date_updated as "dateUpdated"
+    </sql>
+
+    <!-- 根据主键获取信息详情 -->
+    <select id="selectByPrimaryKey" resultType="com.redphase.entity.atlas.uhf.DataUhfTjzs2" parameterType="com.redphase.entity.atlas.uhf.DataUhfTjzs2">
+        select
+        <include refid="Base_Column_List"/>
+        from data_uhf_tjzs_2 t1
+        where
+        t1.data_analyze_id = #{dataAnalyzeId}
+    </select>
+
+    <!-- 新增单条数据 -->
+    <insert id="insert" parameterType="com.redphase.entity.atlas.uhf.DataUhfTjzs2"  >
+        insert into data_uhf_tjzs_2 (
+            id 
+           ,data_analyze_id
+           ,x1 
+           ,x2 
+           ,x3 
+           ,x4 
+           ,x5 
+           ,x6 
+           ,x7 
+           ,x8 
+           ,x9 
+           ,x10 
+           ,x11 
+           ,x12 
+           ,x13 
+           ,x14 
+           ,x15 
+           ,x16 
+           ,x17 
+           ,x18 
+           ,x19 
+           ,x20 
+           ,x21 
+           ,x22 
+           ,x23 
+           ,x24 
+           ,x25 
+           ,x26 
+           ,x27 
+           ,x28 
+           ,x29 
+           ,x30 
+           ,x31 
+           ,x32 
+           ,x33 
+           ,create_id 
+           ,date_created 
+           ,date_updated 
+        ) values (
+            #{id} 
+           ,#{dataAnalyzeId}
+           ,#{x1} 
+           ,#{x2} 
+           ,#{x3} 
+           ,#{x4} 
+           ,#{x5} 
+           ,#{x6} 
+           ,#{x7} 
+           ,#{x8} 
+           ,#{x9} 
+           ,#{x10} 
+           ,#{x11} 
+           ,#{x12} 
+           ,#{x13} 
+           ,#{x14} 
+           ,#{x15} 
+           ,#{x16} 
+           ,#{x17} 
+           ,#{x18} 
+           ,#{x19} 
+           ,#{x20} 
+           ,#{x21} 
+           ,#{x22} 
+           ,#{x23} 
+           ,#{x24} 
+           ,#{x25} 
+           ,#{x26} 
+           ,#{x27} 
+           ,#{x28} 
+           ,#{x29} 
+           ,#{x30} 
+           ,#{x31} 
+           ,#{x32} 
+           ,#{x33} 
+           ,#{createId} 
+           ,strftime('%s000','now')
+           ,strftime('%s000','now')
+        )
+    </insert>
+
+
+    <!-- 数据更新 -->
+    <update id="update" parameterType="com.redphase.entity.atlas.uhf.DataUhfTjzs2">
+        update data_uhf_tjzs_2 set  date_updated = strftime('%s000','now')
+             <if test="x1!=null">,x1 = #{x1}</if>
+             <if test="x2!=null">,x2 = #{x2}</if>
+             <if test="x3!=null">,x3 = #{x3}</if>
+             <if test="x4!=null">,x4 = #{x4}</if>
+             <if test="x5!=null">,x5 = #{x5}</if>
+             <if test="x6!=null">,x6 = #{x6}</if>
+             <if test="x7!=null">,x7 = #{x7}</if>
+             <if test="x8!=null">,x8 = #{x8}</if>
+             <if test="x9!=null">,x9 = #{x9}</if>
+             <if test="x10!=null">,x10 = #{x10}</if>
+             <if test="x11!=null">,x11 = #{x11}</if>
+             <if test="x12!=null">,x12 = #{x12}</if>
+             <if test="x13!=null">,x13 = #{x13}</if>
+             <if test="x14!=null">,x14 = #{x14}</if>
+             <if test="x15!=null">,x15 = #{x15}</if>
+             <if test="x16!=null">,x16 = #{x16}</if>
+             <if test="x17!=null">,x17 = #{x17}</if>
+             <if test="x18!=null">,x18 = #{x18}</if>
+             <if test="x19!=null">,x19 = #{x19}</if>
+             <if test="x20!=null">,x20 = #{x20}</if>
+             <if test="x21!=null">,x21 = #{x21}</if>
+             <if test="x22!=null">,x22 = #{x22}</if>
+             <if test="x23!=null">,x23 = #{x23}</if>
+             <if test="x24!=null">,x24 = #{x24}</if>
+             <if test="x25!=null">,x25 = #{x25}</if>
+             <if test="x26!=null">,x26 = #{x26}</if>
+             <if test="x27!=null">,x27 = #{x27}</if>
+             <if test="x28!=null">,x28 = #{x28}</if>
+             <if test="x29!=null">,x29 = #{x29}</if>
+             <if test="x30!=null">,x30 = #{x30}</if>
+             <if test="x31!=null">,x31 = #{x31}</if>
+             <if test="x32!=null">,x32 = #{x32}</if>
+             <if test="x33!=null">,x33 = #{x33}</if>
+        where
+        data_analyze_id = #{dataAnalyzeId}
+    </update>
+
+    <!--列表通用条件-->
+    <sql id="list_where_sql">
+        and t1.data_analyze_id = #{dataAnalyzeId}
+    </sql>
+
+    <!--信息分页 -->
+    <select id="findDataIsPage" parameterType="com.redphase.entity.atlas.uhf.DataUhfTjzs2" resultType="com.redphase.entity.atlas.uhf.DataUhfTjzs2">
+        select
+        <include refid="Base_Column_List"/>
+        from data_uhf_tjzs_2 t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        
+    </select>
+
+    <!--信息列表 -->
+    <select id="findDataIsList" parameterType="com.redphase.entity.atlas.uhf.DataUhfTjzs2" resultType="com.redphase.entity.atlas.uhf.DataUhfTjzs2">
+        select
+        <include refid="Base_Column_List"/>
+        from data_uhf_tjzs_2 t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        
+    </select>
+</mapper>

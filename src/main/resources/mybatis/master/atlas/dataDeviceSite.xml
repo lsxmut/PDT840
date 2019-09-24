@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.redphase.dao.master.atlas.IDataDeviceSiteDao">
+    <!-- 字段列表 -->
+    <sql id="Base_Column_List">
+         t1.id as "id"
+        ,t1.data_device_id as "dataDeviceId"
+        ,t1.site_name as "siteName"
+        ,t1.space_name as "spaceName"
+        ,t1.folder_path as "folderPath"
+        ,t1.create_id as "createId"
+        ,t1.date_created as "dateCreated"
+        ,t1.date_updated as "dateUpdated"
+        ,t1.sort_no as "sortNo"
+    </sql>
+
+    <!-- 根据主键获取信息详情 -->
+    <select id="selectByPrimaryKey" resultType="com.redphase.entity.atlas.DataDeviceSite" parameterType="com.redphase.entity.atlas.DataDeviceSite">
+        select
+        <include refid="Base_Column_List"/>
+        from data_device_site t1
+        where
+        t1.id = #{id}
+    </select>
+
+    <!-- 新增单条数据 -->
+    <insert id="insert" parameterType="com.redphase.entity.atlas.DataDeviceSite"  >
+        insert into data_device_site (
+            id 
+           ,data_device_id 
+           ,site_name 
+           ,space_name 
+           ,folder_path 
+           ,create_id 
+           ,date_created 
+           ,date_updated
+           ,sort_no
+        ) values (
+            #{id} 
+           ,#{dataDeviceId} 
+           ,#{siteName} 
+           ,#{spaceName} 
+           ,#{folderPath} 
+           ,#{createId} 
+           ,strftime('%s000','now')
+           ,strftime('%s000','now')
+           ,#{sortNo}
+        )
+    </insert>
+
+
+    <!-- 数据更新 -->
+    <update id="update" parameterType="com.redphase.entity.atlas.DataDeviceSite">
+        update data_device_site set  date_updated = strftime('%s000','now')
+             <if test="dataDeviceId!=null">,data_device_id = #{dataDeviceId}</if>
+             <if test="siteName!=null">,site_name = #{siteName}</if>
+             <if test="spaceName!=null">,space_name = #{spaceName}</if>
+             <if test="folderPath!=null">,folder_path = #{folderPath}</if>
+             <if test="sortNo!=null">,sort_no = #{sortNo}</if>
+        where
+        id = #{id}
+    </update>
+
+    <!--列表通用条件-->
+    <sql id="list_where_sql">
+        and t1.data_device_id = #{dataDeviceId}
+    </sql>
+
+    <!--信息分页 -->
+    <select id="findDataIsPage" parameterType="com.redphase.entity.atlas.DataDeviceSite" resultType="com.redphase.entity.atlas.DataDeviceSite">
+        select
+        <include refid="Base_Column_List"/>
+        from data_device_site t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.sort_no
+    </select>
+
+    <!--信息列表 -->
+    <select id="findDataIsList" parameterType="com.redphase.entity.atlas.DataDeviceSite" resultType="com.redphase.entity.atlas.DataDeviceSite">
+        select
+        <include refid="Base_Column_List"/>
+        from data_device_site t1
+        where 1=1
+        <include refid="list_where_sql"/>
+        order by t1.sort_no
+    </select>
+
+    <select id="findDataByDeviceAndSite" parameterType="com.redphase.entity.atlas.DataDeviceSite" resultType="com.redphase.entity.atlas.DataDeviceSite">
+        select
+        <include refid="Base_Column_List"/>
+        from data_device_site t1
+        where t1.data_device_id = #{dataDeviceId} and t1.site_name = #{siteName}
+    </select>
+
+    <!--查询多个设备的所有检测位置-->
+    <select id="findDataByDataDeviceIds" resultType="com.redphase.entity.atlas.DataDeviceSite" parameterType="string">
+        select
+        <include refid="Base_Column_List"/>
+        from data_device_site t1
+        where 1=1
+        <if test="ids != null and ids !=''">
+            and t1.data_device_id in (${ids})
+        </if>
+    </select>
+</mapper>

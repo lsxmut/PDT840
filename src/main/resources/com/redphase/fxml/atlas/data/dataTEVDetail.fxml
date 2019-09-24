@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="dataBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" style="-fx-border-width:0 0 0 10;" stylesheets="@../../../css/atlas.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.redphase.controller.atlas.data.AtlasDataTEVDetailController">
+    <center>
+        <FlowPane fx:id="dataFlowPane" prefWidth="1270.0" rowValignment="TOP" BorderPane.alignment="TOP_LEFT">
+            <children>
+                <Pane styleClass="tt">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-200.0" layoutY="215.0" prefHeight="30.0" prefWidth="450.0" rotate="-90.0" text="地电波(dBuV)" textFill="#aaaaaa" textOverrun="CLIP" wrapText="true">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <tooltip>
+                                <Tooltip text="12312132" />
+                            </tooltip>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="65.0" prefWidth="620.0" text="#1主变10kV侧901">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Canvas height="300.0" layoutX="50.0" layoutY="65.0" width="550.0" />
+                        <Canvas height="300.0" layoutX="50.0" layoutY="65.0" width="550.0" />
+                        <HBox alignment="CENTER" layoutY="375.0" prefWidth="620.0">
+                            <children>
+                                <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="正常">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <graphic>
+                                        <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt1" text=" " />
+                                    </graphic>
+                                </Label>
+                                <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="关注">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <graphic>
+                                        <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt2" text=" " />
+                                    </graphic>
+                                </Label>
+                                <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="预警">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <graphic>
+                                        <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt3" text=" " />
+                                    </graphic>
+                                </Label>
+                                <Label prefHeight="20.0" prefWidth="60.0" styleClass="d20" text="检修">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                    <graphic>
+                                        <Label prefHeight="20.0" prefWidth="20.0" styleClass="lt4" text=" " />
+                                    </graphic>
+                                </Label>
+                            </children>
+                        </HBox>
+                    </children>
+                    <FlowPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </FlowPane.margin>
+                </Pane>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="50.0" />
+            </BorderPane.margin>
+        </FlowPane>
+    </center>
+    <top>
+        <Label minHeight="40.0" prefHeight="40.0" prefWidth="268.0" text="开关柜测试详情图谱" BorderPane.alignment="CENTER_LEFT">
+            <font>
+                <Font size="18.0" />
+            </font>
+            <BorderPane.margin>
+                <Insets left="10.0" />
+            </BorderPane.margin>
+        </Label>
+    </top>
+</BorderPane>

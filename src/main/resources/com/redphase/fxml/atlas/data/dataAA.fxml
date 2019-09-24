@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="dataBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="940.0" style="-fx-border-width:0 0 0 10;" stylesheets="@../../../css/atlas.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.redphase.controller.atlas.data.AtlasDataAAController">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="fullNameL" managed="false" visible="false" />
+                <Label prefHeight="35" text="开关柜局放在线测试记录表">
+                    <font>
+                        <Font size="22" />
+                    </font>
+                </Label>
+                <Pane fx:id="buttonPane" prefHeight="35">
+                    <children>
+                        <Button fx:id="reportButton" mnemonicParsing="false" onAction="#report" prefHeight="35" prefWidth="99" styleClass="btn-primary" text="生成报告" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                    </VBox.margin>
+                </Pane>
+                <HBox fillHeight="false">
+                    <children>
+                        <VBox minWidth="150.0" prefHeight="200.0" prefWidth="150.0">
+                            <children>
+                                <Label alignment="CENTER" minWidth="150.0" prefHeight="40.0" prefWidth="150.0" styleClass="th" text="变电站名称" />
+                                <Label alignment="CENTER" contentDisplay="CENTER" minWidth="150.0" prefHeight="40.0" prefWidth="150.0" styleClass="th" text="天气情况" />
+                                <Label alignment="CENTER" contentDisplay="CENTER" minWidth="150.0" prefHeight="40.0" prefWidth="150.0" styleClass="th" text="巡检金属噪声1(dBuV)" />
+                                <Label alignment="CENTER" contentDisplay="CENTER" minWidth="150.0" prefHeight="40.0" prefWidth="150.0" styleClass="th" text="统计金属噪声1(dBuV)" />
+                                <Label alignment="CENTER" contentDisplay="CENTER" minWidth="150.0" prefHeight="40.0" prefWidth="150.0" styleClass="th" text="大气噪声(dBuV)" />
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="200.0">
+                            <children>
+                                <HBox prefHeight="58">
+                                    <children>
+                                        <Label fx:id="bdzL" minHeight="40.0" minWidth="450.0" prefHeight="58" prefWidth="1150.0" styleClass="td" text="--" />
+                                        <Label alignment="CENTER" contentDisplay="CENTER" minWidth="150.0" prefHeight="58" prefWidth="150.0" styleClass="th" text="电压等级(kv)" />
+                                        <Label fx:id="dydjL" minHeight="40.0" minWidth="154.0" prefHeight="58" prefWidth="500.0" styleClass="td" text="--" />
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="58">
+                                    <children>
+                                        <Label fx:id="tqqkL" minHeight="40.0" prefHeight="58" prefWidth="500.0" styleClass="td" text="--" />
+                                        <Label alignment="CENTER" contentDisplay="CENTER" minWidth="150.0" prefHeight="58" prefWidth="150.0" styleClass="th" text="温度(°C)" />
+                                        <Label fx:id="wdL" minHeight="40.0" prefHeight="58" prefWidth="500.0" styleClass="td" text="--" />
+                                        <Label alignment="CENTER" contentDisplay="CENTER" minWidth="150.0" prefHeight="58" prefWidth="150.0" styleClass="th" text="湿度(%)" />
+                                        <Label fx:id="sdL" minHeight="40.0" prefHeight="58" prefWidth="500.0" styleClass="td" text="--" />
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="58">
+                                    <children>
+                                        <Label minHeight="40.0" minWidth="70.0" prefHeight="58" prefWidth="70.0" styleClass="td" text="--" fx:id="xjjszs1L" />
+                                        <Label minHeight="40.0" prefHeight="58" prefWidth="430.0" styleClass="tdt" text="--" fx:id="xjjszs1PicL" />
+                                        <Label alignment="CENTER" contentDisplay="CENTER" minWidth="150.0" prefHeight="58" prefWidth="150.0" styleClass="th" text="巡检金属噪声2(dBuV)" />
+                                        <Label minHeight="40.0" minWidth="70.0" prefHeight="58" prefWidth="70.0" styleClass="td" text="--" fx:id="xjjszs2L" />
+                                        <Label minHeight="40.0" prefHeight="58" prefWidth="430.0" styleClass="tdt" text="--" fx:id="xjjszs2PicL" />
+                                        <Label alignment="CENTER" contentDisplay="CENTER" minWidth="150.0" prefHeight="58" prefWidth="150.0" styleClass="th" text="巡检金属噪声3(dBuV)" />
+                                        <Label minHeight="40.0" minWidth="70.0" prefHeight="58" prefWidth="70.0" styleClass="td" text="--" fx:id="xjjszs3L" />
+                                        <Label minHeight="40.0" prefHeight="58" prefWidth="430.0" styleClass="tdt" text="--" fx:id="xjjszs3PicL" />
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="58">
+                                    <children>
+                                        <Label fx:id="tjjszs1L" minHeight="40.0" minWidth="70.0" prefHeight="58" prefWidth="70.0" styleClass="td" text="--" />
+                                        <Label fx:id="tjjszs1PicL" minHeight="40.0" prefHeight="58" prefWidth="430.0" styleClass="tdt" text="--" />
+                                        <Label alignment="CENTER" contentDisplay="CENTER" minWidth="150.0" prefHeight="58" prefWidth="150.0" styleClass="th" text="统计金属噪声2(dBuV)" />
+                                        <Label fx:id="tjjszs2L" minHeight="40.0" minWidth="70.0" prefHeight="58" prefWidth="70.0" styleClass="td" text="--" />
+                                        <Label fx:id="tjjszs2PicL" minHeight="40.0" prefHeight="58" prefWidth="430.0" styleClass="tdt" text="--" />
+                                        <Label alignment="CENTER" contentDisplay="CENTER" minWidth="150.0" prefHeight="58" prefWidth="150.0" styleClass="th" text="统计金属噪声3(dBuV)" />
+                                        <Label fx:id="tjjszs3L" minHeight="40.0" minWidth="70.0" prefHeight="58" prefWidth="70.0" styleClass="td" text="--" />
+                                        <Label fx:id="tjjszs3PicL" minHeight="40.0" prefHeight="58" prefWidth="430.0" styleClass="tdt" text="--" />
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="58">
+                                    <children>
+                                        <Label fx:id="dqzsL" minHeight="40.0" prefHeight="58" prefWidth="500.0" styleClass="td" text="--" />
+                                        <Label alignment="CENTER" contentDisplay="CENTER" minWidth="150.0" prefHeight="58" prefWidth="150.0" styleClass="th" text="检测人员" />
+                                        <Label fx:id="jcryL" minHeight="40.0" prefHeight="58" prefWidth="500.0" styleClass="td" text="--" />
+                                        <Label alignment="CENTER" contentDisplay="CENTER" minWidth="150.0" prefHeight="58" prefWidth="150.0" styleClass="th" text="检测日期" />
+                                        <Label fx:id="jcrqL" minHeight="40.0" prefHeight="58" prefWidth="500.0" styleClass="td" text="--" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="deviceTableView" style="-fx-background-color: #ffffff; -fx-border-color: #eeeeee; -fx-border-width: 1;" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idTableColumn" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" sortable="false" text="编号" />
+                <TableColumn fx:id="deviceNameTableColumn" minWidth="130.0" prefWidth="-1.0" sortable="false" text="开关柜名称" />
+                <TableColumn fx:id="qzfdTableColumn" prefWidth="27.000030517578125" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" graphicTextGap="1.0" prefHeight="80.0" prefWidth="15.0" text="前中幅度" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="qzcsTableColumn" minWidth="15.0" prefWidth="-1.0" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefHeight="80.0" prefWidth="15.0" text="前中次数" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="qxfdTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefHeight="80.0" prefWidth="15.0" text="前下幅度" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="qxcsTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefWidth="15.0" text="前下次数" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="hsfdTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefWidth="15.0" text="后上幅度" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="hscsTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefWidth="15.0" text="后上次数" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="hzfdTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefWidth="15.0" text="后中幅度" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="hzcsTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefWidth="15.0" text="后中次数" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="hxfdTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefWidth="15.0" text="后下幅度" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="hxcsTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefWidth="15.0" text="后下次数" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="csfdTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefWidth="15.0" text="侧上幅度" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="cscsTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefWidth="15.0" text="侧上次数" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="czfdTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefWidth="15.0" text="侧中幅度" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="czcsTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefHeight="80.0" prefWidth="15.0" text="侧中次数" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="cxfdTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefHeight="80.0" prefWidth="15.0" text="侧下幅度" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="cxcsTableColumn" prefWidth="52" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefHeight="80.0" prefWidth="15.0" text="侧下次数" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="csbjtjgTableColumn" prefWidth="80" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefHeight="80.0" prefWidth="15.0" text="超声波监听结果" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+                <TableColumn fx:id="fhTableColumn" prefWidth="80" sortable="false" text="负荷" />
+                <TableColumn fx:id="kggyxztTableColumn" prefWidth="100" sortable="false">
+                    <graphic>
+                        <Label ellipsisString="" prefHeight="80.0" prefWidth="15.0" text="运行状态" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" />
+                    </graphic>
+                </TableColumn>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+</BorderPane>

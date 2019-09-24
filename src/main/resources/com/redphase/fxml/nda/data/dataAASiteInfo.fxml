@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="dataBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="940.0" style="-fx-border-width:0 0 0 10;" stylesheets="@../../../css/atlas.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.redphase.controller.nda.data.NdaDataAASiteInfoController">
+    <center>
+        <TableView fx:id="deviceSiteTableView" style="-fx-background-color: #ffffff; -fx-border-color: #eeeeee; -fx-border-width: 1;" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idTableColumn" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" sortable="false" text="#" />
+                <TableColumn fx:id="siteTableColumn" prefWidth="130.0" sortable="false" text="检测位置" />
+                <TableColumn prefWidth="52.0" sortable="false" text="AA巡检">
+                    <columns>
+                        <TableColumn prefWidth="52.0" sortable="false" text="最大值" fx:id="xjzdzTableColumn" />
+                        <TableColumn prefWidth="52.0" sortable="false" text="有效值" fx:id="xjyxzTableColumn" />
+                        <TableColumn prefWidth="52.0" sortable="false" text="f1分值" fx:id="xjf1fzTableColumn" />
+                        <TableColumn prefWidth="52.0" sortable="false" text="f2分值" fx:id="xjf2fzTableColumn" />
+                        <TableColumn prefWidth="52.0" sortable="false" text="截图" fx:id="xjjtTableColumn" />
+                        <TableColumn prefWidth="52.0" sortable="false" text="录音" fx:id="xjlyTableColumn" />
+                    </columns>
+                </TableColumn>
+                <TableColumn prefWidth="52.0" text="AA统计">
+                    <columns>
+                        <TableColumn fx:id="tjTableColumn" prefWidth="52.0" sortable="false" text="检测" />
+                        <TableColumn fx:id="tjjtTableColumn" prefWidth="52.0" sortable="false" text="截图" />
+                        <TableColumn fx:id="tjlbTableColumn" prefWidth="52.0" sortable="false" text="录波" />
+                    </columns>
+                </TableColumn>
+                <TableColumn prefWidth="52.0" sortable="false" text="AA飞行">
+                    <columns>
+                        <!--<TableColumn fx:id="fxTableColumn" prefWidth="52.0" sortable="false" text="检测" visible="false" />-->
+                        <TableColumn fx:id="fxjtTableColumn" prefWidth="52.0" sortable="false" text="截图" />
+                    </columns>
+                </TableColumn>
+                <TableColumn prefWidth="77.0" sortable="false" text="AA波形">
+                    <columns>
+                        <!--<TableColumn fx:id="bxTableColumn" minWidth="6.0" prefWidth="70.0" sortable="false" text="检测" visible="false" />-->
+                        <TableColumn fx:id="bxjtTableColumn" editable="false" prefWidth="47.0" sortable="false" text="截图" />
+                    </columns>
+                </TableColumn>
+                <TableColumn fx:id="fhTableColumn" editable="false" prefWidth="47.0" sortable="false" text="负荷" />
+                <TableColumn fx:id="kjgTableColumn" prefWidth="75.0" sortable="false" text="照片" />
+            </columns>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="titleL" prefHeight="35.0" text="开关柜1">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                    <graphic>
+                        <Label fx:id="typeL" prefHeight="35.0" prefWidth="150.0" text="开关柜名称：">
+                            <font>
+                                <Font size="22.0" />
+                            </font>
+                        </Label>
+                    </graphic>
+                </Label>
+            </children>
+            <BorderPane.margin>
+                <Insets left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+        </VBox>
+    </top>
+</BorderPane>

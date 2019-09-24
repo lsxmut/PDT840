@@ -1,0 +1,7 @@
+.text-field {
+    display: block;
+    -fx-border-color: #ffffff, #ffffff, #ffffff, #ffffff;
+    -fx-border-width: 0, 5;
+    -fx-border-style: solid;
+    /*-fx-border-radius: 0, 0;*/
+}

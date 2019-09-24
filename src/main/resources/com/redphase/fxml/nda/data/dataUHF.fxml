@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="dataBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="940.0" style="-fx-border-width:0 0 0 10;"
+            stylesheets="@../../../css/atlas.css" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="com.redphase.controller.nda.data.NdaDataUHFController">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="titleL" prefHeight="35.0" prefWidth="900.0" text="开关柜1">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                    <graphic>
+                        <Label fx:id="typeL" prefHeight="35.0" prefWidth="150.0" text="开关柜名称：">
+                            <font>
+                                <Font size="22.0"/>
+                            </font>
+                        </Label>
+                    </graphic>
+                </Label>
+                <!--<Pane prefHeight="35.0" prefWidth="146.0">-->
+                    <!--<children>-->
+                        <!--<Button mnemonicParsing="false" onAction="#report" prefHeight="35.0" prefWidth="99.0" styleClass="btn-primary" text="生成报告"/>-->
+                    <!--</children>-->
+                    <!--<VBox.margin>-->
+                        <!--<Insets bottom="10.0" top="10.0"/>-->
+                    <!--</VBox.margin>-->
+                <!--</Pane>-->
+                <HBox>
+                    <children>
+                        <VBox>
+                            <children>
+                                <HBox prefHeight="40.0">
+                                    <children>
+                                        <Label alignment="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="变电站名称"/>
+                                        <Label fx:id="bdzL" minHeight="40.0" minWidth="150.0" prefWidth="500.0" styleClass="td" text="--">
+                                            <padding>
+                                                <Insets left="20.0"/>
+                                            </padding>
+                                        </Label>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="电压等级(kv)"/>
+                                        <Label fx:id="dydjL" minHeight="40.0" minWidth="150.0" prefWidth="500.0" styleClass="td" text="--"/>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="设备类型"/>
+                                        <Label fx:id="sblxL" minHeight="40.0" minWidth="150.0" prefWidth="500.0" styleClass="td" text="--"/>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="40.0">
+                                    <children>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="设备名称"/>
+                                        <Label fx:id="sbmcL" minHeight="40.0" minWidth="450.0" prefWidth="1150.0" styleClass="td" text="--"/>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="间隔名称"/>
+                                        <Label fx:id="jgmcL" minHeight="40.0" minWidth="154.0" prefWidth="500.0" styleClass="td" text="--"/>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="40.0">
+                                    <children>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="天气情况"/>
+                                        <Label fx:id="tqqkL" minHeight="40.0" minWidth="150.0" prefWidth="500.0" styleClass="td" text="--"/>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="温度(°C)"/>
+                                        <Label fx:id="wdL" minHeight="40.0" minWidth="150.0" prefWidth="500.0" styleClass="td" text="--"/>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="湿度(%)"/>
+                                        <Label fx:id="sdL" minHeight="40.0" prefWidth="500.0" styleClass="td" text="--"/>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="40.0">
+                                    <children>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="统计模式1噪声1(dBm)" wrapText="true"/>
+                                        <Label fx:id="tjms1zs1L" minHeight="40.0" minWidth="70.0" prefWidth="70.0" styleClass="td" text="--"/>
+                                        <Label fx:id="tjms1jt1L" minHeight="40.0" prefWidth="430.0" styleClass="tdt" text="--" textFill="#31a1ff"/>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="统计模式1噪声2(dBm)" textOverrun="WORD_ELLIPSIS" wrapText="true"/>
+                                        <Label fx:id="tjms1zs2L" minHeight="40.0" minWidth="70.0" prefWidth="70.0" styleClass="td" text="--"/>
+                                        <Label fx:id="tjms1jt2L" minHeight="40.0" prefWidth="430.0" styleClass="tdt" text="--" textFill="#31a1ff"/>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="统计模式1噪声3(dBm)"/>
+                                        <Label fx:id="tjms1zs3L" minHeight="40.0" minWidth="70.0" prefWidth="70.0" styleClass="td" text="--"/>
+                                        <Label fx:id="tjms1jt3L" minHeight="40.0" prefWidth="430.0" styleClass="tdt" text="--" textFill="#31a1ff"/>
+                                    </children>
+                                </HBox>
+                                <HBox managed="false" prefHeight="40.0" visible="false">
+                                    <children>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="140.0" styleClass="th" text="统计模式2噪声1(dBm)"/>
+                                        <Label fx:id="tjms2zs1L" prefWidth="70.0" styleClass="td" text="--"/>
+                                        <Label fx:id="tjms2jt1L" prefWidth="228.0" styleClass="tdt" text="--" textFill="#31a1ff"/>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="140.0" styleClass="th" text="统计模式2噪声2(dBm)"/>
+                                        <Label fx:id="tjms2zs2L" prefWidth="70.0" styleClass="td" text="--"/>
+                                        <Label fx:id="tjms2jt2L" prefWidth="232.0" styleClass="tdt" text="--" textFill="#31a1ff"/>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="140.0" styleClass="th" text="统计模式2噪声3(dBm)"/>
+                                        <Label fx:id="tjms2zs3L" prefWidth="70.0" styleClass="td" text="--"/>
+                                        <Label fx:id="tjms2jt3L" prefWidth="232.0" styleClass="tdt" text="--" textFill="#31a1ff"/>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="40.0">
+                                    <children>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="大气噪声(dBm)"/>
+                                        <Label fx:id="dqzsL" minHeight="40.0" minWidth="150.0" prefHeight="58.0" prefWidth="500.0" styleClass="td" text="--"/>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="检测人员"/>
+                                        <Label fx:id="jcryL" minHeight="40.0" minWidth="150.0" prefHeight="58.0" prefWidth="500.0" styleClass="td" text="--"/>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="th" text="检测日期"/>
+                                        <Label fx:id="jcrqL" minHeight="40.0" minWidth="150.0" prefHeight="58.0" prefWidth="500.0" styleClass="td" text="--"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="deviceSiteTableView" prefWidth="900.0" style="-fx-background-color: #ffffff; -fx-border-color: #eeeeee; -fx-border-width: 1;" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idTableColumn" maxWidth="55.0" minWidth="55.0" prefWidth="55.0" sortable="false" text="#"/>
+                <TableColumn fx:id="siteTableColumn" minWidth="200.0" prefWidth="200.0" sortable="false" text="检测位置"/>
+                <TableColumn prefWidth="52.0" sortable="false" text="UHF统计模式1">
+                    <columns>
+                        <TableColumn fx:id="tj1wjTableColumn" prefWidth="52.0" sortable="false" text="检测"/>
+                        <TableColumn fx:id="tj1jtTableColumn" prefWidth="52.0" sortable="false" text="截图"/>
+                        <TableColumn fx:id="tj1lbTableColumn" prefWidth="52.0" sortable="false" text="录波"/>
+                    </columns>
+                </TableColumn>
+                <TableColumn prefWidth="52.0" sortable="false" text="UHF统计模式2">
+                    <columns>
+                        <TableColumn fx:id="tj2wjTableColumn" prefWidth="78.0" sortable="false" text="检测"/>
+                        <TableColumn fx:id="tj2jtTableColumn" prefWidth="78.0" sortable="false" text="截图"/>
+                    </columns>
+                </TableColumn>
+                <TableColumn fx:id="fhTableColumn" editable="false" prefWidth="47.0" sortable="false" text="负荷"/>
+                <TableColumn fx:id="kjgTableColumn" prefWidth="52.0" sortable="false" text="照片"/>
+            </columns>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0"/>
+            </BorderPane.margin>
+        </TableView>
+    </center>
+</BorderPane>

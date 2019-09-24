@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="baseAtlasBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="940.0" style="-fx-background-color: #F3F4F5; -fx-border-width: 10;" stylesheets="@../../css/atlas.css" xmlns="http://javafx.com/javafx/10.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.redphase.controller.nda.NdaController">
+    <children>
+        <VBox prefWidth="200.0" style="-fx-background-color: #fff;">
+            <children>
+                <HBox>
+                    <children>
+                        <Label prefHeight="24.0" style="-fx-border-width: 0 0 0 3; -fx-border-color: #fff #fff #fff #31a1ff;" text="数据目录">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                            <padding>
+                                <Insets left="10.0"/>
+                            </padding>
+                        </Label>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="8.0" left="5.0" top="10.0"/>
+                    </VBox.margin>
+                </HBox>
+                <Separator/>
+                <FlowPane>
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#showImportPath" prefWidth="90.0" styleClass="btn-primary" text="导入目录">
+                            <FlowPane.margin>
+                                <Insets left="5.0" top="5.0"/>
+                            </FlowPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#flushDb" prefWidth="90.0" styleClass="btn-primary" text="清空目录">
+                            <FlowPane.margin>
+                                <Insets left="5.0" top="5.0"/>
+                            </FlowPane.margin>
+                        </Button>
+                    </children>
+                </FlowPane>
+                <TreeView fx:id="accountTree" pickOnBounds="false" prefHeight="620.0" prefWidth="200.0" showRoot="false" style="-fx-background-color: #fff;">
+                    <VBox.margin>
+                        <Insets top="5.0"/>
+                    </VBox.margin>
+                </TreeView>
+            </children>
+        </VBox>
+        <AnchorPane fx:id="rightAnchorPane" layoutX="200.0" style="-fx-background-color: #F3F4F5;">
+            <padding>
+                <Insets right="20.0"/>
+            </padding>
+        </AnchorPane>
+    </children>
+</AnchorPane>

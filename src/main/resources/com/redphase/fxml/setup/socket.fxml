@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../css/setup.css" xmlns="http://javafx.com/javafx/10.0.1"
+            fx:controller="com.redphase.controller.setup.SetupSocketController">
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <Label prefHeight="35.0" prefWidth="586.0" text="通信设置">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </Label>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </top>
+    <center>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="151.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="33.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="WIFI通信参数" textFill="#999999">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="wifiIp" layoutX="100.0" layoutY="28.0" prefHeight="35.0" prefWidth="730.0" promptText="本机ip"/>
+                                <Label layoutX="40.0" layoutY="40.0" style="-fx-background-color: #ffffff;" text="IP地址" textFill="#999999">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="wifiPort" layoutX="100.0" layoutY="76.0" prefHeight="35.0" prefWidth="730.0" promptText="数字"/>
+                                <Label layoutX="40.0" layoutY="88.0" style="-fx-background-color: #ffffff;" text="端口号" textFill="#999999">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Pane>
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0"/>
+                    </padding>
+                </HBox>
+                <HBox fx:id="bluetoothHbox" alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="83.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="33.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="蓝牙通信参数" textFill="#999999">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="bluetooth" layoutX="50.0" layoutY="28.0" prefHeight="35.0" prefWidth="779.0" promptText="0000"/>
+                            </children>
+                        </Pane>
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0"/>
+                    </padding>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="83.0" prefWidth="900.0" style="-fx-border-color: #eeeeee;">
+                            <children>
+                                <Label layoutX="33.0" layoutY="-13.0" style="-fx-background-color: #ffffff;" text="通信密码验收" textFill="#999999">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="password" layoutX="50.0" layoutY="28.0" prefHeight="35.0" prefWidth="779.0" promptText="0000"/>
+                            </children>
+                        </Pane>
+                    </children>
+                    <padding>
+                        <Insets left="20.0" right="20.0"/>
+                    </padding>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <AnchorPane prefHeight="70.0">
+                            <children>
+                                <Button cancelButton="true" layoutY="12.0" mnemonicParsing="false" onAction="#cancel" prefHeight="40.0" prefWidth="100.0" styleClass="btn-cancel" text="取消">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                                <Button defaultButton="true" layoutX="120.0" layoutY="12.0" mnemonicParsing="false" onAction="#submit" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="确定">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND"/>
+                                    </cursor>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                    <padding>
+                        <Insets top="20.0"/>
+                    </padding>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </VBox>
+    </center>
+</BorderPane>

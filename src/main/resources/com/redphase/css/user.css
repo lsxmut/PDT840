@@ -1,0 +1,11 @@
+@import "atlas.css";
+BorderPane{
+    -fx-background-color: #ffffff; -fx-border-width: 10; -fx-border-color: #eeeeee;
+}
+
+.th {
+    -fx-border-width: 1;
+    -fx-border-color: #eeeeee;
+    -fx-background-color: #eef5f9;
+    -fx-pref-height: 25;
+}

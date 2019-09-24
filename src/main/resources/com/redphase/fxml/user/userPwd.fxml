@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<VBox fx:id="pwdPane" alignment="TOP_CENTER" prefHeight="450.0" prefWidth="650.0" style="-fx-border-color: 0; -fx-background-color: #fff;" stylesheets="@../../css/user.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.redphase.controller.user.UserController">
+    <children>
+        <HBox maxHeight="1.0" minHeight="1.0" prefHeight="1.0">
+            <children>
+                <TextField fx:id="idT" prefHeight="35.0" prefWidth="200.0" visible="false"/>
+            </children>
+        </HBox>
+        <HBox>
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #99CCFF; -fx-background-radius: 5 25 25 5;" text="密码修改" textFill="WHITE">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="80.0">
+            <children>
+                <Label alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="原密码:" textAlignment="RIGHT" textFill="#666666">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                    <graphic>
+                        <Label prefHeight="24.0" prefWidth="8.0" style="-fx-text-fill: red;" text="*">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                    </graphic>
+                </Label>
+                <PasswordField fx:id="oldPwdT" prefHeight="35.0" prefWidth="400.0"/>
+            </children>
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="80.0">
+            <children>
+                <Label alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="新密码:" textAlignment="RIGHT" textFill="#666666">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                    <graphic>
+                        <Label prefHeight="24.0" prefWidth="8.0" style="-fx-text-fill: red;" text="*">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                    </graphic>
+                </Label>
+                <PasswordField fx:id="newPwdT" prefHeight="35.0" prefWidth="400.0"/>
+            </children>
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="80.0">
+            <children>
+                <Label alignment="CENTER" maxWidth="130.0" minWidth="130.0" prefHeight="26.0" prefWidth="130.0" text="密码确认:" textAlignment="RIGHT" textFill="#666666">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                    <graphic>
+                        <Label prefHeight="24.0" prefWidth="8.0" style="-fx-text-fill: red;" text="*">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                    </graphic>
+                </Label>
+                <PasswordField fx:id="pwdConfirmT" prefHeight="35.0" prefWidth="400.0"/>
+            </children>
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="120.0">
+            <children>
+                <Button defaultButton="true" mnemonicParsing="false" onAction="#updatePwd" prefHeight="40.0" prefWidth="100.0" styleClass="btn-primary" text="确定">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+                <Button cancelButton="true" mnemonicParsing="false" onAction="#cancelPwd" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #0099FF #0099FF #0099FF #0099FF; -fx-border-color: #0099FF #0099FF;" text="取消">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                    <HBox.margin>
+                        <Insets left="10.0"/>
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</VBox>
