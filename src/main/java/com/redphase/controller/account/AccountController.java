@@ -731,7 +731,7 @@ public class AccountController extends BaseController implements Initializable {
         if (deviceTypeT != null)
             deviceTypeT.setItems(FXCollections.observableArrayList("请选择", "开关柜", "变压器", "组合电器", "电缆"));
         if (voltageLevelT != null)
-            voltageLevelT.setItems(FXCollections.observableArrayList("请选择", "10kV", "35kV", "110kV", "220kV", "500kV"));
+            voltageLevelT.setItems(FXCollections.observableArrayList("请选择", "10kV", "35kV", "110kV", "220kV", "320kV", "500kV","660kV"));
     }
 
     private void setAccountPane(AccountDto result) {

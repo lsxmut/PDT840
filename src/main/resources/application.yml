@@ -24,10 +24,10 @@ spring:
 #    type: com.zaxxer.hikari.HikariDataSource
     master:
       driver-class-name: org.sqlite.JDBC
-      url: jdbc:sqlite::resource:data/PDT840.db
-    slave:
-      driver-class-name: org.sqlite.JDBC
-      url: jdbc:sqlite::resource:data/PDT840-NDA.db
+      url: jdbc:sqlite:D:/PDT840/data/PDT840.db
+#    slave:
+#      driver-class-name: org.sqlite.JDBC
+#      url: jdbc:sqlite::resource:data/PDT840-NDA.db
 mapper:
   not-empty: false
   identity: sqlite
